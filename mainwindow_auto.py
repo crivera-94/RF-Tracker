@@ -13,7 +13,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(480, 320)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
-        self.centralWidget.setObjectName("centralWidget")
+        self.centralWidget.setObjectName("centralWidget")        
         self.btnOn = QtWidgets.QPushButton(self.centralWidget)
         self.btnOn.setGeometry(QtCore.QRect(100, 90, 113, 91))
         self.btnOn.setObjectName("btnOn")
