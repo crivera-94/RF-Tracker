@@ -1,9 +1,9 @@
 # RF-Tracker
 Raspberry Pi application to visually display RF transmitter location
 
-# Libraries Installed
+## Libraries Installed
 A list of the libraries that we have installed.
-- sudo pip install adafruit-ads1x15
+- sudo pip install adafruit-ads1x15 (installed manually)
 
 
 ## Adafruit Python ADS1x15
