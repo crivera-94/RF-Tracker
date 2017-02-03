@@ -6,7 +6,7 @@ import time
 
 # Import the ADS1x15 module.
 # import Adafruit_ADS1x15
-import ADS1x15
+from ADS1x15 import ADS1115
 
 
 # Create an ADS1115 ADC (16-bit) instance.
