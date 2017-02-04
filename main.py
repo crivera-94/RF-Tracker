@@ -44,7 +44,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
     # make functions that are specific to page
     def fade(self):
         self.btnOn.setWindowOpacity(0.5)
-        QtCore.QTimer.singleShot(1000, self.btnOn.unfade)
+        QtCore.QTimer.singleShot(1000, self.unfade)
 
     def unfade(self):
         self.btnOn.setWindowOpacity(1)
