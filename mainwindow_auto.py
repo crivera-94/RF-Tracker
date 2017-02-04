@@ -12,8 +12,10 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         
-        MainWindow.showMaximized()
-        
+        #MainWindow.showMaximized()
+        MainWindow.setWindowState(Qt.WindowMaximized)
+
+
         # MainWindow.resize(480, 320)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
