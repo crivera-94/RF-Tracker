@@ -11,12 +11,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(480, 320)
+        
+        MainWindow.showMaximized()
+        
+        # MainWindow.resize(480, 320)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
         
         # Make fullscreen
-        self.centralWidget.showFullScreen()
+        # self.centralWidget.showFullScreen()
         
         self.btnOn = QtWidgets.QPushButton(self.centralWidget)
         self.btnOn.setGeometry(QtCore.QRect(100, 90, 113, 91))
