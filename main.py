@@ -23,6 +23,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 
     def pressedOffButton(self):
         print ("Pressed Off!")
+        sys.exit()
 
     def __init__(self):
         super(self.__class__, self).__init__()
@@ -31,6 +32,10 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         ### Hooks to for buttons
         self.btnOn.clicked.connect(lambda: self.pressedOnButton())
         self.btnOff.clicked.connect(lambda: self.pressedOffButton())
+
+        # core application (e.g. main menu)
+
+    # make functions that are specific to page
 
 # I feel better having one of these
 def main():
