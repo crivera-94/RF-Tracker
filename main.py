@@ -1,4 +1,4 @@
-# From https://www.baldengineer.com/raspberry-pi-gui-tutorial.html 
+# From https://www.baldengineer.com/raspberry-pi-gui-tutorial.html
 # by James Lewis (@baldengineer)
 # Minimal python code to start PyQt5 GUI
 #
