@@ -34,6 +34,8 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         self.btnOff.clicked.connect(lambda: self.pressedOffButton())
 
         # core application (e.g. main menu)
+        self.setWindowFlags(self.windowFlags() | QtCore.Qt.FramelessWindowHint)
+
 
     # make functions that are specific to page
 
@@ -42,9 +44,6 @@ def main():
     # a new app instance
     app = QApplication(sys.argv)
     form = MainWindow()
-
-    form.setWindowFlags(form.windowFlags() | FramelessWindowHint)
-
     form.show()
     # without this, the script exits immediately.
     sys.exit(app.exec_())
