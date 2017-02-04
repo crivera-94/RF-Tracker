@@ -21,10 +21,11 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
     def pressedOnButton(self):
         print ("Pressed On!")
 
+
     def pressedOffButton(self):
         print ("Pressed Off!")
         self.close()
-        # sys.exit()
+
 
     def __init__(self):
         super(self.__class__, self).__init__()
@@ -34,9 +35,15 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         self.btnOn.clicked.connect(lambda: self.pressedOnButton())
         self.btnOff.clicked.connect(lambda: self.pressedOffButton())
 
-        # core application (e.g. main menu)
+        # core application (e.g. main menu) inside
 
     # make functions that are specific to page
+    def fade(self):
+        self.setWindowOpacity(0.5)
+        QTimer.singleShot(1000, self.unfade)
+
+    def unfade(self):
+        self.setWindowOpacity(1)
 
 # I feel better having one of these
 def main():
