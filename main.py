@@ -19,7 +19,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 
     ### functions for the buttons to call
     def pressedOnButton(self):
-        self.fade()
+        fade(btnOn)
         print ("Pressed On!")
 
 
@@ -39,9 +39,9 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         # core application (e.g. main menu) inside
 
     # make functions that are specific to page
-    def fade(self):
-        self.setWindowOpacity(0.5)
-        QTimer.singleShot(1000, self.unfade)
+    def fade(self,button):
+        button.setWindowOpacity(0.5)
+        QTimer.singleShot(1000, button.unfade)
 
     def unfade(self):
         self.setWindowOpacity(1)
