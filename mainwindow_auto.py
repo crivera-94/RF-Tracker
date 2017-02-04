@@ -32,10 +32,10 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralWidget)
-        #self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        #self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
-        #self.menuBar.setObjectName("menuBar")
-        #MainWindow.setMenuBar(self.menuBar)
+        self.menuBar = QtWidgets.QMenuBar(MainWindow)
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
+        self.menuBar.setObjectName("menuBar")
+        MainWindow.setMenuBar(self.menuBar)
         self.mainToolBar = QtWidgets.QToolBar(MainWindow)
         self.mainToolBar.setObjectName("mainToolBar")
         MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.mainToolBar)
@@ -48,8 +48,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        # MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.btnOn.setText(_translate("MainWindow", "On"))
         self.btnOff.setText(_translate("MainWindow", "Off"))
-        self.label.setText(_translate("MainWindow", "The Best GUI Evar!"))
+        self.label.setText(_translate("MainWindow", "Sample GUI"))
 
