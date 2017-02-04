@@ -42,6 +42,9 @@ def main():
     # a new app instance
     app = QApplication(sys.argv)
     form = MainWindow()
+
+    win.setWindowFlags(win.windowFlags() | QtCore.Qt.FramelessWindowHint)
+
     form.show()
     # without this, the script exits immediately.
     sys.exit(app.exec_())

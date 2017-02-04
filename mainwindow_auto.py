@@ -42,13 +42,14 @@ class Ui_MainWindow(object):
         self.statusBar = QtWidgets.QStatusBar(MainWindow)
         self.statusBar.setObjectName("statusBar")
         MainWindow.setStatusBar(self.statusBar)
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        # MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "RF Tracker"))
+        
+        # setting attribute values
         self.btnOn.setText(_translate("MainWindow", "On"))
         self.btnOff.setText(_translate("MainWindow", "Off"))
         self.label.setText(_translate("MainWindow", "Sample GUI"))
