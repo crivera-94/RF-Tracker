@@ -19,7 +19,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 
     ### functions for the buttons to call
     def pressedOnButton(self):
-        fade(btnOn)
+        self.fade(btnOn)
         print ("Pressed On!")
 
 
