@@ -8,6 +8,9 @@ import sys
 
 # This gets the Qt stuff
 import PyQt5
+
+from PyQt5 import QtCore
+
 from PyQt5.QtWidgets import *
 
 # This is our window from QtCreator
@@ -41,7 +44,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
     # make functions that are specific to page
     def fade(self):
         self.btnOn.setWindowOpacity(0.5)
-        singleShot(1000, button.unfade)
+        QtCore.QTimer.singleShot(1000, button.unfade)
 
     def unfade(self):
         self.btnOn.setWindowOpacity(1)
