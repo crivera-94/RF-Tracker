@@ -13,7 +13,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         
         #MainWindow.showMaximized()
-        MainWindow.setWindowState(Qt.WindowMaximized)
+        MainWindow.showFullScreen()
 
 
         # MainWindow.resize(480, 320)
