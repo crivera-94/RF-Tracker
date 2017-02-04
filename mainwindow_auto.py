@@ -16,7 +16,7 @@ class Ui_MainWindow(object):
         self.centralWidget.setObjectName("centralWidget")
         
         # Make fullscreen
-        # self.centralWidget.showFullScreen()
+        self.centralWidget.showFullScreen()
         
         self.btnOn = QtWidgets.QPushButton(self.centralWidget)
         self.btnOn.setGeometry(QtCore.QRect(100, 90, 113, 91))
