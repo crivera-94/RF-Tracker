@@ -43,7 +43,7 @@ def main():
     app = QApplication(sys.argv)
     form = MainWindow()
 
-    form.setWindowFlags(form.windowFlags() | Qt.FramelessWindowHint)
+    form.setWindowFlags(form.windowFlags() | FramelessWindowHint)
 
     form.show()
     # without this, the script exits immediately.
