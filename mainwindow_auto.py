@@ -37,7 +37,9 @@ class Ui_MainWindow(object):
 
         # "File" option
         file = self.menuBar.addMenu('&File')
-        closeaction = file.addAction('Exit Application')
+        
+        
+        closeaction = file.addAction('Exit')
         closeaction.setShortcut('Ctrl+Q')
         closeaction.triggered.connect(self.close)
         
