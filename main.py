@@ -42,7 +42,8 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         # core application (e.g. main menu) inside
         
         # main menu code
-        extractAction = QtGui.QAction("&Quit",self)
+        #extractAction = QtGui.QAction("&Quit",self)
+        extractAction = QAction("&Quit",self)
         extractAction.setShortcut("Ctrl+Q")
         extractAction.setStatusTip('Leave The App')
         extractAction.triggered.connect(self.close_application)
