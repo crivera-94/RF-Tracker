@@ -36,9 +36,26 @@ class Ui_MainWindow(object):
         self.menuBar.setObjectName("menuBar")
 
         # "File" option
-        file = self.menuBar.addMenu('&File')
-        action = file.addAction('Exit Application')
-        action.triggered.connect(self.close)
+        #file = self.menuBar.addMenu('&File')
+        #action = file.addAction('Exit Application')
+        #action.triggered.connect(self.close)
+
+        # Open
+        openAction = QAction('Open', self)
+        openAction.setShortcut('Ctrl+O')
+        openAction.setStatusTip('Open a file')
+        openAction.triggered.connect(self.close)
+        
+        # Close
+        closeAction = QAction('Close', self)
+        closeAction.setShortcut('Ctrl+Q')
+        closeAction.setStatusTip('Close Notepad')
+        closeAction.triggered.connect(self.close)
+
+        menubar = self.menuBar()
+        fileMenu = menubar.addMenu('&File')
+        fileMenu.addAction(openAction)
+        fileMenu.addAction(closeAction)
 
 
         MainWindow.setMenuBar(self.menuBar)
