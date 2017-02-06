@@ -33,10 +33,10 @@ class Ui_MainWindow(object):
         
         
         # ONLY FOR DEMO#################################################
-        self.label = QtWidgets.QLabel(self.centralWidget)
-        self.label.setGeometry(QtCore.QRect(300, 200, 90, 20))
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("testlabel1")
+        self.testlabel1 = QtWidgets.QLabel(self.centralWidget)
+        self.testlabel1.setGeometry(QtCore.QRect(300, 200, 90, 20))
+        self.testlabel1.setAlignment(QtCore.Qt.AlignCenter)
+        self.testlabel1.setObjectName("testlabel1")
         
         
         
