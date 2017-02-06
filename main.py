@@ -28,8 +28,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 
     def pressedOffButton(self):
         print ("Scaling down!")
-        self.close_application()
-
+    
 
     def __init__(self):
         super(self.__class__, self).__init__()
