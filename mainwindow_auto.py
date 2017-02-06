@@ -36,13 +36,11 @@ class Ui_MainWindow(object):
         self.menuBar.setObjectName("menuBar")
 
         # "File" option
-        extractAction = QtGui.QAction("&Quit",self)
-        extractAction.setShortcut("Ctrl+Q")
-        extractAction.setStatusTip('Leave The App')
-        extractAction.triggered.connect(self.close_application)
-        fileMenu = self.menuBar.addMenu('&File')
-        fileMenu.addAction(extractAction)
-        
+        file = self.menuBar.addMenu('File')
+        action = file.addAction('hello')
+        action.triggered.connect(self.close_application)
+
+
         MainWindow.setMenuBar(self.menuBar)
         self.mainToolBar = QtWidgets.QToolBar(MainWindow)
         self.mainToolBar.setObjectName("mainToolBar")
