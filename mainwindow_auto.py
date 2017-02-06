@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
         self.btnOff.setGeometry(QtCore.QRect(280, 90, 90, 91))
         self.btnOff.setObjectName("btnOff")
         self.label = QtWidgets.QLabel(self.centralWidget)
-        self.label.setGeometry(QtCore.QRect(110, 50, 271, 16))
+        self.label.setGeometry(QtCore.QRect(110, 50, 271, 20))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralWidget)
