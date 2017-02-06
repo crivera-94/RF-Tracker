@@ -30,6 +30,16 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(140, 50, 90, 20))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
+        
+        
+        # ONLY FOR DEMO#################################################
+        self.label = QtWidgets.QLabel(self.centralWidget)
+        self.label.setGeometry(QtCore.QRect(300, 200, 90, 20))
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("testlabel1")
+        
+        
+        
         MainWindow.setCentralWidget(self.centralWidget)
         
         # Menu Bar
@@ -68,4 +78,6 @@ class Ui_MainWindow(object):
         self.btnOn.setText(_translate("MainWindow", "Down"))
         self.btnOff.setText(_translate("MainWindow", "Up"))
         self.label.setText(_translate("MainWindow", "Scaling"))
+
+
 
