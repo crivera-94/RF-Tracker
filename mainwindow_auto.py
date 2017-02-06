@@ -13,8 +13,8 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         
         # For Final Version
-        MainWindow.showFullScreen()
-        # MainWindow.resize(480, 320)
+        # MainWindow.showFullScreen()
+        MainWindow.resize(480, 320)
         
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
@@ -34,7 +34,14 @@ class Ui_MainWindow(object):
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
         self.menuBar.setObjectName("menuBar")
-        self.menuBar.addMenu('&File')
+
+        # "File" option
+        extractAction = QtGui.QAction("&Quit",self)
+        extractAction.setShortcut("Ctrl+Q")
+        extractAction.setStatusTip('Leave The App')
+        extractAction.triggered.connect(self.close_application)
+        fileMenu = self.menuBar.addMenu('&File')
+        fileMenu.addAction(extractAction)
         
         MainWindow.setMenuBar(self.menuBar)
         self.mainToolBar = QtWidgets.QToolBar(MainWindow)
