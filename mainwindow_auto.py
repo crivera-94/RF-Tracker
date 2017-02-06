@@ -14,7 +14,8 @@ class Ui_MainWindow(object):
         
         # For Final Version
         # MainWindow.showFullScreen()
-        MainWindow.resize(480, 320)
+        MainWindow.showMaximized()
+        # MainWindow.resize(480, 320)
         
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
