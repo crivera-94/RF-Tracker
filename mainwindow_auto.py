@@ -46,6 +46,19 @@ class Ui_MainWindow(object):
         self.testlabel3.setAlignment(QtCore.Qt.AlignCenter)
         self.testlabel3.setObjectName("testlabel3")
         
+        self.testlabel1 = QtWidgets.QLabel(self.centralWidget)
+        self.testlabel1.setGeometry(QtCore.QRect(340, 310, 100, 20))
+        self.testlabel1.setAlignment(QtCore.Qt.AlignCenter)
+        self.testlabel1.setObjectName("testlabel4")
+        self.testlabel2 = QtWidgets.QLabel(self.centralWidget)
+        self.testlabel2.setGeometry(QtCore.QRect(490, 310, 100, 20))
+        self.testlabel2.setAlignment(QtCore.Qt.AlignCenter)
+        self.testlabel2.setObjectName("testlabel5")
+        self.testlabel3 = QtWidgets.QLabel(self.centralWidget)
+        self.testlabel3.setGeometry(QtCore.QRect(640, 310, 100, 20))
+        self.testlabel3.setAlignment(QtCore.Qt.AlignCenter)
+        self.testlabel3.setObjectName("testlabel6")
+        
         
         MainWindow.setCentralWidget(self.centralWidget)
         
