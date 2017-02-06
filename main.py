@@ -9,7 +9,7 @@ import sys
 # This gets the Qt stuff
 import PyQt5
 
-from PyQt5 import QtCore, QtGui
+from PyQt5 import QtCore
 
 from PyQt5.QtWidgets import *
 
@@ -42,7 +42,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         # core application (e.g. main menu) inside
         
         # main menu code
-        extractAction = QtGui.QAction("&Quit",self)
+        extractAction = QAction("&Quit",self)
         extractAction.setShortcut("Ctrl+Q")
         extractAction.setStatusTip('Leave The App')
         extractAction.triggered.connect(self.close_application)
