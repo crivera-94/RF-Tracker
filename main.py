@@ -28,7 +28,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 
     def pressedOffButton(self):
         print ("Pressed Off!")
-        close_application()
+        self.close_application()
 
 
     def __init__(self):
