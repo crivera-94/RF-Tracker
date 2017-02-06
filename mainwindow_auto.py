@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         self.menuBar.setObjectName("menuBar")
 
         # "File" option
-        file = self.menuBar.addMenu('File')
+        file = self.menuBar.addMenu('&File')
         action = file.addAction('Quit')
         action.triggered.connect(self.close_application)
 
