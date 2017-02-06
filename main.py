@@ -49,7 +49,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         extractAction.triggered.connect(self.close_application)
     
         # only need once
-        self.statusBar()
+        self.QStatusBar()
     
         mainMenu = self.menuBar()
         fileMenu = mainMenu.addMenu('&File')
