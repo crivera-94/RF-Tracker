@@ -34,15 +34,15 @@ class Ui_MainWindow(object):
         
         # ONLY FOR DEMO#################################################
         self.testlabel1 = QtWidgets.QLabel(self.centralWidget)
-        self.testlabel1.setGeometry(QtCore.QRect(300, 250, 90, 20))
+        self.testlabel1.setGeometry(QtCore.QRect(320, 250, 100, 20))
         self.testlabel1.setAlignment(QtCore.Qt.AlignCenter)
         self.testlabel1.setObjectName("testlabel1")
         self.testlabel2 = QtWidgets.QLabel(self.centralWidget)
-        self.testlabel2.setGeometry(QtCore.QRect(450, 250, 90, 20))
+        self.testlabel2.setGeometry(QtCore.QRect(470, 250, 100, 20))
         self.testlabel2.setAlignment(QtCore.Qt.AlignCenter)
         self.testlabel2.setObjectName("testlabel2")
         self.testlabel3 = QtWidgets.QLabel(self.centralWidget)
-        self.testlabel3.setGeometry(QtCore.QRect(600, 250, 90, 20))
+        self.testlabel3.setGeometry(QtCore.QRect(620, 250, 100, 20))
         self.testlabel3.setAlignment(QtCore.Qt.AlignCenter)
         self.testlabel3.setObjectName("testlabel3")
         
