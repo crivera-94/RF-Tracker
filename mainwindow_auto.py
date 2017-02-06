@@ -34,15 +34,15 @@ class Ui_MainWindow(object):
         
         # ONLY FOR DEMO#################################################
         self.testlabel1 = QtWidgets.QLabel(self.centralWidget)
-        self.testlabel1.setGeometry(QtCore.QRect(300, 200, 90, 20))
+        self.testlabel1.setGeometry(QtCore.QRect(300, 250, 90, 20))
         self.testlabel1.setAlignment(QtCore.Qt.AlignCenter)
         self.testlabel1.setObjectName("testlabel1")
         self.testlabel2 = QtWidgets.QLabel(self.centralWidget)
-        self.testlabel2.setGeometry(QtCore.QRect(400, 200, 90, 20))
+        self.testlabel2.setGeometry(QtCore.QRect(450, 250, 90, 20))
         self.testlabel2.setAlignment(QtCore.Qt.AlignCenter)
         self.testlabel2.setObjectName("testlabel2")
         self.testlabel3 = QtWidgets.QLabel(self.centralWidget)
-        self.testlabel3.setGeometry(QtCore.QRect(500, 200, 90, 20))
+        self.testlabel3.setGeometry(QtCore.QRect(600, 250, 90, 20))
         self.testlabel3.setAlignment(QtCore.Qt.AlignCenter)
         self.testlabel3.setObjectName("testlabel3")
         
@@ -90,8 +90,8 @@ class Ui_MainWindow(object):
 
 
         # ONLY FOR DEMO#################################################
-        self.testlabel1.setText(_translate("MainWindow", "Inner Radius\n10"))
-        self.testlabel2.setText(_translate("MainWindow", "Middle Radius\n10"))
-        self.testlabel3.setText(_translate("MainWindow", "Outer Radius\n10"))
+        self.testlabel1.setText(_translate("MainWindow", "Inner Radius"))
+        self.testlabel2.setText(_translate("MainWindow", "Middle Radius"))
+        self.testlabel3.setText(_translate("MainWindow", "Outer Radius"))
 
 
