@@ -81,3 +81,9 @@ class Ui_MainWindow(object):
 
 
 
+
+        # ONLY FOR DEMO#################################################
+        self.testlabel1.setText(_translate("MainWindow", "Inner Radius"))
+
+
+
