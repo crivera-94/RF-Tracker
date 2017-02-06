@@ -28,7 +28,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 
     def pressedOffButton(self):
         print ("Pressed Off!")
-        self.close()
+        close_application()
 
 
     def __init__(self):
@@ -40,6 +40,20 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         self.btnOff.clicked.connect(lambda: self.pressedOffButton())
 
         # core application (e.g. main menu) inside
+        
+        # main menu code
+        extractAction = QtGui.QAction("&Quit",self)
+        extractAction.setShortcut("Ctrl+Q")
+        extractAction.setStatusTip('Leave The App')
+        extractAction.triggered.connect(self.close_application)
+    
+        # only need once
+        self.statusBar()
+    
+        mainMenu = self.menuBar()
+        fileMenu = mainMenu.addMenu('&File')
+        fileMenu.addAction(extractAction)
+        
 
     # make functions that are specific to page
     def fade(self):
@@ -48,6 +62,9 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 
     def unfade(self):
         self.btnOn.setWindowOpacity(1)
+
+    def close_application(self):
+        self.close()
 
 # I feel better having one of these
 def main():
