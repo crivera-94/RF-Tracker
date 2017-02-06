@@ -37,8 +37,9 @@ class Ui_MainWindow(object):
 
         # "File" option
         file = self.menuBar.addMenu('&File')
-        
-        
+        edit = self.menuBar.addMenu('&Edit')
+
+
         closeaction = file.addAction('Exit')
         closeaction.setShortcut('Ctrl+Q')
         closeaction.triggered.connect(self.close)
