@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
         self.testlabel6.setObjectName("testlabel6")
         
         self.testlabel7 = QtWidgets.QLabel(self.centralWidget)
-        self.testlabel7.setGeometry(QtCore.QRect(490, 310, 100, 20))
+        self.testlabel7.setGeometry(QtCore.QRect(490, 330, 100, 20))
         self.testlabel7.setAlignment(QtCore.Qt.AlignCenter)
         self.testlabel7.setObjectName("testlabel7")
         
@@ -116,6 +116,6 @@ class Ui_MainWindow(object):
         self.testlabel4.setText(_translate("MainWindow", "1"))
         self.testlabel5.setText(_translate("MainWindow", "10"))
         self.testlabel6.setText(_translate("MainWindow", "100"))
-        self.testlabel6.setText(_translate("MainWindow", "cm"))
+        self.testlabel7.setText(_translate("MainWindow", "cm"))
 
 
