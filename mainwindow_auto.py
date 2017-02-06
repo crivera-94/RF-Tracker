@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "RF Tracker"))
         
         # setting attribute values
-        self.btnOn.setText(_translate("MainWindow", "Scale Down"))
-        self.btnOff.setText(_translate("MainWindow", "Scale Up"))
-        self.label.setText(_translate("MainWindow", "Sample GUI"))
+        self.btnOn.setText(_translate("MainWindow", "Down"))
+        self.btnOff.setText(_translate("MainWindow", "Up"))
+        self.label.setText(_translate("MainWindow", "Scaling"))
 
