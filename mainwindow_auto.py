@@ -20,13 +20,14 @@ class Ui_MainWindow(object):
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
         self.btnOn = QtWidgets.QPushButton(self.centralWidget)
-        self.btnOn.setGeometry(QtCore.QRect(100, 90, 113, 91))
+        # QRect(left, top, width, height)
+        self.btnOn.setGeometry(QtCore.QRect(100, 90, 90, 91))
         self.btnOn.setObjectName("btnOn")
         self.btnOff = QtWidgets.QPushButton(self.centralWidget)
-        self.btnOff.setGeometry(QtCore.QRect(280, 90, 113, 91))
+        self.btnOff.setGeometry(QtCore.QRect(280, 90, 90, 91))
         self.btnOff.setObjectName("btnOff")
         self.label = QtWidgets.QLabel(self.centralWidget)
-        self.label.setGeometry(QtCore.QRect(110, 60, 271, 16))
+        self.label.setGeometry(QtCore.QRect(110, 50, 271, 16))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralWidget)
@@ -36,20 +37,14 @@ class Ui_MainWindow(object):
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
         self.menuBar.setObjectName("menuBar")
 
-        # "File" option
+        # Menu Bar Options
         file = self.menuBar.addMenu('&File')
         edit = self.menuBar.addMenu('&Edit')
-
-
-        closeaction = file.addAction('Exit')
-        closeaction.setShortcut('Ctrl+Q')
-        closeaction.triggered.connect(self.close)
         
-        # Close
-        #closeAction = QAction('Close', self)
-        #closeAction.setShortcut('Ctrl+Q')
-        #closeAction.setStatusTip('Close Notepad')
-        #closeAction.triggered.connect(self.close)
+        # File Options
+        exit_action = file.addAction('Exit')
+        exit_action.setShortcut('Ctrl+Q')
+        exit_action.triggered.connect(self.close)
 
 
         MainWindow.setMenuBar(self.menuBar)
