@@ -59,6 +59,13 @@ class Ui_MainWindow(object):
         self.testlabel6.setAlignment(QtCore.Qt.AlignCenter)
         self.testlabel6.setObjectName("testlabel6")
         
+        self.testlabel7 = QtWidgets.QLabel(self.centralWidget)
+        self.testlabel7.setGeometry(QtCore.QRect(490, 310, 100, 20))
+        self.testlabel7.setAlignment(QtCore.Qt.AlignCenter)
+        self.testlabel7.setObjectName("testlabel7")
+        
+        
+        
         
         MainWindow.setCentralWidget(self.centralWidget)
         
@@ -106,8 +113,9 @@ class Ui_MainWindow(object):
         self.testlabel1.setText(_translate("MainWindow", "Inner Radius"))
         self.testlabel2.setText(_translate("MainWindow", "Middle Radius"))
         self.testlabel3.setText(_translate("MainWindow", "Outer Radius"))
-        self.testlabel4.setText(_translate("MainWindow", "10"))
-        self.testlabel5.setText(_translate("MainWindow", "100"))
-        self.testlabel6.setText(_translate("MainWindow", "1000"))
+        self.testlabel4.setText(_translate("MainWindow", "1"))
+        self.testlabel5.setText(_translate("MainWindow", "10"))
+        self.testlabel6.setText(_translate("MainWindow", "100"))
+        self.testlabel6.setText(_translate("MainWindow", "cm"))
 
 
