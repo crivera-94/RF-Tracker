@@ -6,7 +6,6 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-import PyQt5
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
@@ -42,7 +41,7 @@ class Ui_MainWindow(object):
         #action.triggered.connect(self.close)
 
         # Open
-        openAction = QAction('Open', self)
+        openAction = QtGui.QAction('Open', self)
         openAction.setShortcut('Ctrl+O')
         openAction.setStatusTip('Open a file')
         openAction.triggered.connect(self.close)
