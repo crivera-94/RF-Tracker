@@ -44,17 +44,17 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         
         
         # main menu code
-        extractAction = QAction("&Quit",self)
-        extractAction.setShortcut("Ctrl+Q")
-        extractAction.setStatusTip('Leave The App')
-        extractAction.triggered.connect(self.close_application)
+        #extractAction = QAction("&Quit",self)
+        #extractAction.setShortcut("Ctrl+Q")
+        #extractAction.setStatusTip('Leave The App')
+        #extractAction.triggered.connect(self.close_application)
     
         # only need once
         # self.statusBar()
-    
-        mainMenu = self.menuBar()
-        fileMenu = mainMenu.addMenu('&File')
-        fileMenu.addAction(extractAction)
+        
+        #mainMenu = self.menuBar()
+        #fileMenu = mainMenu.addMenu('&File')
+        #fileMenu.addAction(extractAction)
         
 
     # make functions that are specific to page
