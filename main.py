@@ -37,7 +37,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 
         ### Hooks to for buttons
         self.btnOn.clicked.connect(lambda: self.pressedOnButton())
-        self.btnOff.clicked.connect(lambda: self.pressedOnButton())
+        self.btnOff.clicked.connect(lambda: self.pressedOffButton())
 
         # core application (e.g. main menu) inside
         
