@@ -100,7 +100,7 @@ class CircleWidget(QWidget):
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
         painter.translate(self.width() / 2, self.height() / 2)
         
-        for diameter in range(0, 500, 9):
+        for diameter in range(0, 100, 9):
             delta = abs((self.frameNo % 128) - diameter / 2)
             alpha = 255 - (delta * delta) / 4 - diameter
             if alpha > 0:
