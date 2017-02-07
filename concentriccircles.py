@@ -54,7 +54,8 @@ class CircleWidget(QWidget):
         
         self.floatBased = False
         self.antialiased = False
-        self.frameNo = 0
+        #self.frameNo = 0
+        self.frameNo = 20
         
         self.setBackgroundRole(QPalette.Base)
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -100,7 +101,7 @@ class CircleWidget(QWidget):
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
         painter.translate(self.width() / 2, self.height() / 2)
         
-        for diameter in range(0, 100, 9):
+        for diameter in range(0, 256, 9):
             delta = abs((self.frameNo % 128) - diameter / 2)
             alpha = 255 - (delta * delta) / 4 - diameter
             if alpha > 0:
