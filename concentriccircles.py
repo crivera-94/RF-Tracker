@@ -117,17 +117,17 @@ class Window(QWidget):
         w.setAntialiased(j != 0)
         w.setFloatBased(i != 0)
         
-        #for i in range(2):
-        #   for j in range(2):
-        #       w = CircleWidget()
-        #       w.setAntialiased(j != 0)
-        #       w.setFloatBased(i != 0)
+        for i in range(2):
+            for j in range(2):
+                w = CircleWidget()
+                w.setAntialiased(j != 0)
+                w.setFloatBased(i != 0)
                 
-                #       timer.timeout.connect(w.nextAnimationFrame)
+                timer.timeout.connect(w.nextAnimationFrame)
                 
-                #layout.addWidget(w, i + 1, j + 1)
+                layout.addWidget(w, i + 1, j + 1)
         
-        #timer.start(100)
+        timer.start(100)
         self.setLayout(layout)
         
         self.setWindowTitle("Concentric Circles")
