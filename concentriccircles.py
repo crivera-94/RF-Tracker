@@ -123,7 +123,7 @@ class Window(QWidget):
                 
                 layout.addWidget(w, i + 1, j + 1)
         
-        timer.start(100)
+        timer.start(20)
         self.setLayout(layout)
         
         self.setWindowTitle("Concentric Circles")
