@@ -103,15 +103,16 @@ class CircleWidget(QWidget):
         for diameter in range(0, 256, 20):
             delta = abs((40 % 128) - diameter / 2)
             alpha = 255 - (delta * delta) / 4 - diameter
-            if alpha > 0:
-                painter.setPen(QPen(QColor(0, diameter / 2, 127, alpha), 3))
+            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
+            #if alpha > 0:
+                #painter.setPen(QPen(QColor(0, diameter / 2, 127, alpha), 3))
                 
-                if self.floatBased:
-                    painter.drawEllipse(QRectF(-diameter / 2.0,
-                                               -diameter / 2.0, diameter, diameter))
-                else:
-                    painter.drawEllipse(QRect(-diameter / 2,
-                                              -diameter / 2, diameter, diameter))
+                #if self.floatBased:
+                    #painter.drawEllipse(QRectF(-diameter / 2.0,
+                                                #-diameter / 2.0, diameter, diameter))
+                #else:
+                    #painter.drawEllipse(QRect(-diameter / 2,
+                                                #-diameter / 2, diameter, diameter))
 
 
 class Window(QWidget):
