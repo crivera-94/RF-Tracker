@@ -113,10 +113,6 @@ class Window(QWidget):
         
         timer = QTimer(self)
         
-        w = CircleWidget()
-        w.setAntialiased(j != 0)
-        w.setFloatBased(i != 0)
-        
         for i in range(2):
             for j in range(2):
                 w = CircleWidget()
