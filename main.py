@@ -15,6 +15,7 @@ from PyQt5.QtWidgets import *
 
 # This is our window from QtCreator
 import mainwindow_auto
+import concentriccircles.py
 
 # create class for our Raspberry Pi GUI
 class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
@@ -34,6 +35,10 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         self.auto_scale = True
         super(self.__class__, self).__init__()
         self.setupUi(self) # gets defined in the UI file
+
+
+
+
 
         ### Hooks to for buttons
         self.btnOn.clicked.connect(lambda: self.pressedOnButton())
