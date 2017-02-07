@@ -126,10 +126,10 @@ class Window(QWidget):
         timer.start(100)
         self.setLayout(layout)
         
-                    self.setWindowTitle("Concentric Circles")
+        self.setWindowTitle("Concentric Circles")
 
-def createLabel(self, text):
-    label = QLabel(text)
+    def createLabel(self, text):
+        label = QLabel(text)
         label.setAlignment(Qt.AlignCenter)
         label.setMargin(2)
         label.setFrameStyle(QFrame.Box | QFrame.Sunken)
