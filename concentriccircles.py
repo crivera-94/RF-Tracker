@@ -97,7 +97,7 @@ class CircleWidget(QWidget):
 
     def paintEvent(self, event):
         color = QColor(0, 0, 0)
-        color.setNamedColor('#d4d4d4')
+        color.setNamedColor('#4080fe')
         
         painter = QPainter(self)
         painter.setPen(color)
