@@ -31,6 +31,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
     
 
     def __init__(self):
+        self.auto_scale = True
         super(self.__class__, self).__init__()
         self.setupUi(self) # gets defined in the UI file
 
@@ -61,11 +62,20 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         self.btnOn.setWindowOpacity(0.5)
         QtCore.QTimer.singleShot(1000, self.unfade)
 
+
     def unfade(self):
         self.btnOn.setWindowOpacity(1)
 
+
     def close_application(self):
         self.close()
+
+
+    def toggle_autoscale_state(self):
+        if self.auto_scale == True:
+            self.auto_scale = False
+        else:
+            self.auto_scale = True
 
 # I feel better having one of these
 def main():

@@ -13,8 +13,8 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         
         # For Final Version
-        # MainWindow.showFullScreen()
-        MainWindow.showMaximized()
+        MainWindow.showFullScreen()
+        # MainWindow.showMaximized()
         # MainWindow.resize(480, 320)
         
         self.centralWidget = QtWidgets.QWidget(MainWindow)
@@ -77,10 +77,17 @@ class Ui_MainWindow(object):
         # Menu Bar Options
         file = self.menuBar.addMenu('&File')
         edit = self.menuBar.addMenu('&Edit')
+        options = self.menuBar.addMenu('&Options')
         
-        # File Options
+        # File Actions
         exit_action = file.addAction('Exit')
         exit_action.setShortcut('Ctrl+Q')
+        exit_action.triggered.connect(self.close)
+
+
+        # Options Actions
+        autoscale_action = file.addAction('Toggle Autoscale')
+        autoscale_action.setShortcut('Ctrl+A')
         exit_action.triggered.connect(self.close)
 
 
@@ -105,8 +112,6 @@ class Ui_MainWindow(object):
         self.btnOn.setText(_translate("MainWindow", "Down"))
         self.btnOff.setText(_translate("MainWindow", "Up"))
         self.label.setText(_translate("MainWindow", "Scaling"))
-
-
 
 
         # ONLY FOR DEMO#################################################
