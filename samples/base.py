@@ -19,7 +19,7 @@ from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
                              QLabel, QFrame)
 from PyQt5.QtGui import QIcon
-
+from circle import CircleWidget
 
 class Example(QMainWindow):
     
@@ -45,7 +45,9 @@ class Example(QMainWindow):
         layout.addWidget(label, 1, 1)
         
         
-        
+        w = CircleWidget()
+        w.update()
+        layout.addWidget(w,1,1)
         
         
         # SET LAYOUT AND SET AS CENTER
