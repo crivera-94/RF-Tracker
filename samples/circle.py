@@ -13,7 +13,7 @@ class CircleWidget(QWidget):
         
         self.setBackgroundRole(QPalette.Base)
         #self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
 
     def setFloatBased(self, floatBased):
         self.floatBased = floatBased
