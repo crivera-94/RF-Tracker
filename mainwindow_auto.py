@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
         # MainWindow.showMaximized()
         # MainWindow.resize(480, 320)
         
-        layout = QGridLayout()
+        layout = QtWidgets.QGridLayout()
 
         self.centralWidget = QtWidgets.QWidget(layout)
         self.centralWidget.setObjectName("centralWidget")
