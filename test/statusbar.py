@@ -28,7 +28,7 @@ class Example(QMainWindow):
     def initUI(self):
         
         # Menu Bar
-        self.menuBar = QtWidgets.QMenuBar(Example)
+        self.menuBar = QtWidgets.QMenuBar()
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
         self.menuBar.setObjectName("menuBar")
         
