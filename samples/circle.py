@@ -51,12 +51,14 @@ class CircleWidget(QWidget):
 
 
         for diameter in range(0, 360, 30):
-    
-            for alpha in range(0, 1, 0.1):
+            
+            alpha = 0;
+            
+            while alpha <= 1:
                 painter.setPen(QPen(QColor(0, diameter / 2, 127, alpha), 3))
                 painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
                 sleep(0.05)
-
+                alpha = alpha + 0.1
 
         #if alpha > 0:
             #painter.setPen(QPen(QColor(0, diameter / 2, 127, alpha), 3))
