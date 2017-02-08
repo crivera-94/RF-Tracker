@@ -44,7 +44,7 @@
 
 from PyQt5.QtCore import QRect, QRectF, QSize, Qt, QTimer
 from PyQt5.QtGui import QColor, QPainter, QPalette, QPen
-from PyQt5.QtWidgets import (QApplication, QFrame, QGridLayout, QLabel,
+from PyQt5.QtWidgets import (QApplication, QFrame, QGridLayout, QLabel, QMenuBar,
                              QSizePolicy, QWidget)
 
 
