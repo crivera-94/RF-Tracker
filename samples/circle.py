@@ -16,22 +16,6 @@ class CircleWidget(QWidget):
         #self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
     
-    
-        # draw circles on create
-        color = QColor(0, 0, 0)
-        color.setNamedColor('#4080fe')
-        
-        painter = QPainter(self)
-        painter.setPen(color)
-        painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
-        painter.translate(self.width() / 2, self.height() / 2)
-    
-        for diameter in range(0, 360, 30):
-    
-            delta = abs((40 % 128) - diameter / 2)
-            alpha = 255 - (delta * delta) / 4 - diameter
-            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
-    
 
     def setFloatBased(self, floatBased):
         self.floatBased = floatBased
@@ -60,20 +44,9 @@ class CircleWidget(QWidget):
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
         painter.translate(self.width() / 2, self.height() / 2)
         
-        #for diameter in range(0, 360, 30):
-            
-            #delta = abs((40 % 128) - diameter / 2)
-            #alpha = 255 - (delta * delta) / 4 - diameter
-            #painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
-
-
         for diameter in range(0, 360, 30):
             
-            alpha = 0;
-            
-            while alpha <= 1:
-                painter.setPen(QPen(QColor(0, diameter / 2, 127, alpha), 3))
-                painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
-                sleep(0.05)
-                alpha = alpha + 0.1
+            delta = abs((40 % 128) - diameter / 2)
+            alpha = 255 - (delta * delta) / 4 - diameter
+            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
 
