@@ -1,3 +1,4 @@
+from PyQt5.QtCore import QRectF, QSize
 from PyQt5.QtGui import QColor, QPainter, QPalette, QPen
 from PyQt5.QtWidgets import QSizePolicy, QWidget
 
