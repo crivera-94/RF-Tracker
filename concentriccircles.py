@@ -135,7 +135,7 @@ class Window(QWidget):
         layout.addWidget(floatLabel, 2, 0)
         
         # Menu Bar
-        self.menuBar = QMenuBar(MainWindow)
+        self.menuBar = QMenuBar(self)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
         self.menuBar.setObjectName("menuBar")
         
