@@ -14,7 +14,9 @@
     """
 
 import sys
-from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction, QApplication, QGridLayout, QWidget
+from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
+                             QApplication, QGridLayout, QWidget,
+                             QLabel)
 from PyQt5.QtGui import QIcon
 
 
