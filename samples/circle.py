@@ -60,7 +60,7 @@ class CircleWidget(QWidget):
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
         painter.translate(self.width() / 2, self.height() / 2)
         
-        for diameter in range(0, 400, 30):
+        for diameter in range(0, 360, 30):
             delta = abs((40 % 128) - diameter / 2)
             alpha = 255 - (delta * delta) / 4 - diameter
             painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
