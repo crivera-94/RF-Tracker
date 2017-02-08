@@ -41,7 +41,6 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         layout.addWidget(self.btnOn, 0, 1)
         layout.addWidget(self.btnOff, 1, 0)
         layout.addWidget(self.label, 1, 1)
-        layout.addWidget(asf, 2, 2)
 
 
         ### Hooks to for buttons
