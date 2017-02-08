@@ -71,8 +71,8 @@ class Example(QMainWindow):
         toolbar = self.addToolBar('Exit')
         toolbar.addAction(exitAction)
         
-        #self.showFullScreen()
-        self.setGeometry(300, 300, 350, 250)
+        self.showFullScreen()
+        #self.setGeometry(300, 300, 350, 250)
         self.setWindowTitle('Main window')
         self.show()
 
