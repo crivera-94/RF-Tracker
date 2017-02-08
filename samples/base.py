@@ -72,6 +72,14 @@ class Example(QMainWindow):
         self.show()
 
 
+    def createLabel(self, text):
+        label = QLabel(text)
+        label.setAlignment(Qt.AlignCenter)
+        label.setMargin(2)
+        label.setFrameStyle(QFrame.Box | QFrame.Sunken)
+        return label
+
+
 if __name__ == '__main__':
     
     app = QApplication(sys.argv)
