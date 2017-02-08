@@ -37,12 +37,6 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         self.setupUi(self) # gets defined in the UI file
 
 
-        aliasedLabel = self.createLabel("Aliased")
-        antialiasedLabel = self.createLabel("Antialiased")
-        intLabel = self.createLabel("Int")
-        floatLabel = self.createLabel("Float")
-
-
         layout = QGridLayout()
         layout.addWidget(testlabel1, 0, 1)
         layout.addWidget(testlabel2, 0, 2)
