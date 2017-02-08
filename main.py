@@ -37,7 +37,7 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         self.setupUi(self) # gets defined in the UI file
 
 
-        layout = QGridLayout()
+#layout = QGridLayout()
         layout.addWidget(self.btnOn, 0, 1)
         layout.addWidget(self.btnOff, 1, 0)
         layout.addWidget(self.label, 1, 1)

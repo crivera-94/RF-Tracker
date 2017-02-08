@@ -17,7 +17,9 @@ class Ui_MainWindow(object):
         # MainWindow.showMaximized()
         # MainWindow.resize(480, 320)
         
-        self.centralWidget = QtWidgets.QWidget(MainWindow)
+        layout = QGridLayout()
+
+        self.centralWidget = QtWidgets.QWidget(layout)
         self.centralWidget.setObjectName("centralWidget")
         
         self.btnOn = QtWidgets.QPushButton(self.centralWidget)
