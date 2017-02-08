@@ -136,7 +136,7 @@ class Window(QWidget):
         
         # Menu Bar
         self.menuBar = QMenuBar(self)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
+        self.menuBar.setGeometry(QRect(0, 0, 480, 22))
         self.menuBar.setObjectName("menuBar")
         
         
