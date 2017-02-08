@@ -12,9 +12,7 @@
     """
 
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication, qApp, QApplication
-from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QMainWindow, QApplication
 
 
 class Example(QMainWindow):
@@ -27,23 +25,6 @@ class Example(QMainWindow):
     
     def initUI(self):
         
-        # Menu Bar
-        self.menuBar = QtWidgets.QMenuBar(self)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
-        self.menuBar.setObjectName("menuBar")
-        
-        # Menu Bar Options
-        file = self.menuBar.addMenu('&File')
-        edit = self.menuBar.addMenu('&Edit')
-        options = self.menuBar.addMenu('&Options')
-        
-        # File Actions
-        exit_action = file.addAction('Exit')
-        exit_action.setShortcut('Ctrl+Q')
-        exit_action.triggered.connect(self.close)
-
-        
-        # Status Bar
         self.statusBar().showMessage('Ready')
         
         self.setGeometry(300, 300, 250, 150)
