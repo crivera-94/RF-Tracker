@@ -28,8 +28,8 @@ class Example(QMainWindow):
         
         # Menu Bar
         exitAction = QAction('&Exit')
-        #exitAction = QAction(QIcon('exit.png'), '&Exit', self)
-        exitAction.setShortcut('Ctrl+Q')
+        exitAction = QAction(QIcon('exit.png'), '&Exit', self)
+        #exitAction.setShortcut('Ctrl+Q')
         exitAction.setStatusTip('Exit application')
         exitAction.triggered.connect(qApp.quit)
         
