@@ -14,7 +14,7 @@
     """
 
 import sys
-from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction, QApplication
+from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction, QApplication, QGridLayout
 from PyQt5.QtGui import QIcon
 
 
@@ -29,7 +29,8 @@ class Example(QMainWindow):
     def initUI(self):
         
         textEdit = QTextEdit()
-        self.setCentralWidget(textEdit)
+        layout = QGridLayout()
+        self.setCentralWidget(layout)
         
         exitAction = QAction(QIcon('exit24.png'), 'Exit', self)
         exitAction.setShortcut('Ctrl+Q')
