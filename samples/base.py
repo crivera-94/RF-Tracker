@@ -83,7 +83,6 @@ class RFTracker(QMainWindow):
         self.showFullScreen()
         self.setWindowTitle('RF Tracker')
         self.show()
-        plot.update()
     
 
     def createLabel(self, text):
