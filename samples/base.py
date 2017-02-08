@@ -41,13 +41,13 @@ class Example(QMainWindow):
         
         label = self.createLabel(text = "SAMPLE")
         label2 = self.createLabel(text = "ASDF")
-        layout.addWidget(label2, 0, 1)
+        layout.addWidget(label2, 0, 0)
         layout.addWidget(label, 1, 1)
         
         
-        w = CircleWidget()
-        w.update()
-        layout.addWidget(w,0,0)
+        plot = CircleWidget()
+        plot.update()
+        layout.addWidget(plot,0,1)
         
         
         # SET LAYOUT AND SET AS CENTER
