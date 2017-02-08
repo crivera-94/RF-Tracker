@@ -74,7 +74,7 @@ class RFTracker(QMainWindow):
         fileMenu.addAction(exitAction)
         
         # Edit Menu and actions
-        editMenu = menubar.addMenu('&File')
+        editMenu = menubar.addMenu('&Edit')
         editMenu.addAction(exitAction)
 
 
