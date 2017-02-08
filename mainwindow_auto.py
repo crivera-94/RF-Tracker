@@ -24,6 +24,7 @@ class Ui_MainWindow(object):
         
         self.btnOn = QtWidgets.QPushButton(self.centralWidget)
         # QRect(left, top, width, height)
+        # QRect(left, top, width, height)
         self.btnOn.setGeometry(QtCore.QRect(20, 20, 90, 45))
         self.btnOn.setObjectName("btnOn")
         self.btnOff = QtWidgets.QPushButton(self.centralWidget)
