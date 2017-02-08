@@ -19,6 +19,9 @@ class Ui_MainWindow(object):
         
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
+        
+        asf = self.centralWidget.createLabel("asf")
+        
         self.btnOn = QtWidgets.QPushButton(self.centralWidget)
         # QRect(left, top, width, height)
         self.btnOn.setGeometry(QtCore.QRect(20, 20, 90, 45))
@@ -26,7 +29,7 @@ class Ui_MainWindow(object):
         self.btnOff = QtWidgets.QPushButton(self.centralWidget)
         self.btnOff.setGeometry(QtCore.QRect(20, 20, 90, 45))
         self.btnOff.setObjectName("btnOff")
-        self.label = QtWidgets.QLabel()
+        self.label = QtWidgets.QLabel(self)
         #self.label = QtWidgets.QLabel(self.centralWidget)
         self.label.setGeometry(QtCore.QRect(20, 20, 90, 20))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
