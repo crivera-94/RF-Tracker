@@ -134,6 +134,12 @@ class Window(QWidget):
         layout.addWidget(intLabel, 1, 0)
         layout.addWidget(floatLabel, 2, 0)
         
+        # Menu Bar
+        self.menuBar = QtWidgets.QMenuBar(MainWindow)
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
+        self.menuBar.setObjectName("menuBar")
+        
+        
         timer = QTimer(self)
         
         w = CircleWidget()
