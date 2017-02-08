@@ -37,7 +37,11 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         self.setupUi(self) # gets defined in the UI file
 
 
-
+        layout = QGridLayout()
+        layout.addWidget(aliasedLabel, 0, 1)
+        layout.addWidget(antialiasedLabel, 0, 2)
+        layout.addWidget(intLabel, 1, 0)
+        layout.addWidget(floatLabel, 2, 0)
 
 
         ### Hooks to for buttons

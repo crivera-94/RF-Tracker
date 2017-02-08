@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
 
 
         # Options Actions
-        autoscale_action = file.addAction('Toggle Autoscale')
+        autoscale_action = edit.addAction('Toggle Autoscale')
         autoscale_action.setShortcut('Ctrl+A')
         exit_action.triggered.connect(self.close)
 
