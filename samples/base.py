@@ -72,7 +72,7 @@ class Example(QMainWindow):
         self.show()
 
 
-    def createLabel(self, widget, text):
+    def createLabel(self, text):
         label = QLabel(text)
         label.setAlignment(Qt.AlignCenter)
         label.setMargin(2)
