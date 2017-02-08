@@ -1,5 +1,6 @@
 from PyQt5.QtGui import QColor, QPainter, QPalette, QPen
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QSizePolicy, QWidget
+
 
 class CircleWidget(QWidget):
     def __init__(self, parent=None):
