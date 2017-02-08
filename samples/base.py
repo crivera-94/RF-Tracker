@@ -17,7 +17,7 @@ import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
-                             QLabel)
+                             QLabel, QFrame)
 from PyQt5.QtGui import QIcon
 
 
