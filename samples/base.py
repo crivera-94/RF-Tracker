@@ -47,7 +47,7 @@ class Example(QMainWindow):
         
         w = CircleWidget()
         w.update()
-        layout.addWidget(w,1,1)
+        layout.addWidget(w,0,0)
         
         
         # SET LAYOUT AND SET AS CENTER
