@@ -36,7 +36,7 @@ class Example(QMainWindow):
         exitAction.setStatusTip('Exit application')
         exitAction.triggered.connect(self.close)
         
-        self.statusBar()
+        self.statusBar().showMessage('Ready')
         
         menubar = self.menuBar()
         fileMenu = menubar.addMenu('&File')
