@@ -15,7 +15,7 @@ from PyQt5.QtWidgets import *
 
 # This is our window from QtCreator
 import mainwindow_auto
-import concentriccircles.py
+#import concentriccircles.py
 
 # create class for our Raspberry Pi GUI
 class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
