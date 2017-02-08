@@ -15,7 +15,8 @@
 import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QWidget, QLCDNumber, QSlider, QLabel,
-                             QVBoxLayout, QGridLayout, QApplication)
+                             QVBoxLayout, QGridLayout, QApplication,
+                             QFrame)
 
 
 class Example(QWidget):
