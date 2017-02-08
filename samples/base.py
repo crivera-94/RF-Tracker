@@ -29,8 +29,11 @@ class Example(QMainWindow):
     def initUI(self):
         
         textEdit = QTextEdit()
+        main_widget = QWidget()
         layout = QGridLayout()
-        self.setCentralWidget(layout)
+        main_widget.setLayout(layout)
+        
+        self.setCentralWidget(main_widget)
         
         exitAction = QAction(QIcon('exit24.png'), 'Exit', self)
         exitAction.setShortcut('Ctrl+Q')
