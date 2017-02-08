@@ -45,7 +45,7 @@ class RFTracker(QMainWindow):
         
         # Make Plot
         plot = CircleWidget()
-        plot.update()
+        #plot.update()
         layout.addWidget(plot, 0, 1)
         
         slider = QSlider(Qt.Vertical, self)
@@ -83,6 +83,7 @@ class RFTracker(QMainWindow):
         self.showFullScreen()
         self.setWindowTitle('RF Tracker')
         self.show()
+        plot.update()
     
 
     def createLabel(self, text):
