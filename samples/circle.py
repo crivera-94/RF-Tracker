@@ -1,3 +1,6 @@
+from PyQt5.QtGui import QColor, QPainter, QPalette, QPen
+from PyQt5.QtWidgets import QWidget
+
 class CircleWidget(QWidget):
     def __init__(self, parent=None):
         super(CircleWidget, self).__init__(parent)
