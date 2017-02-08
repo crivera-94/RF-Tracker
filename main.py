@@ -38,10 +38,10 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 
 
         layout = QGridLayout()
-        layout.addWidget(testlabel1, 0, 1)
-        layout.addWidget(testlabel2, 0, 2)
-        layout.addWidget(testlabel3, 1, 0)
-        layout.addWidget(testlabel4, 2, 0)
+        layout.addWidget(self.testlabel1, 0, 1)
+        layout.addWidget(self.testlabel2, 0, 2)
+        layout.addWidget(self.testlabel3, 1, 0)
+        layout.addWidget(self.testlabel4, 2, 0)
 
 
         ### Hooks to for buttons
