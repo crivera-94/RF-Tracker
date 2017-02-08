@@ -117,7 +117,6 @@ class Ui_MainWindow(object):
         self.btnOff.setText(_translate("MainWindow", "Up"))
         self.label.setText(_translate("MainWindow", "Scaling"))
 
-
         # ONLY FOR DEMO#################################################
         #self.testlabel1.setText(_translate("MainWindow", "Inner Radius"))
         #self.testlabel2.setText(_translate("MainWindow", "Middle Radius"))
