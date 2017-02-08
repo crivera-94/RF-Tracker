@@ -21,7 +21,7 @@ from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
 from PyQt5.QtGui import QIcon
 from circle import CircleWidget
 
-class Example(QMainWindow):
+class RFTracker(QMainWindow):
     
     def __init__(self):
         super().__init__()
@@ -68,18 +68,25 @@ class Example(QMainWindow):
         
         # Menu Bar
         menubar = self.menuBar()
+        
+        # File Menu and actions
         fileMenu = menubar.addMenu('&File')
         fileMenu.addAction(exitAction)
         
+        # Edit Menu and actions
+        editMenu = menubar.addMenu('&File')
+        editMenu.addAction(exitAction)
+
+
         # Tool Bar
         toolbar = self.addToolBar('Exit')
         toolbar.addAction(exitAction)
         
+        
         self.showFullScreen()
-        #self.setGeometry(300, 300, 350, 250)
-        self.setWindowTitle('Main window')
+        self.setWindowTitle('RF Tracker')
         self.show()
-
+    
 
     def createLabel(self, text):
         label = QLabel(text)
@@ -92,5 +99,5 @@ class Example(QMainWindow):
 if __name__ == '__main__':
     
     app = QApplication(sys.argv)
-    ex = Example()
+    ex = RFTracker()
     sys.exit(app.exec_())
