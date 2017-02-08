@@ -34,7 +34,7 @@ class Example(QWidget):
         label = self.createLabel(text = "Zoom")
         
         layout = QGridLayout()
-        layout.addWidget(label, 0, 0)
+        layout.addWidget(label, 0, 1)
         layout.addWidget(lcd, 1, 0 )
         layout.addWidget(sld, 1, 1)
         
