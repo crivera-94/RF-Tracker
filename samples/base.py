@@ -43,19 +43,17 @@ class RFTracker(QMainWindow):
         layout.addWidget(label2, 0, 0)
         layout.addWidget(label, 1, 1)
         
-        
+        # Make Plot
         plot = CircleWidget()
         plot.update()
         layout.addWidget(plot, 0, 1)
         
         slider = QSlider(Qt.Vertical, self)
         layout.addWidget(slider, 0, 2)
-
         
         # SET LAYOUT AND SET AS CENTER
         main_widget.setLayout(layout)
         self.setCentralWidget(main_widget)
-
 
         # Actions
         exitAction = QAction(QIcon('exit24.png'), 'Exit', self)
@@ -76,7 +74,6 @@ class RFTracker(QMainWindow):
         # Edit Menu and actions
         editMenu = menubar.addMenu('&Edit')
         editMenu.addAction(exitAction)
-
 
         # Tool Bar
         toolbar = self.addToolBar('Exit')
