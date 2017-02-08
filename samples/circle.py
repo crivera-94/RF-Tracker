@@ -10,12 +10,12 @@ class CircleWidget(QWidget):
         
         self.floatBased = False
         self.antialiased = False
+        self.setup = False
         self.frameNo = 0
         
         self.setBackgroundRole(QPalette.Base)
-        #self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-    
+        self.update()
 
     def setFloatBased(self, floatBased):
         self.floatBased = floatBased
@@ -36,17 +36,18 @@ class CircleWidget(QWidget):
         self.update()
     
     def paintEvent(self, event):
-        color = QColor(0, 0, 0)
-        color.setNamedColor('#4080fe')
+        if self.setup == False:
+            color = QColor(0, 0, 0)
+            color.setNamedColor('#4080fe')
         
-        painter = QPainter(self)
-        painter.setPen(color)
-        painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
-        painter.translate(self.width() / 2, self.height() / 2)
+            painter = QPainter(self)
+            painter.setPen(color)
+            painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
+            painter.translate(self.width() / 2, self.height() / 2)
         
-        for diameter in range(0, 360, 30):
+            for diameter in range(0, 360, 30):
             
-            delta = abs((40 % 128) - diameter / 2)
-            alpha = 255 - (delta * delta) / 4 - diameter
-            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
-
+                delta = abs((40 % 128) - diameter / 2)
+                alpha = 255 - (delta * delta) / 4 - diameter
+                painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
+        else:
