@@ -17,7 +17,7 @@ import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
-                             QLabel, QFrame)
+                             QLabel, QFrame, QSlider)
 from PyQt5.QtGui import QIcon
 from circle import CircleWidget
 
@@ -25,7 +25,6 @@ class Example(QMainWindow):
     
     def __init__(self):
         super().__init__()
-        
         self.initUI()
     
     
@@ -47,8 +46,11 @@ class Example(QMainWindow):
         
         plot = CircleWidget()
         plot.update()
-        layout.addWidget(plot,0,1)
+        layout.addWidget(plot, 0, 1)
         
+        slider = QSlider(Qt.Vertical, self)
+        layout.addWidget(slider, 0, 2)
+
         
         # SET LAYOUT AND SET AS CENTER
         main_widget.setLayout(layout)
