@@ -36,7 +36,7 @@ class Example(QMainWindow):
         main_widget.setLayout(layout)
         
         
-        label = self.createLabel("SAMPLE")
+        label = self.createLabel(text = "SAMPLE")
         layout.addWidget(label, 1, 1)
         
         
