@@ -27,24 +27,20 @@ class Example(QMainWindow):
     def initUI(self):
         
         # Menu Bar
-        exitAction = QAction('&Exit')
-        exitAction = QAction(QIcon('exit.png'), '&Exit', self)
-        #exitAction.setShortcut('Ctrl+Q')
-        exitAction.setStatusTip('Exit application')
-        exitAction.triggered.connect(qApp.quit)
+        self.menuBar = QtWidgets.QMenuBar(Example)
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 480, 22))
+        self.menuBar.setObjectName("menuBar")
         
-        self.statusBar()
+        # Menu Bar Options
+        file = self.menuBar.addMenu('&File')
+        edit = self.menuBar.addMenu('&Edit')
+        options = self.menuBar.addMenu('&Options')
         
-        menubar = self.menuBar()
-        fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(exitAction)
-        
-        self.setGeometry(300, 300, 300, 200)
-        self.setWindowTitle('Menubar')
-        self.show()
-        
-        
-        
+        # File Actions
+        exit_action = file.addAction('Exit')
+        exit_action.setShortcut('Ctrl+Q')
+        exit_action.triggered.connect(self.close)
+
         
         # Status Bar
         self.statusBar().showMessage('Ready')
