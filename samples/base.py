@@ -36,16 +36,20 @@ class Example(QMainWindow):
         exitAction.setStatusTip('Exit application')
         exitAction.triggered.connect(self.close)
         
+        # Status Bar
         self.statusBar().showMessage('Ready')
         
+        # Menu Bar
         menubar = self.menuBar()
         fileMenu = menubar.addMenu('&File')
         fileMenu.addAction(exitAction)
         
+        # Tool Bar
         toolbar = self.addToolBar('Exit')
         toolbar.addAction(exitAction)
         
-        self.setGeometry(300, 300, 350, 250)
+        self.showFullScreen()
+        #self.setGeometry(300, 300, 350, 250)
         self.setWindowTitle('Main window')
         self.show()
 
