@@ -50,8 +50,8 @@ class CircleWidget(QWidget):
             alpha = 255 - (delta * delta) / 4 - diameter
             painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
     
-        updatePoint()
-                        
+        #updatePoint()
+            
 
     def updatePoint(self, amplitudein, phasein):
         self.amplitude = amplitudein

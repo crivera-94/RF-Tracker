@@ -23,10 +23,9 @@ from circle import CircleWidget
 
 class RFTracker(QMainWindow):
     
-    MAX_ACCURATE_RANGE = 2047
-    MIN_ACCURATE_RANGE = 50
-    
     def __init__(self):
+        self.MAX_ACCURATE_RANGE = 2047
+        self.MIN_ACCURATE_RANGE = 50
         super().__init__()
         self.initUI()
     
@@ -90,8 +89,8 @@ class RFTracker(QMainWindow):
         amplitude = 100
         phase = 100
         
-        if amplitude >= MIN_ACCURATE_RANGE and amplitude <= MAX_ACCURATE_RANGE:
-            if phase >= MIN_ACCURATE_RANGE and phase <= MIN_ACCURATE_RANGE:
+        if amplitude >= self.MIN_ACCURATE_RANGE and amplitude <= self.MAX_ACCURATE_RANGE:
+            if phase >= self.MIN_ACCURATE_RANGE and phase <= self.MIN_ACCURATE_RANGE:
                 plot.updatePoint(amplitudein = amplitude, phasein = phase)
         
         
