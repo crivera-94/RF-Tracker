@@ -55,6 +55,7 @@ class CircleWidget(QWidget):
 
 
         for l in range(0,100,1):
+            painter.drawPoint(0,l)
             painter.drawPoint(l,l)
 
 
