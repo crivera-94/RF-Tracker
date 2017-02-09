@@ -14,7 +14,7 @@
     """
 
 import sys
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
                              QLabel, QFrame, QSlider)
@@ -22,6 +22,9 @@ from PyQt5.QtGui import QIcon
 from circle import CircleWidget
 
 class RFTracker(QMainWindow):
+    
+    MAX_ACCURATE_RANGE = 2047
+    MIN_ACCURATE_RANGE = 50
     
     def __init__(self):
         super().__init__()
@@ -79,6 +82,20 @@ class RFTracker(QMainWindow):
         toolbar = self.addToolBar('Exit')
         toolbar.addAction(exitAction)
         
+        
+        # Begin QTimer Poll and Read ADS
+        timer = QTimer(self)
+        
+        # READ FROM ADS
+        amplitude = 100
+        phase = 100
+        
+        if amplitude >= MIN_ACCURATE_RANGE and amplitude <= MAX_ACCURATE_RANGE:
+            if phase >= MIN_ACCURATE_RANGE and phase <= MIN_ACCURATE_RANGE:
+                plot.updatePoint(amplitudein = amplitude, phasein = phase)
+        
+        
+        timer.start(50)
         
         self.showFullScreen()
         self.setWindowTitle('RF Tracker')
