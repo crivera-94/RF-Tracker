@@ -36,6 +36,9 @@ class CircleWidget(QWidget):
         self.update()
     
     def paintEvent(self, event):
+        # sample
+        size = self.size()
+        
         color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
         
@@ -52,7 +55,7 @@ class CircleWidget(QWidget):
 
 
         #painter.drawEllipse(QRectF(-100 / 2.0, -100 / 2.0, 100, 100))
-        painter.drawPoint(-50,-50)
+        painter.drawPoint(size.width()/2,size.height()/2)
         #updatePoint()
             
 
