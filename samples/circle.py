@@ -52,7 +52,7 @@ class CircleWidget(QWidget):
 
 
         #painter.drawEllipse(QRectF(-100 / 2.0, -100 / 2.0, 100, 100))
-        painter.drawPoint(QPointF())
+        painter.drawPoint(0,0)
         #updatePoint()
             
 
