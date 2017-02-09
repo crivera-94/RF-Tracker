@@ -53,7 +53,7 @@ class CircleWidget(QWidget):
             alpha = 255 - (delta * delta) / 4 - diameter
             painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
 
-            painter.drawPoint(size.width()/2,size.height()/2)
+            painter.drawPoint(0,0)
 
 
         #painter.drawEllipse(QRectF(-100 / 2.0, -100 / 2.0, 100, 100))
