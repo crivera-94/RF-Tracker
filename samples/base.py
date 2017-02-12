@@ -11,6 +11,7 @@
     author: Jan Bodnar
     website: zetcode.com
     last edited: January 2015
+    
     """
 
 import sys
@@ -40,10 +41,10 @@ class RFTracker(QMainWindow):
         main_widget.setLayout(layout)
         
         
-        label = self.createLabel(text = "SAMPLE")
+        #label = self.createLabel(text = "SAMPLE")
         label2 = self.createLabel(text = "ASDF")
         layout.addWidget(label2, 0, 0)
-        layout.addWidget(label, 1, 1)
+        #layout.addWidget(label, 1, 1)
         
         # Make Plot
         plot = CircleWidget()

@@ -58,6 +58,9 @@ class CircleWidget(QWidget):
             painter.drawPoint(0,-l)
             painter.drawPoint(l,l)
 
+        i = 0
+        step_x =
+        while
 
         #painter.drawEllipse(QRectF(-100 / 2.0, -100 / 2.0, 100, 100))
         #painter.drawPoint(-size.width()/2,-size.height()/2)
