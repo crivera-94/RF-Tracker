@@ -52,6 +52,7 @@ class RFTracker(QMainWindow):
         layout.addWidget(plot, 0, 1)
         
         slider = QSlider(Qt.Vertical, self)
+        slider.setStatusTip('Zoom')
         layout.addWidget(slider, 0, 2)
         
         # SET LAYOUT AND SET AS CENTER
