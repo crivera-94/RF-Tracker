@@ -42,7 +42,7 @@ class RFTracker(QMainWindow):
         
         
         #label = self.createLabel(text = "SAMPLE")
-        label2 = self.createLabel(text = "ASDF")
+        label2 = self.createLabel(text = "TEST TABLE")
         layout.addWidget(label2, 0, 0)
         #layout.addWidget(label, 1, 1)
         
