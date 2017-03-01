@@ -66,7 +66,8 @@ class Plot(QWidget):
             painter.drawPoint(-i * step_x, i * step_y)
 
     def draw_point(self, event):
-        color = QColor(0, 0, 0)
+        alpha = .5
+        color = QColor(0, 0, 0, alpha)
         color.setNamedColor('#4080fe')
             
         painter = QPainter(self)
