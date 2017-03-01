@@ -50,7 +50,7 @@ class Plot(QWidget):
             else:
                 self.alpha = (self.alpha + 5) % 260
                 if self.alpha == 0:
-                    radius += 30
+                    self.radius += 30
                 self.update()
 
 
