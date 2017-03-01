@@ -44,7 +44,7 @@
 
 from PyQt5 import QtCore, QtGui
 
-class CircleWidget(QtGui.QWidget):
+class CircleWidget(QWidget):
     def __init__(self, parent=None):
         super(CircleWidget, self).__init__(parent)
         
