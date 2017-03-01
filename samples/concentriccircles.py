@@ -127,7 +127,7 @@ class Window(QtGui.QWidget):
         timer.start(100)
         self.setLayout(layout)
         
-                    self.setWindowTitle("Concentric Circles")
+        self.setWindowTitle("Concentric Circles")
                 
 def createLabel(self, text):
     label = QtGui.QLabel(text)
