@@ -95,11 +95,8 @@ class RFTracker(QMainWindow):
         #if amplitude >= self.MIN_ACCURATE_RANGE and amplitude <= self.MAX_ACCURATE_RANGE:
             #if phase >= self.MIN_ACCURATE_RANGE and phase <= self.MIN_ACCURATE_RANGE:
                 #plot.updatePoint(amplitudein = amplitude, phasein = phase)
-        
-        for i in range(0,255,5):
-            plot.alpha = i;
-            plot.update()
-            sleep(0.1)
+        plot.alpha = (plot.alpha + 1) % 256
+        plot.update()
         
         timer.start(50)
         
