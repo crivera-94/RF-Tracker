@@ -84,33 +84,28 @@ class RFTracker(QMainWindow):
         toolbar = self.addToolBar('Exit')
         toolbar.addAction(exitAction)
         
-        self.showFullScreen()
-        self.setWindowTitle('RF Tracker')
-        self.show()
-        
-        # Animate plot
-        for i in range(0,255,5):
-            plot.alpha = i;
-            plot.update()
-            sleep(0.1)
-        
         
         # Begin QTimer Poll and Read ADS
         timer = QTimer(self)
         
         # READ FROM ADS
-        amplitude = 100
-        phase = 100
+        #amplitude = 100
+        #phase = 100
         
-        if amplitude >= self.MIN_ACCURATE_RANGE and amplitude <= self.MAX_ACCURATE_RANGE:
-            if phase >= self.MIN_ACCURATE_RANGE and phase <= self.MIN_ACCURATE_RANGE:
-                plot.updatePoint(amplitudein = amplitude, phasein = phase)
+        #if amplitude >= self.MIN_ACCURATE_RANGE and amplitude <= self.MAX_ACCURATE_RANGE:
+            #if phase >= self.MIN_ACCURATE_RANGE and phase <= self.MIN_ACCURATE_RANGE:
+                #plot.updatePoint(amplitudein = amplitude, phasein = phase)
+        
+        for i in range(0,255,5):
+            plot.alpha = i;
+            plot.update()
+            sleep(0.1)
         
         timer.start(50)
         
-        #self.showFullScreen()
-        #self.setWindowTitle('RF Tracker')
-        #self.show()
+        self.showFullScreen()
+        self.setWindowTitle('RF Tracker')
+        self.show()
 
     def createLabel(self, text):
         label = QLabel(text)
