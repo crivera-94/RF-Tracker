@@ -93,7 +93,8 @@ class Plot(QWidget):
         painter.translate(self.width() / 2, self.height() / 2)
         
         # max should be relative, fixed at 390 right now
-        for diameter in range(0, 390, 30):
+        #for diameter in range(0, 390, 30):
+        for diameter in range(0, self.radius, 30):
             delta = abs((40 % 128) - diameter / 2)
             alpha = 255 - (delta * delta) / 4 - diameter
             painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
