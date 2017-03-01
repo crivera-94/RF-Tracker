@@ -18,7 +18,7 @@ class Plot(QWidget):
 
         self.paintEvent = self.setup_plot
         self.update()
-        self.paintEvent = self.draw_point
+    #self.paintEvent = self.draw_point
 
     def setFloatBased(self, floatBased):
         self.floatBased = floatBased

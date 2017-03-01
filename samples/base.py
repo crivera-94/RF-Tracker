@@ -84,6 +84,11 @@ class RFTracker(QMainWindow):
         toolbar.addAction(exitAction)
         
         
+        # Animate plot
+        
+        
+        
+        
         # Begin QTimer Poll and Read ADS
         timer = QTimer(self)
         
