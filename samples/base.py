@@ -88,7 +88,6 @@ class RFTracker(QMainWindow):
         
         
         
-        
         # Begin QTimer Poll and Read ADS
         timer = QTimer(self)
         

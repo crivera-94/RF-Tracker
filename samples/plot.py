@@ -39,7 +39,8 @@ class Plot(QWidget):
         self.update()
 
     def setup_plot(self, event):
-        color = QColor(0, 0, 0)
+        alpha = .5
+        color = QColor(0, 0, 0, alpha)
         color.setNamedColor('#4080fe')
             
         painter = QPainter(self)
