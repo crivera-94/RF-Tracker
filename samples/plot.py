@@ -37,8 +37,13 @@ class Plot(QWidget):
     
     def nextAnimationFrame(self):
         self.frameNo += 1
-        self.alpha = (self.alpha + 5) % 256
-        self.update()
+        
+        if self.alpha > 250:
+            self.paintEvent = self.draw_point
+            self.update()
+        else:
+            self.alpha = (self.alpha + 5) % 256
+            self.update()
 
     def setup_plot(self, event):
         color = QColor(0, 0, 0)
