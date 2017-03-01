@@ -37,12 +37,11 @@ class Plot(QWidget):
     
     def nextAnimationFrame(self):
         self.frameNo += 1
-        
         if self.alpha > 250:
             self.paintEvent = self.draw_point
             self.update()
         else:
-            self.alpha = (self.alpha + 5) % 256
+            self.alpha += 5
             self.update()
 
     def setup_plot(self, event):
