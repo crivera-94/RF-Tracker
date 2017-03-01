@@ -95,8 +95,8 @@ class RFTracker(QMainWindow):
         #if amplitude >= self.MIN_ACCURATE_RANGE and amplitude <= self.MAX_ACCURATE_RANGE:
             #if phase >= self.MIN_ACCURATE_RANGE and phase <= self.MIN_ACCURATE_RANGE:
                 #plot.updatePoint(amplitudein = amplitude, phasein = phase)
-        plot.alpha = (plot.alpha + 1) % 256        
-        timer.timeout.connect(plot.update)
+        plot.alpha = (plot.alpha + 1) % 256
+        timer.timeout.connect(plot.nextAnimationFrame)
         
         timer.start(50)
         

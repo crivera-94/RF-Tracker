@@ -16,7 +16,7 @@ class Plot(QWidget):
         self.setBackgroundRole(QPalette.Base)
         self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
 
-        self.alpha = 255
+        self.alpha = 0
         self.paintEvent = self.setup_plot
         #self.update()
         #self.paintEvent = self.draw_point
@@ -37,6 +37,7 @@ class Plot(QWidget):
     
     def nextAnimationFrame(self):
         self.frameNo += 1
+        self.alpha = (self.alpha + 1) % 256
         self.update()
 
     def setup_plot(self, event):
