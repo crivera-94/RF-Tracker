@@ -79,6 +79,7 @@ class Plot(QWidget):
             painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
 
 
+        # draw lines
         for l in range(0,180,1):
             painter.drawPoint(0,-l)
 
@@ -90,3 +91,15 @@ class Plot(QWidget):
         for i in range(0,180,1):
             painter.drawPoint(i * step_x, i * step_y)
             painter.drawPoint(-i * step_x, i * step_y)
+
+        x = 90
+        y = 90
+
+        for i in range(0,5,1):
+            painter.drawPoint(x+i,y)
+            painter.drawPoint(x-i,y)
+            painter.drawPoint(x,y+i)
+            painter.drawPoint(x,y-i)
+
+
+
