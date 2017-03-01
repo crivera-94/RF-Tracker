@@ -17,7 +17,8 @@ class Plot(QWidget):
         self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
 
         self.alpha = 0
-        self.paintEvent = self.setup_plot
+        self.rings_plotted = False
+        self.paintEvent = self.draw_rings
         #self.update()
         #self.paintEvent = self.draw_point
 
@@ -35,14 +36,25 @@ class Plot(QWidget):
     def sizeHint(self):
         return QSize(180, 180)
     
+    
+    
+    
     def nextAnimationFrame(self):
         self.frameNo += 1
-        if self.alpha > 250:
-            self.paintEvent = self.draw_point
-            self.update()
+
+        if self.rings_plotted:
+        
         else:
-            self.alpha += 5
-            self.update()
+            if self.alpha > 250:
+                self.paintEvent = self.draw_point
+                self.update()
+            else:
+                self.alpha += 5
+                self.update()
+
+
+
+
 
     def setup_plot(self, event):
         color = QColor(0, 0, 0)
@@ -70,6 +82,60 @@ class Plot(QWidget):
         for i in range(0,180,1):
             painter.drawPoint(i * step_x, i * step_y)
             painter.drawPoint(-i * step_x, i * step_y)
+
+
+    def draw_rings(self, event):
+        color = QColor(0, 0, 0)
+        color.setNamedColor('#4080fe')
+        color.setAlpha(self.alpha)
+        
+        painter = QPainter(self)
+        painter.setPen(color)
+        painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
+        painter.translate(self.width() / 2, self.height() / 2)
+        
+        for diameter in range(0, 390, 30):
+            delta = abs((40 % 128) - diameter / 2)
+            alpha = 255 - (delta * delta) / 4 - diameter
+            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
+        
+        for l in range(0,180,1):
+            painter.drawPoint(0,-l)
+
+
+    def draw_rings(self, event):
+        color = QColor(0, 0, 0)
+        color.setNamedColor('#4080fe')
+        
+        painter = QPainter(self)
+        painter.setPen(color)
+        painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
+        painter.translate(self.width() / 2, self.height() / 2)
+        
+        for diameter in range(0, 390, 30):
+            delta = abs((40 % 128) - diameter / 2)
+            alpha = 255 - (delta * delta) / 4 - diameter
+            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
+    
+        for l in range(0,180,1):
+            painter.drawPoint(0,-l)
+    
+        color.setAlpha(self.alpha)
+        painterLines = QPainter(self)
+        painterLines.setPen(color)
+        painterLines.setRenderHint(QPainter.Antialiasing, self.antialiased)
+        painterLines.translate(self.width() / 2, self.height() / 2)
+        
+        i = 0
+        step_x = .8660254
+        step_y = .5
+        
+        # 180 is a fixed bound
+        for i in range(0,180,1):
+            painterLines.drawPoint(i * step_x, i * step_y)
+            painterLines.drawPoint(-i * step_x, i * step_y)
+
+
 
     def draw_point(self, event):
         color = QColor(0, 0, 0)
