@@ -45,6 +45,7 @@ class Plot(QWidget):
         if self.rings_plotted:
         
         else:
+            print("hello")
             if self.alpha > 250:
                 self.paintEvent = self.draw_point
                 self.update()
