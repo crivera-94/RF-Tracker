@@ -18,7 +18,7 @@ class Plot(QWidget):
 
         self.alpha = 0
         self.rings_plotted = False
-        self.paintEvent = self.setup_plot
+        self.paintEvent = self.draw_rings
         #self.update()
         #self.paintEvent = self.draw_point
 
@@ -98,7 +98,7 @@ class Plot(QWidget):
             painter.drawPoint(0,-l)
 
 
-    def draw_rings(self, event):
+    def draw_lines(self, event):
         color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
         
