@@ -42,8 +42,7 @@
 #############################################################################
 
 
-from PyQt4 import QtCore, QtGui
-
+from PyQt import QtCore, QtGui
 
 class CircleWidget(QtGui.QWidget):
     def __init__(self, parent=None):
