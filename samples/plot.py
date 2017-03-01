@@ -37,23 +37,18 @@ class Plot(QWidget):
         return QSize(180, 180)
     
     
-    
-    
     def nextAnimationFrame(self):
         self.frameNo += 1
 
-        if self.rings_plotted:
-            print("hello")
+        #if self.rings_plotted:
+            #print("hello")
+        #else:
+        if self.alpha > 250:
+            self.paintEvent = self.draw_point
+            self.update()
         else:
-            if self.alpha > 250:
-                self.paintEvent = self.draw_point
-                self.update()
-            else:
-                self.alpha += 5
-                self.update()
-
-
-
+            self.alpha += 5
+            self.update()
 
 
     def setup_plot(self, event):
