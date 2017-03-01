@@ -39,7 +39,7 @@ class Plot(QWidget):
         self.update()
 
     def setup_plot(self, event):
-        alpha = .1
+        alpha = 100
         color = QColor(0, 0, 0, alpha)
         color.setNamedColor('#4080fe')
             
@@ -66,7 +66,7 @@ class Plot(QWidget):
             painter.drawPoint(-i * step_x, i * step_y)
 
     def draw_point(self, event):
-        alpha = .1
+        alpha = 100
         color = QColor(0, 0, 0, alpha)
         color.setNamedColor('#4080fe')
             
