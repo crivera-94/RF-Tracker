@@ -93,9 +93,6 @@ class Plot(QWidget):
             delta = abs((40 % 128) - diameter / 2)
             alpha = 255 - (delta * delta) / 4 - diameter
             painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
-        
-        for l in range(0,180,1):
-            painter.drawPoint(0,-l)
 
 
     def draw_lines(self, event):
