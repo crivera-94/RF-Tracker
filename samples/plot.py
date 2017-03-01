@@ -42,6 +42,7 @@ class Plot(QWidget):
         alpha = 100
         color = QColor(0, 0, 0, alpha)
         color.setNamedColor('#4080fe')
+        print(color.alpha);
             
         painter = QPainter(self)
         painter.setPen(color)
@@ -69,6 +70,7 @@ class Plot(QWidget):
         alpha = 100
         color = QColor(0, 0, 0, alpha)
         color.setNamedColor('#4080fe')
+        print(color.alpha)
             
         painter = QPainter(self)
         painter.setPen(color)
