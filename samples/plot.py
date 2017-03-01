@@ -42,6 +42,7 @@ class Plot(QWidget):
         self.frameNo += 1
 
         if self.rings_plotted == True:
+            # read data and plot
             print("hello")
         else:
             if self.radius > 390 :
@@ -93,8 +94,36 @@ class Plot(QWidget):
         painter.translate(self.width() / 2, self.height() / 2)
         
         # max should be relative, fixed at 390 right now
-        #for diameter in range(0, 390, 30):
-        for diameter in range(0, self.radius, 30):
+        #for diameter in range(0, self.radius, 30):
+        for diameter in range(0, 390, 30):
+            delta = abs((40 % 128) - diameter / 2)
+            alpha = 255 - (delta * delta) / 4 - diameter
+            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
+
+    # draw rings new
+    def draw_rings_new(self, event):
+        color_solid = QColor(0, 0, 0)
+        color_solid.setNamedColor('#4080fe')
+
+        color_light = QColor(0, 0, 0)
+        color_light.setNamedColor('#4080fe')
+        color_light.setAlpha(self.alpha)
+
+        painter = QPainter(self)
+        painter.setPen(color_light)
+        painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
+        painter.translate(self.width() / 2, self.height() / 2)
+        
+        # max should be relative, fixed at 390 right now
+        #for diameter in range(0, self.radius, 30):
+        for diameter in range(0, 390, 30):
+            
+            if diameter <= self.radius:
+                # draw whole
+                painter.setPen(color_solid)
+            else:
+                painter.setPen(color_light)
+
             delta = abs((40 % 128) - diameter / 2)
             alpha = 255 - (delta * delta) / 4 - diameter
             painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
