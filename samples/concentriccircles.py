@@ -131,10 +131,10 @@ class Window(QtGui.QWidget):
                 
 def createLabel(self, text):
     label = QtGui.QLabel(text)
-        label.setAlignment(QtCore.Qt.AlignCenter)
-        label.setMargin(2)
-        label.setFrameStyle(QtGui.QFrame.Box | QtGui.QFrame.Sunken)
-        return label
+    label.setAlignment(QtCore.Qt.AlignCenter)
+    label.setMargin(2)
+    label.setFrameStyle(QtGui.QFrame.Box | QtGui.QFrame.Sunken)
+    return label
 
 
 if __name__ == '__main__':
