@@ -37,7 +37,7 @@ class Plot(QWidget):
     
     def nextAnimationFrame(self):
         self.frameNo += 1
-        self.alpha = (self.alpha + 1) % 256
+        self.alpha = (self.alpha + 5) % 256
         self.update()
 
     def setup_plot(self, event):
