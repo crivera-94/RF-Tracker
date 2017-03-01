@@ -16,9 +16,10 @@ class Plot(QWidget):
         self.setBackgroundRole(QPalette.Base)
         self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
 
+        self.alpha = 255
         self.paintEvent = self.setup_plot
-        self.update()
-        self.paintEvent = self.draw_point
+        #self.update()
+        #self.paintEvent = self.draw_point
 
     def setFloatBased(self, floatBased):
         self.floatBased = floatBased
@@ -41,7 +42,6 @@ class Plot(QWidget):
     def setup_plot(self, event):
         color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
-        color.setAlpha(100)
         
         painter = QPainter(self)
         painter.setPen(color)
@@ -68,7 +68,6 @@ class Plot(QWidget):
     def draw_point(self, event):
         color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
-        color.setAlpha(100)
         
         painter = QPainter(self)
         painter.setPen(color)

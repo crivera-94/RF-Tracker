@@ -15,6 +15,7 @@
     """
 
 import sys
+from time import sleep
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
@@ -85,7 +86,10 @@ class RFTracker(QMainWindow):
         
         
         # Animate plot
-        
+        for i in range(0,255,5):
+            plot.alpha = i;
+            plot.update()
+            sleep(0.1)
         
         
         # Begin QTimer Poll and Read ADS
