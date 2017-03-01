@@ -17,6 +17,7 @@ class Plot(QWidget):
         self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
 
         self.alpha = 0
+        self.radius = 30
         self.rings_plotted = False
         self.paintEvent = self.draw_rings
         #self.update()
@@ -43,11 +44,13 @@ class Plot(QWidget):
         if self.rings_plotted == True:
             print("hello")
         else:
-            if self.alpha > 250:
+            if self.radius > 390 :
                 self.paintEvent = self.draw_point
                 self.update()
             else:
-                self.alpha += 5
+                self.alpha = (self.alpha + 5) % 260
+                if self.alpha == 0:
+                    radius += 30
                 self.update()
 
 
@@ -89,6 +92,7 @@ class Plot(QWidget):
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
         painter.translate(self.width() / 2, self.height() / 2)
         
+        # max should be relative, fixed at 390 right now
         for diameter in range(0, 390, 30):
             delta = abs((40 % 128) - diameter / 2)
             alpha = 255 - (delta * delta) / 4 - diameter
