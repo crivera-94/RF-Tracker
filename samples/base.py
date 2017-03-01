@@ -84,6 +84,9 @@ class RFTracker(QMainWindow):
         toolbar = self.addToolBar('Exit')
         toolbar.addAction(exitAction)
         
+        self.showFullScreen()
+        self.setWindowTitle('RF Tracker')
+        self.show()
         
         # Animate plot
         for i in range(0,255,5):
@@ -105,9 +108,9 @@ class RFTracker(QMainWindow):
         
         timer.start(50)
         
-        self.showFullScreen()
-        self.setWindowTitle('RF Tracker')
-        self.show()
+        #self.showFullScreen()
+        #self.setWindowTitle('RF Tracker')
+        #self.show()
 
     def createLabel(self, text):
         label = QLabel(text)
