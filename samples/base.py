@@ -20,7 +20,7 @@ from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
                              QLabel, QFrame, QSlider)
 from PyQt5.QtGui import QIcon
-from circle import CircleWidget
+from plot import Plot
 
 class RFTracker(QMainWindow):
     
@@ -47,7 +47,7 @@ class RFTracker(QMainWindow):
         #layout.addWidget(label, 1, 1)
         
         # Make Plot
-        plot = CircleWidget()
+        plot = Plot()
         #plot.update()
         layout.addWidget(plot, 0, 1)
         
@@ -95,13 +95,11 @@ class RFTracker(QMainWindow):
             if phase >= self.MIN_ACCURATE_RANGE and phase <= self.MIN_ACCURATE_RANGE:
                 plot.updatePoint(amplitudein = amplitude, phasein = phase)
         
-        
         timer.start(50)
         
         self.showFullScreen()
         self.setWindowTitle('RF Tracker')
         self.show()
-    
 
     def createLabel(self, text):
         label = QLabel(text)
