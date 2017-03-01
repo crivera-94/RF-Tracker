@@ -39,11 +39,10 @@ class Plot(QWidget):
         self.update()
 
     def setup_plot(self, event):
-        alpha = 100
-        color = QColor(0, 0, 0, alpha)
+        color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
-        print(color.alpha);
-            
+        color.setAlpha(100)
+        
         painter = QPainter(self)
         painter.setPen(color)
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
@@ -67,11 +66,10 @@ class Plot(QWidget):
             painter.drawPoint(-i * step_x, i * step_y)
 
     def draw_point(self, event):
-        alpha = 100
-        color = QColor(0, 0, 0, alpha)
+        color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
-        print(color.alpha)
-            
+        color.setAlpha(100)
+        
         painter = QPainter(self)
         painter.setPen(color)
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
