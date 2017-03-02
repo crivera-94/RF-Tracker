@@ -10,7 +10,6 @@ class Plot(QWidget):
         
         self.floatBased = False
         self.antialiased = False
-        self.setup = False
         self.frameNo = 0
         
         self.setBackgroundRole(QPalette.Base)
@@ -19,6 +18,7 @@ class Plot(QWidget):
         self.alpha = 0
         self.radius = 30
         self.rings_plotted = False
+        self.setup_finished = False
         self.paintEvent = self.draw_rings
         #self.update()
         #self.paintEvent = self.draw_point
@@ -43,11 +43,20 @@ class Plot(QWidget):
 
         if self.rings_plotted == True:
             # read data and plot
-            print("hello")
+            if self.alpha >= 240:
+                self.alpha = 255
+                self.update()
+                self.paintEvent = draw_point
+            else:
+                self.alpha += 20
+                self.update()
+            
         else:
             if self.radius > 390 :
-                self.paintEvent = self.draw_point
-                self.update()
+                self.paintEvent = self.draw_lines
+                self.rings_plotted == True
+                self.alpha = 0
+                #self.update()
             else:
                 self.alpha = (self.alpha + 20) % 260
                 if self.alpha == 0:
@@ -115,25 +124,17 @@ class Plot(QWidget):
                 alpha = 255 - (delta * delta) / 4 - diameter
                 painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
                 break
-                                
-            #delta = abs((40 % 128) - diameter / 2)
-            #alpha = 255 - (delta * delta) / 4 - diameter
-            #painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
 
 
     def draw_lines(self, event):
         color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
-        
+        color.setAlpha(self.alpha)
+
         painter = QPainter(self)
         painter.setPen(color)
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
         painter.translate(self.width() / 2, self.height() / 2)
-        
-        for diameter in range(0, 390, 30):
-            delta = abs((40 % 128) - diameter / 2)
-            alpha = 255 - (delta * delta) / 4 - diameter
-            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
     
         for l in range(0,180,1):
             painter.drawPoint(0,-l)
@@ -152,7 +153,6 @@ class Plot(QWidget):
         for i in range(0,180,1):
             painterLines.drawPoint(i * step_x, i * step_y)
             painterLines.drawPoint(-i * step_x, i * step_y)
-
 
 
     def draw_point(self, event):
