@@ -19,7 +19,7 @@ class Plot(QWidget):
         self.alpha = 0
         self.radius = 30
         self.rings_plotted = False
-        self.paintEvent = self.draw_rings
+        self.paintEvent = self.draw_rings_new
         #self.update()
         #self.paintEvent = self.draw_point
 
