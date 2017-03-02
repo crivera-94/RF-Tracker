@@ -121,12 +121,20 @@ class Plot(QWidget):
             if diameter <= self.radius:
                 # draw whole
                 painter.setPen(color_solid)
+
+                delta = abs((40 % 128) - diameter / 2)
+                alpha = 255 - (delta * delta) / 4 - diameter
+                painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
             else:
                 painter.setPen(color_light)
 
-            delta = abs((40 % 128) - diameter / 2)
-            alpha = 255 - (delta * delta) / 4 - diameter
-            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
+                delta = abs((40 % 128) - diameter / 2)
+                alpha = 255 - (delta * delta) / 4 - diameter
+                painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
+                                
+            #delta = abs((40 % 128) - diameter / 2)
+            #alpha = 255 - (delta * delta) / 4 - diameter
+            #painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
 
 
     def draw_lines(self, event):
