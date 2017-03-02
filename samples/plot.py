@@ -131,6 +131,7 @@ class Plot(QWidget):
                 delta = abs((40 % 128) - diameter / 2)
                 alpha = 255 - (delta * delta) / 4 - diameter
                 painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
+                break
                                 
             #delta = abs((40 % 128) - diameter / 2)
             #alpha = 255 - (delta * delta) / 4 - diameter
