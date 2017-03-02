@@ -198,7 +198,7 @@ class Plot(QWidget):
         x = 90
         y = 90
 
-        for i in range(0,5,1):
+        for i in range(0,6,1):
 
             painter_red.drawPoint(x+i,y)
             painter_red.drawPoint(x+i,y+1)
