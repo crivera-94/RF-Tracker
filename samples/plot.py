@@ -39,6 +39,9 @@ class Plot(QWidget):
     def sizeHint(self):
         return QSize(180, 180)
     
+    def point(self, x, y):
+        self.x = x
+        self.y = y
     
     def nextAnimationFrame(self):
         
