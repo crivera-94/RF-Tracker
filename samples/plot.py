@@ -54,7 +54,7 @@ class Plot(QWidget):
                 self.paintEvent = self.draw_lines
                 self.rings_plotted == True
                 self.alpha = 0
-                #self.update()
+                self.update()
             else:
                 self.alpha = (self.alpha + 20) % 260
                 if self.alpha == 0:
