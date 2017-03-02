@@ -188,14 +188,21 @@ class Plot(QWidget):
             painter.drawPoint(i * step_x, i * step_y)
             painter.drawPoint(-i * step_x, i * step_y)
 
+
+        color.setNamedColor('#db2c38')
+        painter_red = QPainter(self)
+        painter_red.setPen(color)
+        painter_red.setRenderHint(QPainter.Antialiasing, self.antialiased)
+        painter_red.translate(self.width() / 2, self.height() / 2)
+
         x = 90
         y = 90
 
         for i in range(0,5,1):
-            painter.drawPoint(x+i,y)
-            painter.drawPoint(x-i,y)
-            painter.drawPoint(x,y+i)
-            painter.drawPoint(x,y-i)
+            painter_red.drawPoint(x+i,y)
+            painter_red.drawPoint(x-i,y)
+            painter_red.drawPoint(x,y+i)
+            painter_red.drawPoint(x,y-i)
 
 
 
