@@ -39,14 +39,12 @@ class Plot(QWidget):
     
     
     def nextAnimationFrame(self):
-        self.frameNo += 1
-
         if self.rings_plotted == True:
             # read data and plot
             if self.alpha >= 240:
                 self.alpha = 255
                 self.update()
-                self.paintEvent = draw_point
+                self.paintEvent = self.draw_point
             else:
                 self.alpha += 20
                 self.update()
