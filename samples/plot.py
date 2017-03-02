@@ -138,12 +138,6 @@ class Plot(QWidget):
     
         for l in range(0,180,1):
             painter.drawPoint(0,-l)
-    
-        color.setAlpha(self.alpha)
-        painterLines = QPainter(self)
-        painterLines.setPen(color)
-        painterLines.setRenderHint(QPainter.Antialiasing, self.antialiased)
-        painterLines.translate(self.width() / 2, self.height() / 2)
         
         i = 0
         step_x = .8660254
@@ -151,8 +145,8 @@ class Plot(QWidget):
         
         # 180 is a fixed bound
         for i in range(0,180,1):
-            painterLines.drawPoint(i * step_x, i * step_y)
-            painterLines.drawPoint(-i * step_x, i * step_y)
+            painter.drawPoint(i * step_x, i * step_y)
+            painter.drawPoint(-i * step_x, i * step_y)
 
 
     def draw_point(self, event):
