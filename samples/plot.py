@@ -49,7 +49,7 @@ class Plot(QWidget):
                 self.paintEvent = self.draw_point
                 self.update()
             else:
-                self.alpha = (self.alpha + 10) % 260
+                self.alpha = (self.alpha + 20) % 260
                 if self.alpha == 0:
                     self.radius += 30
                 self.update()
