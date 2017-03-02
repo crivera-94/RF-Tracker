@@ -125,17 +125,30 @@ class Plot(QWidget):
 
 
     def draw_lines(self, event):
+        
+        
         color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
-        color.setAlpha(self.alpha)
-
+        
         painter = QPainter(self)
         painter.setPen(color)
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
         painter.translate(self.width() / 2, self.height() / 2)
+        
+        for diameter in range(0, 390, 30):
+            delta = abs((40 % 128) - diameter / 2)
+            alpha = 255 - (delta * delta) / 4 - diameter
+            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
+    
+    
+        color.setAlpha(self.alpha)
+        painter_light = QPainter(self)
+        painter_light.setPen(color)
+        painter_light.setRenderHint(QPainter.Antialiasing, self.antialiased)
+        painter_light.translate(self.width() / 2, self.height() / 2)
     
         for l in range(0,180,1):
-            painter.drawPoint(0,-l)
+            painter_light.drawPoint(0,-l)
         
         i = 0
         step_x = .8660254
@@ -143,8 +156,8 @@ class Plot(QWidget):
         
         # 180 is a fixed bound
         for i in range(0,180,1):
-            painter.drawPoint(i * step_x, i * step_y)
-            painter.drawPoint(-i * step_x, i * step_y)
+            painter_light.drawPoint(i * step_x, i * step_y)
+            painter_light.drawPoint(-i * step_x, i * step_y)
 
 
     def draw_point(self, event):
