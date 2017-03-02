@@ -51,7 +51,7 @@ class Plot(QWidget):
             
         else:
             if self.radius > 390 :
-                self.paintEvent = self.draw_lines
+                self.paintEvent = self.draw_point
                 self.rings_plotted == True
                 self.alpha = 0
                 self.update()
