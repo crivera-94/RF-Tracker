@@ -19,9 +19,11 @@ class Plot(QWidget):
         self.radius = 30
         self.rings_plotted = False
         self.setup_finished = False
+        self.x = 0
+        self.y = 0
+    
         self.paintEvent = self.draw_rings
-        #self.update()
-        #self.paintEvent = self.draw_point
+
 
     def setFloatBased(self, floatBased):
         self.floatBased = floatBased
@@ -39,27 +41,31 @@ class Plot(QWidget):
     
     
     def nextAnimationFrame(self):
-        if self.rings_plotted == True:
-            # read data and plot
-            if self.alpha >= 240:
-                self.alpha = 255
-                self.update()
-                self.paintEvent = self.draw_point
-            else:
-                self.alpha += 20
-                self.update()
-            
+        
+        if self.setup_finished == True:
+            self.update()
         else:
-            if self.radius > 390 :
-                self.paintEvent = self.draw_lines
-                self.rings_plotted = True
-                self.alpha = 0
-                self.update()
+            if self.rings_plotted == True:
+                # read data and plot
+                if self.alpha >= 240:
+                    self.alpha = 255
+                    self.update()
+                    self.paintEvent = self.draw_point
+                    self.setup_finished = True
+                else:
+                    self.alpha += 20
+                    self.update()
             else:
-                self.alpha = (self.alpha + 20) % 260
-                if self.alpha == 0:
-                    self.radius += 30
-                self.update()
+                if self.radius > 390 :
+                    self.paintEvent = self.draw_lines
+                    self.rings_plotted = True
+                    self.alpha = 0
+                    self.update()
+                else:
+                    self.alpha = (self.alpha + 20) % 260
+                    if self.alpha == 0:
+                        self.radius += 30
+                    self.update()
 
 
     def setup_plot(self, event):
@@ -194,28 +200,22 @@ class Plot(QWidget):
         painter_red.setPen(color)
         painter_red.setRenderHint(QPainter.Antialiasing, self.antialiased)
         painter_red.translate(self.width() / 2, self.height() / 2)
-
-        x = 90
-        y = 90
+        
 
         for i in range(0,6,1):
 
-            painter_red.drawPoint(x+i,y)
-            painter_red.drawPoint(x+i,y+1)
-            painter_red.drawPoint(x+i,y-1)
+            painter_red.drawPoint(self.x+i,self.y)
+            painter_red.drawPoint(self.x+i,self.y+1)
+            painter_red.drawPoint(self.x+i,self.y-1)
 
-            painter_red.drawPoint(x-i,y)
-            painter_red.drawPoint(x-i,y+1)
-            painter_red.drawPoint(x-i,y-1)
+            painter_red.drawPoint(self.x-i,self.y)
+            painter_red.drawPoint(self.x-i,self.y+1)
+            painter_red.drawPoint(self.x-i,self.y-1)
 
-            painter_red.drawPoint(x,y+i)
-            painter_red.drawPoint(x+1,y+i)
-            painter_red.drawPoint(x-1,y+i)
+            painter_red.drawPoint(self.x,self.y+i)
+            painter_red.drawPoint(self.x+1,self.y+i)
+            painter_red.drawPoint(self.x-1,self.y+i)
 
-            painter_red.drawPoint(x,y-i)
-            painter_red.drawPoint(x+1,y-i)
-            painter_red.drawPoint(x-1,y-i)
-
-
-
-
+            painter_red.drawPoint(self.x,self.y-i)
+            painter_red.drawPoint(self.x+1,self.y-i)
+            painter_red.drawPoint(self.x-1,self.y-i)
