@@ -96,11 +96,6 @@ class RFTracker(QMainWindow):
             
         x = 0
         y = 0
-        
-        while True:
-            x = (x + 1) % 20
-            y = (y + 1) % 20
-            plot.point(x,y)
                 
         timer.timeout.connect(plot.nextAnimationFrame)
         

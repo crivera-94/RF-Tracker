@@ -46,6 +46,8 @@ class Plot(QWidget):
     def nextAnimationFrame(self):
         
         if self.setup_finished == True:
+            self.x = (self.x + 1) % 20
+            self.y = (self.y + 1) % 20
             self.update()
         else:
             if self.rings_plotted == True:
