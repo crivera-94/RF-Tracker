@@ -19,7 +19,7 @@ class Plot(QWidget):
         self.alpha = 0
         self.radius = 30
         self.rings_plotted = False
-        self.paintEvent = self.draw_rings_new
+        self.paintEvent = self.draw_rings
         #self.update()
         #self.paintEvent = self.draw_point
 
@@ -83,25 +83,8 @@ class Plot(QWidget):
             painter.drawPoint(-i * step_x, i * step_y)
 
 
-    def draw_rings(self, event):
-        color = QColor(0, 0, 0)
-        color.setNamedColor('#4080fe')
-        color.setAlpha(self.alpha)
-        
-        painter = QPainter(self)
-        painter.setPen(color)
-        painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
-        painter.translate(self.width() / 2, self.height() / 2)
-        
-        # max should be relative, fixed at 390 right now
-        #for diameter in range(0, self.radius, 30):
-        for diameter in range(0, 390, 30):
-            delta = abs((40 % 128) - diameter / 2)
-            alpha = 255 - (delta * delta) / 4 - diameter
-            painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
-
     # draw rings new
-    def draw_rings_new(self, event):
+    def draw_rings(self, event):
         color_solid = QColor(0, 0, 0)
         color_solid.setNamedColor('#4080fe')
 
