@@ -128,8 +128,8 @@ if __name__ == '__main__':
     
     try:
         threading.Thread(target=print_time).start()
-    except:
-        print("Error: unable to start thread")
+    #except:
+    #    print("Error: unable to start thread")
     
     app = QApplication(sys.argv)
     ex = RFTracker()
