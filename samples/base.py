@@ -15,13 +15,24 @@
     """
 
 import sys
-from time import sleep
+import thread
+import time
+
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
                              QLabel, QFrame, QSlider)
 from PyQt5.QtGui import QIcon
 from plot import Plot
+
+
+def print_time( threadName, delay):
+    count = 0
+    while count < 5:
+        time.sleep(delay)
+        count += 1
+        print "%s: %s" % ( threadName, time.ctime(time.time()) )
+
 
 class RFTracker(QMainWindow):
     
@@ -114,6 +125,12 @@ class RFTracker(QMainWindow):
 
 
 if __name__ == '__main__':
+    
+    try:
+        thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+        thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+    except:
+        print "Error: unable to start thread"
     
     app = QApplication(sys.argv)
     ex = RFTracker()
