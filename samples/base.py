@@ -26,12 +26,13 @@ from PyQt5.QtGui import QIcon
 from plot import Plot
 
 
+# Define a function for the thread
 def print_time( threadName, delay):
     count = 0
     while count < 5:
         time.sleep(delay)
         count += 1
-        print("tick")
+        print ("%s: %s" % ( threadName, time.ctime(time.time()) ))
 
 
 class RFTracker(QMainWindow):
@@ -125,12 +126,12 @@ class RFTracker(QMainWindow):
 
 
 if __name__ == '__main__':
-    
-    
-    threading.Thread(target=print_time).start()
-    #except:
-    #    print("Error: unable to start thread")
-    
+    try:
+        _thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+        _thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+    except:
+        print ("Error: unable to start thread")
+
     app = QApplication(sys.argv)
     ex = RFTracker()
     sys.exit(app.exec_())
