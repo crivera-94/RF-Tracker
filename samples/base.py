@@ -126,11 +126,10 @@ class RFTracker(QMainWindow):
 
 if __name__ == '__main__':
     
-    #try:
-    #   thread.start_new_thread( print_time, ("Thread-1", 2, ) )
-    #   thread.start_new_thread( print_time, ("Thread-2", 4, ) )
-    #except:
-    #   print("Error: unable to start thread")
+    try:
+        threading.Thread(target=print_time).start()
+    except:
+        print("Error: unable to start thread")
     
     app = QApplication(sys.argv)
     ex = RFTracker()
