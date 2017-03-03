@@ -15,7 +15,7 @@
     """
 
 import sys
-import thread
+import _thread
 import time
 
 from PyQt5.QtCore import Qt, QTimer
