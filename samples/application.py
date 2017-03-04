@@ -27,12 +27,12 @@ from plot import Plot
 
 
 # Define a function for the thread
-def print_time( threadName, delay):
+def print_time(thread_name, delay):
     count = 0
     while count < 5:
         time.sleep(delay)
         count += 1
-        print ("%s: %s" % ( threadName, time.ctime(time.time()) ))
+        print("%s: %s" % (thread_name, time.ctime(time.time())))
 
 
 class RFTracker(QMainWindow):
@@ -42,7 +42,6 @@ class RFTracker(QMainWindow):
         self.MIN_ACCURATE_RANGE = 50
         super().__init__()
         self.initUI()
-    
     
     def initUI(self):
         
@@ -54,10 +53,10 @@ class RFTracker(QMainWindow):
         main_widget.setLayout(layout)
         
         
-        #label = self.createLabel(text = "SAMPLE")
+        # label = self.createLabel(text = "SAMPLE")
         label2 = self.createLabel(text = "TEST TABLE")
         layout.addWidget(label2, 0, 0)
-        #layout.addWidget(label, 1, 1)
+        # layout.addWidget(label, 1, 1)
         
         # Make Plot
         plot = Plot()
