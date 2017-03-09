@@ -13,7 +13,7 @@ class Plot(QWidget):
         self.frameNo = 0
         
         self.setBackgroundRole(QPalette.Base)
-        self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         self.alpha = 0
         self.radius = 30
@@ -170,7 +170,6 @@ class Plot(QWidget):
             painter_light.drawPoint(i * step_x, i * step_y)
             painter_light.drawPoint(-i * step_x, i * step_y)
 
-
     def draw_point(self, event):
         color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
@@ -185,7 +184,6 @@ class Plot(QWidget):
             alpha = 255 - (delta * delta) / 4 - diameter
             painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
 
-
         # draw lines
         for l in range(0,180,1):
             painter.drawPoint(0,-l)
@@ -199,15 +197,13 @@ class Plot(QWidget):
             painter.drawPoint(i * step_x, i * step_y)
             painter.drawPoint(-i * step_x, i * step_y)
 
-
         color.setNamedColor('#db2c38')
         painter_red = QPainter(self)
         painter_red.setPen(color)
         painter_red.setRenderHint(QPainter.Antialiasing, self.antialiased)
         painter_red.translate(self.width() / 2, self.height() / 2)
-        
 
-        for i in range(0,6,1):
+        for i in range(0, 6, 1):
 
             painter_red.drawPoint(self.x+i,self.y)
             painter_red.drawPoint(self.x+i,self.y+1)

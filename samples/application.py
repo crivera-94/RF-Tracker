@@ -61,7 +61,7 @@ class RFTracker(QMainWindow):
         self.MIN_ACCURATE_RANGE = 50
         super().__init__()
         self.initUI()
-    
+
     def initUI(self):
         
         textEdit = QTextEdit()
@@ -71,8 +71,8 @@ class RFTracker(QMainWindow):
         layout = QGridLayout()
         main_widget.setLayout(layout)
 
-        label = self.createLabel(text = "SAMPLE")
-        label2 = self.createLabel(text = "TEST TABLE")
+        label = self.createLabel(text="SAMPLE")
+        label2 = self.createLabel(text="TEST TABLE")
         layout.addWidget(label2, 0, 0)
         layout.addWidget(label, 0, 1)
         # layout.addWidget(label, 1, 1)
@@ -131,6 +131,7 @@ class RFTracker(QMainWindow):
         label.setAlignment(Qt.AlignCenter)
         label.setMargin(2)
         label.setFrameStyle(QFrame.Box | QFrame.Sunken)
+        label.setMinimumSize(self.sizeHint())
         return label
 
 
@@ -160,5 +161,4 @@ if __name__ == '__main__':
     do_every(0.1, print_hw)
 
     # call update function from ex
-
     sys.exit(app.exec_())
