@@ -15,8 +15,8 @@ import Adafruit_ADS1x15
 
 class PhaseDetector:
 
-    def __init__(self, address=48, busnum=1):
-        self.adc = Adafruit_ADS1x15.ADS1015("0x{}, busnum = {}".format(address, busnum))
+    def __init__(self, addressin=48, busnumin=1):
+        self.adc = Adafruit_ADS1x15.ADS1015(address=addressin, busnum=busnumin)
         self.GAIN = 2
 
     def read_amplitude(self):
