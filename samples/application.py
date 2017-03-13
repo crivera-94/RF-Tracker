@@ -20,13 +20,22 @@ import threading
 import time
 import phasedetector
 
-from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtCore import Qt, QTimer, QThread
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
                              QLabel, QFrame, QSlider)
 from PyQt5.QtGui import QIcon
 from plot import Plot
 from phasedetector import PhaseDetector
+
+class AThread(QThread):
+
+    def run(self):
+        count = 0
+        while count < 5:
+            time.sleep(1)
+            print("A Increasing")
+            count += 1
 
 def do_every(interval, worker_func, iterations=0):
     if iterations != 1:
@@ -147,12 +156,6 @@ if __name__ == '__main__':
     # A1 = amplitude
     # A2 = amplitude (outer)
     phase_detector1 = PhaseDetector(52)
-
-    # try:
-        #_thread.start_new_thread(print_time, ("Thread-1", 2, ))
-        #_thread.start_new_thread(print_time, ("Thread-2", 4, ))
-    # except:
-        # print ("Error: unable to start thread")
 
     app = QApplication(sys.argv)
     ex = RFTracker()
