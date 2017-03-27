@@ -1,12 +1,22 @@
 import time
 from PyQt5.QtCore import QThread
 
-class AThread(QThread):
 
+class ADCThread(QThread):
     @staticmethod
     def run():
         count = 0
         while count > -1:
             time.sleep(1)
-            print("A Increasing")
+            print("ADCThread Increasing")
+            count += 1
+
+
+class FilterThread(QThread):
+    @staticmethod
+    def run():
+        count = 0
+        while count > -1:
+            time.sleep(1)
+            print("FilterThread Increasing")
             count += 1

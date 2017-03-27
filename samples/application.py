@@ -15,7 +15,6 @@
     """
 
 import sys
-import threading
 import time
 import phasedetector
 
@@ -26,9 +25,8 @@ from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
 from PyQt5.QtGui import QIcon
 from plot import Plot
 from phasedetector import PhaseDetector
-from threadpackage import AThread
-
-
+from threadpackage import ADCThread
+from threadpackage import FilterThread
 
 
 # Define a function for the thread
@@ -143,10 +141,13 @@ if __name__ == '__main__':
     ex = RFTracker()
 
     # ADC read thread
-    thread = AThread()
-    thread.finished.connect(app.exit)
-    thread.start()
+    threadA = ADCThread()
+    threadA.finished.connect(app.exit)
+    threadA.start()
 
     # Filter update
+    threadB = FilterThread()
+    threadB.finished.connect(app.exit)
+    threadB.start()
 
     sys.exit(app.exec_())
