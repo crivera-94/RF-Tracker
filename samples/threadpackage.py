@@ -10,7 +10,7 @@ class ADCThread(QThread):
     #    self.phase_detector0 = PhaseDetector(48)
     #    self.phase_detector1 = PhaseDetector(52)
 
-    def __init__(self, parent, *args, **kw):
+    def __init__(self):
         QThread.__init__(self, parent)
         self.yourInit()
 
