@@ -26,27 +26,9 @@ from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
 from PyQt5.QtGui import QIcon
 from plot import Plot
 from phasedetector import PhaseDetector
+from threadpackage import AThread
 
 
-class AThread(QThread):
-
-    @staticmethod
-    def run():
-        count = 0
-        while count > -1:
-            time.sleep(1)
-            print("A Increasing")
-            count += 1
-
-
-def do_every(interval, worker_func, iterations=0):
-    if iterations != 1:
-        threading.Timer(
-            interval,
-            do_every, [interval, worker_func, 0 if iterations == 0 else iterations-1]
-        ).start()
-
-    worker_func()
 
 
 # Define a function for the thread
@@ -56,10 +38,6 @@ def print_time(thread_name, delay):
         time.sleep(delay)
         count += 1
         print("%s: %s" % (thread_name, time.ctime(time.time())))
-
-
-def print_hw():
-    print("hello")
 
 
 def update_amplitude(phase_detector0, phase_detector1, filter):
