@@ -8,6 +8,7 @@ class ADCThread(QThread):
     def __init__(self):
         super().__init__()
         self.phase_detector0 = PhaseDetector(48)
+        self.phase_detector1 = PhaseDetector(52)
 
     @staticmethod
     def run():
