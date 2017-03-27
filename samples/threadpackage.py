@@ -11,13 +11,16 @@ class ADCThread(QThread):
         self.phase_detector1 = PhaseDetector(52)
 
     def run(self):
-        count = 0
-        while count > -1:
-            time.sleep(1)
-            print("ADCThread Increasing")
+        print('Channel 0: {0}'.format(self.phase_detector0.read_amplitude()))
+        time.sleep(1)
+
+        #count = 0
+        #while count > -1:
+            #time.sleep(1)
+            #print("ADCThread Increasing")
             # TODO: OSError: [Errno 5] Input/output error
-            print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
-            count += 1
+            # print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
+            #count += 1
 
 
 class FilterThread(QThread):
