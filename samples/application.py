@@ -33,7 +33,7 @@ class AThread(QThread):
 
     def run(self):
         count = 0
-        while count < 5:
+        while count > -1:
             time.sleep(1)
             print("A Increasing")
             count += 1
