@@ -1,8 +1,14 @@
 import time
 from PyQt5.QtCore import QThread
+from phasedetector import PhaseDetector
 
 
 class ADCThread(QThread):
+
+    def __init__(self):
+        super().__init__()
+        self.phase_detector0 = PhaseDetector(48)
+
     @staticmethod
     def run():
         count = 0

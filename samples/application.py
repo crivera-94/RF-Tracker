@@ -140,14 +140,14 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = RFTracker()
 
-    # ADC read thread
-    threadA = ADCThread()
-    threadA.finished.connect(app.exit)
-    threadA.start()
+    # ADC Read Thread
+    threadADC = ADCThread()
+    threadADC.finished.connect(app.exit)
+    threadADC.start()
 
-    # Filter update
-    threadB = FilterThread()
-    threadB.finished.connect(app.exit)
-    threadB.start()
+    # Filter Thread
+    threadFilter = FilterThread()
+    threadFilter.finished.connect(app.exit)
+    threadFilter.start()
 
     sys.exit(app.exec_())
