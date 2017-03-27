@@ -15,7 +15,6 @@
     """
 
 import sys
-import _thread
 import threading
 import time
 import phasedetector
@@ -161,15 +160,15 @@ if __name__ == '__main__':
     # A2 = amplitude (outer)
     phase_detector1 = PhaseDetector(52)
 
+    # start application
     app = QApplication(sys.argv)
     ex = RFTracker()
 
-    # call print_hw 10 times per second, forever
-    #do_every(0.1, print_hw)
-
+    # ADC read thread
     thread = AThread()
     thread.finished.connect(app.exit)
     thread.start()
 
-    # call update function from ex
+    # Filter update
+
     sys.exit(app.exec_())
