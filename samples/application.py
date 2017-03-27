@@ -28,6 +28,7 @@ from PyQt5.QtGui import QIcon
 from plot import Plot
 from phasedetector import PhaseDetector
 
+
 class AThread(QThread):
 
     def run(self):
@@ -37,6 +38,7 @@ class AThread(QThread):
             print("A Increasing")
             count += 1
 
+
 def do_every(interval, worker_func, iterations=0):
     if iterations != 1:
         threading.Timer(
@@ -45,6 +47,7 @@ def do_every(interval, worker_func, iterations=0):
         ).start()
 
     worker_func()
+
 
 # Define a function for the thread
 def print_time(thread_name, delay):
@@ -161,7 +164,11 @@ if __name__ == '__main__':
     ex = RFTracker()
 
     # call print_hw 10 times per second, forever
-    do_every(0.1, print_hw)
+    #do_every(0.1, print_hw)
+
+    thread = AThread()
+    thread.finished.connect(app.exit)
+    thread.start()
 
     # call update function from ex
     sys.exit(app.exec_())
