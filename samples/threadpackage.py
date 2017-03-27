@@ -18,13 +18,13 @@ class ADCThread(QThread):
         self.phase_detector0 = PhaseDetector(48)
         self.phase_detector1 = PhaseDetector(52)
 
-    @staticmethod
-    def run():
+    # @staticmethod
+    def run(self):
         count = 0
         while count > -1:
             time.sleep(1)
             print("ADCThread Increasing")
-            print('Channel 0: {}'.format(phase_detector0.read_amplitude()))
+            print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
             count += 1
 
 
