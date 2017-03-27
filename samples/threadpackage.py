@@ -16,7 +16,7 @@ class ADCThread(QThread):
             time.sleep(1)
             print("ADCThread Increasing")
             # TODO: OSError: [Errno 5] Input/output error
-            # print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
+            print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
             count += 1
 
 
