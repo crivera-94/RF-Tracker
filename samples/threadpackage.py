@@ -12,21 +12,21 @@ class ADCThread(QThread):
 
     def __init__(self):
         QThread.__init__(self)
-        #self.yourInit()
+        # self.yourInit()
         self.phase_detector0 = PhaseDetector(48)
         self.phase_detector1 = PhaseDetector(52)
 
-    #def yourInit(self):
-        #self.phase_detector0 = PhaseDetector(48)
-        #self.phase_detector1 = PhaseDetector(52)
+    # def yourInit(self):
+        # self.phase_detector0 = PhaseDetector(48)
+        # self.phase_detector1 = PhaseDetector(52)
 
-    # @staticmethod
     def run(self):
         count = 0
         while count > -1:
             time.sleep(1)
             print("ADCThread Increasing")
-            print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
+            # TODO: OSError: [Errno 5] Input/output error
+            # print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
             count += 1
 
 
