@@ -1,3 +1,4 @@
+import time
 from PyQt5.QtCore import QThread
 
 class AThread(QThread):
