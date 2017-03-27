@@ -16,6 +16,7 @@ class ADCThread(QThread):
         while count > -1:
             time.sleep(1)
             print("ADCThread Increasing")
+            print('Channel 0: {}'.format(phase_detector0.read_amplitude()))
             count += 1
 
 
