@@ -144,12 +144,10 @@ if __name__ == '__main__':
     threadADC = ADCThread()
     threadADC.finished.connect(app.exit)
     threadADC.start()
-    threadADC.wait()
 
     # Filter Thread
     threadFilter = FilterThread()
     threadFilter.finished.connect(app.exit)
     threadFilter.start()
-    threadFilter.wait()
 
     sys.exit(app.exec_())
