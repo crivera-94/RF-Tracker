@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd1ad4e1-4388-442f-a8b7-4cffafbfc93c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/samples/application.py" afterPath="$PROJECT_DIR$/samples/application.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/samples/threadpackage.py" afterPath="$PROJECT_DIR$/samples/threadpackage.py" />
     </list>
     <ignored path="RF-Tracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,8 +48,8 @@
       <file leaf-file-name="threadpackage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/samples/threadpackage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+            <state relative-caret-position="552">
+              <caret line="66" column="14" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -124,8 +124,8 @@
         <option value="$PROJECT_DIR$/samples/phasedetector.py" />
         <option value="$PROJECT_DIR$/samples/uisamples/threadpackage.py" />
         <option value="$PROJECT_DIR$/samples/plot.py" />
-        <option value="$PROJECT_DIR$/samples/threadpackage.py" />
         <option value="$PROJECT_DIR$/samples/application.py" />
+        <option value="$PROJECT_DIR$/samples/threadpackage.py" />
       </list>
     </option>
   </component>
@@ -733,8 +733,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/samples/threadpackage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        <state relative-caret-position="552">
+          <caret line="66" column="14" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
