@@ -56,8 +56,6 @@ class FilterThread(QThread):
         self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
 
     def run(self):
-        count = 0
-        while count > -1:
+        while True:
             time.sleep(1)
             print("FilterThread Increasing")
-            count += 1
