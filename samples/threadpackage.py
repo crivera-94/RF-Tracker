@@ -23,12 +23,6 @@ class ADCThread(QThread):
 
     def __init__(self):
         QThread.__init__(self)
-        #global amplitude0
-        #global phase0
-        #global amplitude1
-        #global phase1
-        #global amplitude2
-        #global phase2
 
         # phase_detector0 setup
         # A0 = phase
