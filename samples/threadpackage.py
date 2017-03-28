@@ -39,7 +39,7 @@ class ADCThread(QThread):
             amplitude0 = amplitude_temp/self.sample_size
 
             time.sleep(1)
-            print("ADCThread Increasing: {}".format(amplitude0))
+            print("ADCThread -> Amplitude0:{}".format(amplitude0))
             # TODO: OSError: [Errno 5] Input/output error
             # print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
 
