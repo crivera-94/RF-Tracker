@@ -32,7 +32,7 @@ class ADCThread(QThread):
 
     def run(self):
         while True:
-            for i in range(0, self.samples):
+            for i in range(0, self.sample_size):
                 # set equal to the new read
                 amplitude_temp = 10
             global amplitude0
