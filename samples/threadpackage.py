@@ -47,7 +47,7 @@ class ADCThread(QThread):
             amplitude0 = amplitude_temp/self.sample_size
             mutex.unlock()
 
-            time.sleep(1)
+            time.sleep(0.5)
             print("ADCThread -> Amplitude0: {}".format(amplitude0))
             # TODO: OSError: [Errno 5] Input/output error
             # print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
@@ -62,6 +62,6 @@ class FilterThread(QThread):
     def run(self):
         while True:
             mutex.lock()
-            time.sleep(1)
+            time.sleep(0.5)
             print("FilterThread Increasing")
             mutex.unlock()
