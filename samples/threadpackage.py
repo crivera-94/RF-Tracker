@@ -33,13 +33,13 @@ class ADCThread(QThread):
     def run(self):
         while True:
             for i in range(0, self.sample_size):
-                # set equal to the new read
+                # set amplitude_temp equal to self.phase_detector0.read_amplitude()
                 amplitude_temp = 10
             global amplitude0
             amplitude0 = amplitude_temp/self.sample_size
 
             time.sleep(1)
-            print("ADCThread Increasing")
+            print("ADCThread Increasing: {}".format(amplitude0))
             # TODO: OSError: [Errno 5] Input/output error
             # print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
 
@@ -48,7 +48,6 @@ class FilterThread(QThread):
 
     def __init__(self):
         QThread.__init__(self)
-        # self.ADCThread = ADCThread
         self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
 
     def run(self):
