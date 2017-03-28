@@ -44,7 +44,7 @@ class FilterThread(QThread):
     def __init__(self):
         QThread.__init__(self)
         # self.ADCThread = ADCThread
-        # self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
+        self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
 
     def run(self):
         count = 0
