@@ -1,5 +1,5 @@
 import time
-from PyQt5.QtCore import QThread
+from PyQt5.QtCore import QThread, QMutex
 from phasedetector import PhaseDetector
 from pykalman import KalmanFilter
 
@@ -14,6 +14,9 @@ phase1 = 0
 # antenna 0 - 2
 amplitude2 = 0
 phase2 = 0
+
+# create mutual exclusion
+mutex = QMutex()
 
 
 class ADCThread(QThread):
@@ -39,7 +42,7 @@ class ADCThread(QThread):
             amplitude0 = amplitude_temp/self.sample_size
 
             time.sleep(1)
-            print("ADCThread -> Amplitude0:{}".format(amplitude0))
+            print("ADCThread -> Amplitude0: {}".format(amplitude0))
             # TODO: OSError: [Errno 5] Input/output error
             # print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
 
