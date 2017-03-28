@@ -61,7 +61,7 @@ class FilterThread(QThread):
 
     def run(self):
         while True:
-            # mutex.lock()
+            mutex.lock()
             time.sleep(1)
             print("FilterThread Increasing")
-            # mutex.unlock()
+            mutex.unlock()
