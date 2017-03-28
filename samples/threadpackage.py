@@ -23,13 +23,23 @@ class ADCThread(QThread):
 
     def __init__(self):
         QThread.__init__(self)
-        global amplitude0
-        global phase0
-        global amplitude1
-        global phase1
-        global amplitude2
-        global phase2
+        #global amplitude0
+        #global phase0
+        #global amplitude1
+        #global phase1
+        #global amplitude2
+        #global phase2
+
+        # phase_detector0 setup
+        # A0 = phase
+        # A1 = amplitude
+        # A2 = phase (outer)
         self.phase_detector0 = PhaseDetector(48)
+
+        # phase_detector1 setup
+        # A0 = phase
+        # A1 = amplitude
+        # A2 = amplitude (outer)
         self.phase_detector1 = PhaseDetector(52)
         self.sample_size = 10
 
@@ -57,5 +67,7 @@ class FilterThread(QThread):
 
     def run(self):
         while True:
+            mutex.lock()
             time.sleep(1)
             print("FilterThread Increasing")
+            mutex.unlock()
