@@ -38,8 +38,16 @@ def print_time(thread_name, delay):
         print("%s: %s" % (thread_name, time.ctime(time.time())))
 
 
-def update_amplitude(phase_detector0, phase_detector1, filter):
-    filter.update(phase_detector0.read_amplitude(), phase_detector1.read_amplitude(), phase_detector1.read_third_value())
+class UpdateGUI(QThread):
+    data_downloaded = QtCore.pyqtSignal(object)
+
+    def __init__(self, url):
+        QtCore.QThread.__init__(self)
+        self.url = url
+
+    def run(self):
+        info = urllib2.urlopen(self.url).info()
+        self.data_downloaded.emit('%s\n%s' % (self.url, info))
 
 
 class RFTracker(QMainWindow):
@@ -121,7 +129,6 @@ class RFTracker(QMainWindow):
         label.setFrameStyle(QFrame.Box | QFrame.Sunken)
         label.setMinimumSize(self.sizeHint())
         return label
-
 
 if __name__ == '__main__':
 

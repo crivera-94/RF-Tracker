@@ -89,6 +89,9 @@ class FilterThread(QThread):
         else:
             return -num/den
 
+    def distance(self):
+
+
     def __init__(self):
         QThread.__init__(self)
         self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
