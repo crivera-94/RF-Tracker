@@ -45,7 +45,8 @@ print('Reading ADS1x15 channel 0 for 5 seconds...')
 start = time.time()
 while (time.time() - start) <= 3.0:
     # Read the last ADC conversion value and print it out.
-    value = adc.get_last_result()*(2.048/2048)
+    # value = adc.get_last_result()*(2.048/2048)
+    value = adc.get_last_result()
     average += value
     # WARNING! If you try to read any other ADC channel during this continuous
     # conversion (like by calling read_adc again) it will disable the

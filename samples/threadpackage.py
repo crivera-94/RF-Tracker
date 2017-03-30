@@ -13,15 +13,15 @@ class Sector(Enum):
 
 # sector A - top left
 amplitudeA = 10
-phaseA = 0
+# phaseA = 0
 
 # sector B - top right
 amplitudeB = 0
-phaseB = 0
+# phaseB = 0
 
 # sector C - bottom
 amplitudeC = 0
-phaseC = 0
+# phaseC = 0
 
 # create mutual exclusion
 mutex = QMutex()
