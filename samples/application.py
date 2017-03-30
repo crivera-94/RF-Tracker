@@ -124,17 +124,6 @@ class RFTracker(QMainWindow):
 
 
 if __name__ == '__main__':
-    # phase_detector0 setup
-    # A0 = phase
-    # A1 = amplitude
-    # A2 = phase (outer)
-    phase_detector0 = PhaseDetector(48)
-
-    # phase_detector1 setup
-    # A0 = phase
-    # A1 = amplitude
-    # A2 = amplitude (outer)
-    phase_detector1 = PhaseDetector(52)
 
     # start application
     app = QApplication(sys.argv)

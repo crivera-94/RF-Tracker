@@ -2,6 +2,7 @@ import time
 from PyQt5.QtCore import QThread, QMutex
 from phasedetector import PhaseDetector
 from pykalman import KalmanFilter
+from enum import Enum
 
 # antenna 0 - 1
 amplitude0 = 0
@@ -17,6 +18,10 @@ phase2 = 0
 
 # create mutual exclusion
 mutex = QMutex()
+
+# resultant location
+resultant_angle = 0
+resultant_sector = 9
 
 
 class ADCThread(QThread):
@@ -42,9 +47,9 @@ class ADCThread(QThread):
             mutex.lock()
             for i in range(0, self.sample_size):
                 # set amplitude_temp equal to self.phase_detector0.read_amplitude()
-                amplitude_temp = 10
+                amplitude_temp0 = 10
             global amplitude0
-            amplitude0 = amplitude_temp/self.sample_size
+            amplitude0 = amplitude_temp0/self.sample_size
             mutex.unlock()
 
             time.sleep(0.5)
@@ -62,7 +67,8 @@ class FilterThread(QThread):
     def run(self):
         while True:
             # mutex.lock()
-
             time.sleep(0.5)
             print("FilterThread Increasing")
             # mutex.unlock()
+
+    def get_sector(self):

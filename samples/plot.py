@@ -23,7 +23,6 @@ class Plot(QWidget):
     
         self.paintEvent = self.draw_rings
 
-
     def setFloatBased(self, floatBased):
         self.floatBased = floatBased
         self.update()
@@ -44,12 +43,12 @@ class Plot(QWidget):
     
     def nextAnimationFrame(self):
         
-        if self.setup_finished == True:
+        if self.setup_finished:
             self.x = (self.x + 1) % 20
             self.y = (self.y + 1) % 20
             self.update()
         else:
-            if self.rings_plotted == True:
+            if self.rings_plotted:
                 # read data and plot
                 if self.alpha >= 240:
                     self.alpha = 255
@@ -60,7 +59,7 @@ class Plot(QWidget):
                     self.alpha += 20
                     self.update()
             else:
-                if self.radius > 390 :
+                if self.radius > 390:
                     self.paintEvent = self.draw_lines
                     self.rings_plotted = True
                     self.alpha = 0
@@ -70,7 +69,6 @@ class Plot(QWidget):
                     if self.alpha == 0:
                         self.radius += 30
                     self.update()
-
 
     def setup_plot(self, event):
         color = QColor(0, 0, 0)
@@ -98,7 +96,6 @@ class Plot(QWidget):
         for i in range(0,180,1):
             painter.drawPoint(i * step_x, i * step_y)
             painter.drawPoint(-i * step_x, i * step_y)
-
 
     # draw rings new
     def draw_rings(self, event):
@@ -133,9 +130,7 @@ class Plot(QWidget):
                 painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
                 break
 
-
     def draw_lines(self, event):
-        
         
         color = QColor(0, 0, 0)
         color.setNamedColor('#4080fe')
