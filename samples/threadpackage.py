@@ -4,6 +4,12 @@ from phasedetector import PhaseDetector
 from pykalman import KalmanFilter
 from enum import Enum
 
+
+class Sector(Enum):
+    A = 0
+    B = 1
+    C = 2
+
 # antenna 0 - 1
 amplitude0 = 0
 phase0 = 0
@@ -21,7 +27,7 @@ mutex = QMutex()
 
 # resultant location
 resultant_angle = 0
-resultant_sector = 9
+resultant_sector = Sector.A
 
 
 class ADCThread(QThread):
@@ -64,12 +70,23 @@ class FilterThread(QThread):
         QThread.__init__(self)
         self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
 
+    def get_sector(self):
+        if amplitude0 > amplitude1:
+            if amplitude0 > amplitude2:
+                return Sector.A
+            else:
+                return Sector.C
+        else:
+            if amplitude1 > amplitude2:
+                return Sector.B
+            else:
+                return Sector.C
+
     def run(self):
         while True:
+            sector = get_sector()
+
             # mutex.lock()
             time.sleep(0.5)
             print("FilterThread Increasing")
             # mutex.unlock()
-
-    def get_sector(self):
-        hello = 5
