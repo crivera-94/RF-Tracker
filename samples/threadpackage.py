@@ -72,3 +72,4 @@ class FilterThread(QThread):
             # mutex.unlock()
 
     def get_sector(self):
+        hello = 5
