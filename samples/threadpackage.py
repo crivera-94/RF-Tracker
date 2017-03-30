@@ -12,7 +12,7 @@ class Sector(Enum):
     C = 2
 
 # sector A - top left
-amplitudeA = 0
+amplitudeA = 10
 phaseA = 0
 
 # sector B - top right
@@ -70,6 +70,7 @@ class FilterThread(QThread):
     def sectorA(self):
         voltage = (amplitudeA * self.max_voltage) / self.resolution
         angle = self.quadratic(voltage)
+        print("amplitudeA Increasing")
 
     def sectorB(self):
         voltage = (amplitudeB * self.max_voltage) / self.resolution
