@@ -89,7 +89,7 @@ class FilterThread(QThread):
         else:
             return -num/den
 
-    def distance(self):
+    # def distance(self):
 
 
     def __init__(self):
