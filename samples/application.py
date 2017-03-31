@@ -39,7 +39,7 @@ def print_time(thread_name, delay):
 
 
 class UpdateGUI(QThread):
-    data_downloaded = QtCore.pyqtSignal(object)
+    data_downloaded = pyqtSignal(object)
 
     def __init__(self, url):
         QtCore.QThread.__init__(self)
