@@ -27,6 +27,7 @@ from plot import Plot
 from phasedetector import PhaseDetector
 from threadpackage import ADCThread
 from threadpackage import FilterThread
+import globals
 
 
 # Define a function for the thread
@@ -131,6 +132,7 @@ class RFTracker(QMainWindow):
         return label
 
 if __name__ == '__main__':
+    globals.init()
 
     # start application
     app = QApplication(sys.argv)
