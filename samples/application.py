@@ -38,16 +38,16 @@ def print_time(thread_name, delay):
         print("%s: %s" % (thread_name, time.ctime(time.time())))
 
 
-class UpdateGUI(QThread):
-    data_downloaded = pyqtSignal(object)
+#class UpdateGUI(QThread):
+    #data_downloaded = QtCore.pyqtSignal(object)
 
-    def __init__(self, url):
-        QtCore.QThread.__init__(self)
-        self.url = url
+    #def __init__(self, url):
+        #QtCore.QThread.__init__(self)
+        #self.url = url
 
-    def run(self):
-        info = urllib2.urlopen(self.url).info()
-        self.data_downloaded.emit('%s\n%s' % (self.url, info))
+    #def run(self):
+        #info = urllib2.urlopen(self.url).info()
+        #self.data_downloaded.emit('%s\n%s' % (self.url, info))
 
 
 class RFTracker(QMainWindow):
