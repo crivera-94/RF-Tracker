@@ -4,6 +4,7 @@ from phasedetector import PhaseDetector
 from pykalman import KalmanFilter
 from math import sqrt, pow
 from enum import Enum
+import globals
 
 
 class Sector(Enum):
@@ -56,7 +57,10 @@ class ADCThread(QThread):
                 # set amplitude_temp equal to self.phase_detector0.read_amplitude()
                 amplitude_temp0 = 10
             global amplitudeA
+
             amplitudeA = amplitude_temp0 / self.sample_size
+            globals.amplitudeA = amplitude_temp0 / self.sample_size
+
             mutex.unlock()
 
             time.sleep(0.5)
