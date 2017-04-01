@@ -53,7 +53,6 @@ class ADCThread(QThread):
                 # set amplitude_temp equal to self.phase_detector0.read_amplitude()
                 amplitude_temp0 = 10
             global amplitudeA
-
             amplitudeA = amplitude_temp0 / self.sample_size
             globals.amplitudeA = amplitude_temp0 / self.sample_size
 
@@ -86,11 +85,14 @@ class FilterThread(QThread):
         phi = reference_angle - self.quadratic(voltage)
         coordinates = self.polar_to_cartesian(rho, phi)
 
-        global global_x
-        global_x = coordinates[0]
+        #global global_x
+        #global_x = coordinates[0]
+        globals.global_x = coordinates[0]
 
-        global global_y
-        global_y = coordinates[1]
+        #global global_y
+        #global_y = coordinates[1]
+        globals.global_y = coordinates[1]
+
 
     def sectorA(self):
         self.update_globals(amplitudeA, distance, 210)
