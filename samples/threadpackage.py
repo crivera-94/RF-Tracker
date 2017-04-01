@@ -54,7 +54,9 @@ class ADCThread(QThread):
                 amplitude_temp0 = 10
             #global amplitudeA
             #amplitudeA = amplitude_temp0 / self.sample_size
-            globals.amplitudeA = amplitude_temp0 / self.sample_size
+            # globals.amplitudeA = amplitude_temp0 / self.sample_size
+
+            globals.amplitudeA = (globals.amplitudeA + 0.05) % 2
 
             mutex.unlock()
 
