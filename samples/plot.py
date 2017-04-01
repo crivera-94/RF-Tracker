@@ -44,8 +44,10 @@ class Plot(QWidget):
     def nextAnimationFrame(self):
         
         if self.setup_finished:
-            self.x = (self.x + 1) % 20
-            self.y = (self.y + 1) % 20
+            #self.x = (self.x + 1) % 20
+            #self.y = (self.y + 1) % 20
+            self.x = globals.global_x
+            self.y = globals.global_y
             self.update()
         else:
             if self.rings_plotted:
@@ -181,12 +183,12 @@ class Plot(QWidget):
         for l in range(0,180,1):
             painter.drawPoint(0,-l)
 
-        i = 0
+        # i = 0
         step_x = .8660254
         step_y = .5
 
         # 180 is a fixed bound
-        for i in range(0,180,1):
+        for i in range(0, 180, 1):
             painter.drawPoint(i * step_x, i * step_y)
             painter.drawPoint(-i * step_x, i * step_y)
 
@@ -194,22 +196,22 @@ class Plot(QWidget):
         painter_red = QPainter(self)
         painter_red.setPen(color)
         painter_red.setRenderHint(QPainter.Antialiasing, self.antialiased)
-        painter_red.translate(self.width() / 2, self.height() / 2)
+        painter_red.translate(self.width()/2, self.height()/2)
 
         for i in range(0, 6, 1):
 
-            painter_red.drawPoint(self.x+i,self.y)
-            painter_red.drawPoint(self.x+i,self.y+1)
-            painter_red.drawPoint(self.x+i,self.y-1)
+            painter_red.drawPoint(self.x+i, self.y)
+            painter_red.drawPoint(self.x+i, self.y+1)
+            painter_red.drawPoint(self.x+i, self.y-1)
 
-            painter_red.drawPoint(self.x-i,self.y)
-            painter_red.drawPoint(self.x-i,self.y+1)
-            painter_red.drawPoint(self.x-i,self.y-1)
+            painter_red.drawPoint(self.x-i, self.y)
+            painter_red.drawPoint(self.x-i, self.y+1)
+            painter_red.drawPoint(self.x-i, self.y-1)
 
-            painter_red.drawPoint(self.x,self.y+i)
-            painter_red.drawPoint(self.x+1,self.y+i)
-            painter_red.drawPoint(self.x-1,self.y+i)
+            painter_red.drawPoint(self.x, self.y+i)
+            painter_red.drawPoint(self.x+1, self.y+i)
+            painter_red.drawPoint(self.x-1, self.y+i)
 
-            painter_red.drawPoint(self.x,self.y-i)
-            painter_red.drawPoint(self.x+1,self.y-i)
-            painter_red.drawPoint(self.x-1,self.y-i)
+            painter_red.drawPoint(self.x, self.y-i)
+            painter_red.drawPoint(self.x+1, self.y-i)
+            painter_red.drawPoint(self.x-1, self.y-i)
