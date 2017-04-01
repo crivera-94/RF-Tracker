@@ -2,7 +2,7 @@ import time
 from PyQt5.QtCore import QThread, QMutex
 from phasedetector import PhaseDetector
 from pykalman import KalmanFilter
-from math import sqrt, pow
+from math import sqrt, pow, sin, cos, pi, radians
 from enum import Enum
 import globals
 
@@ -14,22 +14,18 @@ class Sector(Enum):
 
 # sector A - top left
 amplitudeA = 10
-# phaseA = 0
 
 # sector B - top right
 amplitudeB = 0
-# phaseB = 0
 
 # sector C - bottom
 amplitudeC = 0
-# phaseC = 0
+
+# distance
+distance = 0
 
 # create mutual exclusion
 mutex = QMutex()
-
-# resultant location
-resultant_angle = 0
-resultant_sector = Sector.A
 
 
 class ADCThread(QThread):
@@ -71,18 +67,10 @@ class ADCThread(QThread):
 
 class FilterThread(QThread):
 
-    def sectorA(self):
-        voltage = (amplitudeA * self.max_voltage) / self.resolution
-        angle = self.quadratic(voltage)
-        print("amplitudeA Increasing")
-
-    def sectorB(self):
-        voltage = (amplitudeB * self.max_voltage) / self.resolution
-        angle = self.quadratic(voltage)
-
-    def sectorC(self):
-        voltage = (amplitudeC * self.max_voltage) / self.resolution
-        angle = self.quadratic(voltage)
+    def polar_to_cartesian(self, rho, phi):
+        x = rho * cos(phi)
+        y = rho * sin(phi)
+        return x, y
 
     def quadratic(self, y):
         root = pow(self.b, 2) + (4 * self.a * (y - self.c))
@@ -93,7 +81,26 @@ class FilterThread(QThread):
         else:
             return -num/den
 
-    # def distance(self):
+    def update_globals(self, amplitude_reading, rho, reference_angle):
+        voltage = (amplitude_reading * self.max_voltage) / self.resolution
+        phi = reference_angle - self.quadratic(voltage)
+        coordinates = self.polar_to_cartesian(rho, phi)
+
+        global global_x
+        global_x = coordinates[0]
+
+        global global_y
+        global_y = coordinates[1]
+
+    def sectorA(self):
+        self.update_globals(amplitudeA, distance, 210)
+        print("amplitudeA Increasing")
+
+    def sectorB(self):
+        self.update_globals(amplitudeB, distance, 90)
+
+    def sectorC(self):
+        self.update_globals(amplitudeC, distance, -30)
 
     def __init__(self):
         QThread.__init__(self)

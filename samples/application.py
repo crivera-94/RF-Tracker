@@ -17,6 +17,7 @@
 import sys
 import time
 import phasedetector
+import globals
 
 from PyQt5.QtCore import Qt, QTimer, QThread
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
@@ -27,7 +28,6 @@ from plot import Plot
 from phasedetector import PhaseDetector
 from threadpackage import ADCThread
 from threadpackage import FilterThread
-import globals
 
 
 # Define a function for the thread

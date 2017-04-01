@@ -145,7 +145,6 @@ class Plot(QWidget):
             alpha = 255 - (delta * delta) / 4 - diameter
             painter.drawEllipse(QRectF(-diameter / 2.0, -diameter / 2.0, diameter, diameter))
     
-    
         color.setAlpha(self.alpha)
         painter_light = QPainter(self)
         painter_light.setPen(color)
