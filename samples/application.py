@@ -132,6 +132,7 @@ class RFTracker(QMainWindow):
         return label
 
 if __name__ == '__main__':
+    # initialize global variables
     globals.init()
 
     # start application
