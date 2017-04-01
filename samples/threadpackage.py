@@ -52,8 +52,8 @@ class ADCThread(QThread):
             for i in range(0, self.sample_size):
                 # set amplitude_temp equal to self.phase_detector0.read_amplitude()
                 amplitude_temp0 = 10
-            global amplitudeA
-            amplitudeA = amplitude_temp0 / self.sample_size
+            #global amplitudeA
+            #amplitudeA = amplitude_temp0 / self.sample_size
             globals.amplitudeA = amplitude_temp0 / self.sample_size
 
             mutex.unlock()
