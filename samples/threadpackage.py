@@ -95,14 +95,14 @@ class FilterThread(QThread):
 
 
     def sectorA(self):
-        self.update_globals(amplitudeA, distance, 210)
+        self.update_globals(globals.amplitudeA, distance, 210)
         print("amplitudeA Increasing")
 
     def sectorB(self):
-        self.update_globals(amplitudeB, distance, 90)
+        self.update_globals(globals.amplitudeB, distance, 90)
 
     def sectorC(self):
-        self.update_globals(amplitudeC, distance, -30)
+        self.update_globals(globals.amplitudeC, distance, -30)
 
     def __init__(self):
         QThread.__init__(self)
