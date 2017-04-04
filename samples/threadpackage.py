@@ -33,34 +33,31 @@ class ADCThread(QThread):
 
     def __init__(self):
         QThread.__init__(self)
-
+        self.sample_size = 10
         # phase_detector0 setup
         # A0 = phase
         # A1 = amplitude
         # A2 = phase (outer)
         self.phase_detector0 = PhaseDetector(0x48)
 
-        self.adc = Adafruit_ADS1x15.ADS1015()
-
         # phase_detector1 setup
         # A0 = phase
         # A1 = amplitude
         # A2 = amplitude (outer)
-        self.phase_detector1 = PhaseDetector(52)
-        self.sample_size = 10
+        self.phase_detector1 = PhaseDetector(0x52)
 
     def run(self):
         while True:
             mutex.lock()
+            amplitude_temp0 = 0
             for i in range(0, self.sample_size):
                 # set amplitude_temp equal to self.phase_detector0.read_amplitude()
-                #amplitude_temp0 = amplitude_temp0 + self.phase_detector0.read_amplitude()
-                amplitude_temp0 = 10
+                amplitude_temp0 = amplitude_temp0 + self.phase_detector0.read_amplitude()
             #global amplitudeA
             #amplitudeA = amplitude_temp0 / self.sample_size
-            # globals.amplitudeA = amplitude_temp0 / self.sample_size
+            globals.amplitudeA = amplitude_temp0 / self.sample_size
 
-            globals.amplitudeA = (globals.amplitudeA + 0.05) % 2
+            # globals.amplitudeA = (globals.amplitudeA + 0.05) % 2
 
             mutex.unlock()
 
