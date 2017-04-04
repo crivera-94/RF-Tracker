@@ -25,7 +25,7 @@ amplitudeC = 0
 distance = 0
 
 # create mutual exclusion
-mutex = QMutex()
+# mutex = QMutex()
 
 
 class ADCThread(QThread):

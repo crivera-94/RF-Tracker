@@ -180,7 +180,6 @@ class Plot(QWidget):
         for l in range(0,180,1):
             painter.drawPoint(0,-l)
 
-        # i = 0
         step_x = .8660254
         step_y = .5
 
