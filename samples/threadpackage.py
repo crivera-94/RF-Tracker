@@ -61,7 +61,7 @@ class ADCThread(QThread):
 
             mutex.unlock()
 
-            time.sleep(0.001)
+            time.sleep(0.00001)
             print("ADCThread -> Amplitude0: {}".format(amplitudeA))
             print("ADCThread -> Global: {}".format(globals.amplitudeA))
 
@@ -140,6 +140,5 @@ class FilterThread(QThread):
             self.options[sector]()
 
             # mutex.lock()
-            time.sleep(0.001)
-            print("FilterThread Increasing")
+            time.sleep(0.00001)
             # mutex.unlock()
