@@ -40,7 +40,7 @@ class ADCThread(QThread):
         # A2 = phase (outer)
         self.phase_detector0 = PhaseDetector(48)
 
-        self.adc = Adafruit_ADS1x15.ADS1015(address=48, busnum=1)
+        self.adc = Adafruit_ADS1x15.ADS1015()
 
         # phase_detector1 setup
         # A0 = phase
