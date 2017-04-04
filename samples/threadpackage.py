@@ -70,7 +70,7 @@ class ADCThread(QThread):
 
             # TODO: OSError: [Errno 5] Input/output error
             #print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
-            # print('Channel 0: {}'.format(self.adc.read_adc(0, gain=2)))
+            print('Channel 0: {}'.format(self.adc.read_adc(0, gain=2)))
 
 
 class FilterThread(QThread):
