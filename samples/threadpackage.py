@@ -51,6 +51,7 @@ class ADCThread(QThread):
             mutex.lock()
             for i in range(0, self.sample_size):
                 # set amplitude_temp equal to self.phase_detector0.read_amplitude()
+                #amplitude_temp0 = amplitude_temp0 + self.phase_detector0.read_amplitude()
                 amplitude_temp0 = 10
             #global amplitudeA
             #amplitudeA = amplitude_temp0 / self.sample_size
@@ -62,6 +63,8 @@ class ADCThread(QThread):
 
             time.sleep(0.5)
             print("ADCThread -> Amplitude0: {}".format(amplitudeA))
+            print("Global: {}".format(globals.amplitudeA))
+
             # TODO: OSError: [Errno 5] Input/output error
             # print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
 
