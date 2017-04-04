@@ -61,7 +61,7 @@ class ADCThread(QThread):
 
             mutex.unlock()
 
-            time.sleep(0.5)
+            time.sleep(0.25)
             print("ADCThread -> Amplitude0: {}".format(amplitudeA))
             print("ADCThread -> Global: {}".format(globals.amplitudeA))
 
