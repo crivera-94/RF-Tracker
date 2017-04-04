@@ -42,10 +42,7 @@ class Plot(QWidget):
         self.y = y
     
     def nextAnimationFrame(self):
-        
         if self.setup_finished:
-            #self.x = (self.x + 1) % 20
-            #self.y = (self.y + 1) % 20
             self.x = globals.global_x
             self.y = globals.global_y
             self.update()
@@ -199,7 +196,6 @@ class Plot(QWidget):
         painter_red.translate(self.width()/2, self.height()/2)
 
         for i in range(0, 6, 1):
-
             painter_red.drawPoint(self.x+i, self.y)
             painter_red.drawPoint(self.x+i, self.y+1)
             painter_red.drawPoint(self.x+i, self.y-1)
