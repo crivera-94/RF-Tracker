@@ -60,11 +60,11 @@ class ADCThread(QThread):
 
             globals.mutex.unlock()
 
-            time.sleep(0.00001)
             print("ADCThread -> Global: {}".format(globals.amplitudeA))
 
             print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
             print('Channel 1: {}'.format(self.phase_detector0.read_phase()))
+            time.sleep(0.00001)
 
 
 class FilterThread(QThread):
@@ -94,7 +94,7 @@ class FilterThread(QThread):
     def sectorA(self):
         # distance can be a max of 180, defined by plot size
         distance = 90
-        print("Global: {}".format(globals.amplitudeA))
+        # print("Global: {}".format(globals.amplitudeA))
         self.update_globals(globals.amplitudeA, distance, 210)
 
     def sectorB(self):
