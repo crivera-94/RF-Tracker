@@ -117,7 +117,7 @@ class RFTracker(QMainWindow):
 
         timer.timeout.connect(plot.nextAnimationFrame)
         
-        timer.start(20)
+        timer.start(10)
         
         self.showFullScreen()
         self.setWindowTitle('RF Tracker')
