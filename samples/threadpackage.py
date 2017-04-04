@@ -61,7 +61,7 @@ class ADCThread(QThread):
 
             mutex.unlock()
 
-            # time.sleep(0.1)
+            time.sleep(0.001)
             print("ADCThread -> Amplitude0: {}".format(amplitudeA))
             print("ADCThread -> Global: {}".format(globals.amplitudeA))
 
@@ -91,12 +91,7 @@ class FilterThread(QThread):
         phi = reference_angle - self.quadratic(voltage)
         coordinates = self.polar_to_cartesian(rho, phi)
 
-        #global global_x
-        #global_x = coordinates[0]
         globals.global_x = coordinates[0]
-
-        #global global_y
-        #global_y = coordinates[1]
         globals.global_y = coordinates[1]
 
     def sectorA(self):
@@ -145,6 +140,6 @@ class FilterThread(QThread):
             self.options[sector]()
 
             # mutex.lock()
-            # time.sleep(0.1)
+            time.sleep(0.001)
             print("FilterThread Increasing")
             # mutex.unlock()
