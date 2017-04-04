@@ -5,6 +5,7 @@ from pykalman import KalmanFilter
 from math import sqrt, pow, sin, cos, pi, radians
 from enum import Enum
 import globals
+import Adafruit_ADS1x15
 
 
 class Sector(Enum):
@@ -39,6 +40,8 @@ class ADCThread(QThread):
         # A2 = phase (outer)
         self.phase_detector0 = PhaseDetector(48)
 
+        self.adc = Adafruit_ADS1x15.ADS1015(address=48, busnum=1)
+
         # phase_detector1 setup
         # A0 = phase
         # A1 = amplitude
@@ -66,7 +69,8 @@ class ADCThread(QThread):
             print("ADCThread -> Global: {}".format(globals.amplitudeA))
 
             # TODO: OSError: [Errno 5] Input/output error
-            print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
+            #print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
+            # print('Channel 0: {}'.format(self.adc.read_adc(0, gain=2)))
 
 
 class FilterThread(QThread):
