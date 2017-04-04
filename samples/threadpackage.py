@@ -145,6 +145,6 @@ class FilterThread(QThread):
             self.options[sector]()
 
             # mutex.lock()
-            time.sleep(0.5)
+            time.sleep(0.1)
             print("FilterThread Increasing")
             # mutex.unlock()
