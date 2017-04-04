@@ -38,7 +38,7 @@ class ADCThread(QThread):
         # A0 = phase
         # A1 = amplitude
         # A2 = phase (outer)
-        self.phase_detector0 = PhaseDetector(48)
+        self.phase_detector0 = PhaseDetector(0x48)
 
         self.adc = Adafruit_ADS1x15.ADS1015()
 
@@ -69,7 +69,7 @@ class ADCThread(QThread):
             print("ADCThread -> Global: {}".format(globals.amplitudeA))
 
             # TODO: OSError: [Errno 5] Input/output error
-            #print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
+            print('Channel 0: {}'.format(self.phase_detector0.read_amplitude()))
             print('Channel 0: {}'.format(self.adc.read_adc(0, gain=2)))
 
 
