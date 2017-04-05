@@ -22,7 +22,7 @@ import globals
 from PyQt5.QtCore import Qt, QTimer, QThread
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
-                             QLabel, QFrame, QSlider, QDialog)
+                             QLabel, QFrame, QSlider, QDialog, QLineEdit)
 from PyQt5 import QtGui
 from plot import Plot
 from phasedetector import PhaseDetector
@@ -54,8 +54,8 @@ def print_time(thread_name, delay):
 class Login(QDialog):
     def __init__(self, parent=None):
         super(Login, self).__init__(parent)
-        self.textName = QtGui.QLineEdit(self)
-        self.textPass = QtGui.QLineEdit(self)
+        self.textName = QLineEdit(self)
+        self.textPass = QLineEdit(self)
         self.buttonLogin = QtGui.QPushButton('Login', self)
         self.buttonLogin.clicked.connect(self.handleLogin)
         layout = QtGui.QVBoxLayout(self)
