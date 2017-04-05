@@ -96,7 +96,7 @@ class FilterThread(QThread):
         # distance can be a max of 180, defined by plot size
         distance = 90
         # print("Global: {}".format(globals.amplitudeA))
-        self.update_globals(globals.amplitudeA, distance, 210)
+        self.update_globals(globals.amplitudeA, globals.distance, 210)
 
     def sectorB(self):
         self.update_globals(globals.amplitudeB, distance, 90)
