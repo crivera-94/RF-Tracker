@@ -13,13 +13,13 @@ class Sector(Enum):
     C = 2
 
 # sector A - top left
-# mplitudeA = 10
+amplitudeA = 10
 
 # sector B - top right
-# amplitudeB = 0
+amplitudeB = 0
 
 # sector C - bottom
-# amplitudeC = 0
+amplitudeC = 0
 
 # distance
 # distance = 0
