@@ -125,13 +125,13 @@ class FilterThread(QThread):
 
     @staticmethod
     def get_sector():
-        if globals.amplitudeA > amplitudeB:
-            if globals.amplitudeA > amplitudeC:
+        if globals.amplitudeA > globals.amplitudeB:
+            if globals.amplitudeA > globals.amplitudeC:
                 return Sector.A
             else:
                 return Sector.C
         else:
-            if amplitudeB > amplitudeC:
+            if globals.amplitudeB > globals.amplitudeC:
                 return Sector.B
             else:
                 return Sector.C
