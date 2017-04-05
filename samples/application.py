@@ -150,14 +150,12 @@ class RFTracker(QMainWindow):
         return label
 
 if __name__ == '__main__':
-
-    login = Login()
-
     # initialize global variables
     globals.init()
 
     # start application
     app = QApplication(sys.argv)
+    login = Login()
     ex = RFTracker()
 
     # ADC Read Thread
