@@ -74,7 +74,7 @@ class ADCThread(QThread):
 
 class FilterThread(QThread):
     @staticmethod
-    def polar_to_cartesian(self, rho, phi):
+    def polar_to_cartesian(rho, phi):
         x = rho * cos(phi)
         y = rho * sin(phi)
         return x, y
