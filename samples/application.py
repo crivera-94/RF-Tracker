@@ -63,12 +63,13 @@ class Login(QDialog):
         layout.addWidget(self.textName)
         layout.addWidget(self.textPass)
         layout.addWidget(self.buttonLogin)
+        self.showFullScreen()
 
     def handleLogin(self):
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
             self.accept()
         else:
-            QMessageBox.warning(self, 'Error', 'Bad user or password')
+            QMessageBox.warning(self, 'Error', 'Bad user or password')a
 
 
 class RFTracker(QMainWindow):
