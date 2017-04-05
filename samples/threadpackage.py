@@ -73,7 +73,7 @@ class ADCThread(QThread):
 
 
 class FilterThread(QThread):
-
+    @staticmethod
     def polar_to_cartesian(self, rho, phi):
         x = rho * cos(phi)
         y = rho * sin(phi)
@@ -123,6 +123,7 @@ class FilterThread(QThread):
             Sector.C: self.sectorC
         }
 
+    @staticmethod
     def get_sector(self):
         if globals.amplitudeA > amplitudeB:
             if globals.amplitudeA > amplitudeC:
@@ -139,7 +140,6 @@ class FilterThread(QThread):
         while True:
             sector = self.get_sector()
             self.options[sector]()
-
             # mutex.lock()
             time.sleep(0.00001)
             # mutex.unlock()
