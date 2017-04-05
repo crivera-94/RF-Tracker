@@ -15,6 +15,8 @@ def init():
     amplitudeB = 0
     global amplitudeC
     amplitudeC = 0
+    global distance
+    distance = 0
     global mutex
     mutex = QMutex()
     global resultant_angle

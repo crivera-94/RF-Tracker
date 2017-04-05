@@ -20,13 +20,16 @@ class PhaseDetector:
         self.GAIN = 2
 
     # read amplitude
-    def read_amplitude(self):
+    def read_channel_zero(self):
         return self.adc.read_adc(0, gain=self.GAIN)
 
     # read phase
-    def read_phase(self):
+    def read_channel_one(self):
         return self.adc.read_adc(1, gain=self.GAIN)
 
     # read amplitude or phase of remaining antenna
-    def read_third_value(self):
+    def read_channel_two(self):
         return self.adc.read_adc(2, gain=self.GAIN)
+
+    def read_channel_three(self):
+        return self.adc.read_adc(3, gain=self.GAIN)
