@@ -68,8 +68,7 @@ class Login(QDialog):
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
             self.accept()
         else:
-            QtGui.QMessageBox.warning(
-                self, 'Error', 'Bad user or password')
+            QtGui.QMessageBox.warning(self, 'Error', 'Bad user or password')
 
 
 class RFTracker(QMainWindow):
@@ -135,7 +134,6 @@ class RFTracker(QMainWindow):
         y = 0
 
         timer.timeout.connect(plot.nextAnimationFrame)
-        
         timer.start(10)
         
         self.showFullScreen()
@@ -157,7 +155,7 @@ if __name__ == '__main__':
     # start application
     app = QApplication(sys.argv)
     login = Login()
-    ex = RFTracker()
+    # ex = RFTracker()
 
     # ADC Read Thread
     threadADC = ADCThread()
