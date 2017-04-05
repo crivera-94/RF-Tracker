@@ -155,16 +155,17 @@ if __name__ == '__main__':
     # start application
     app = QApplication(sys.argv)
     login = Login()
-    # ex = RFTracker()
+    if login.exec_() == QDialog.Accepted:
+        ex = RFTracker()
 
-    # ADC Read Thread
-    threadADC = ADCThread()
-    threadADC.finished.connect(app.exit)
-    threadADC.start()
+        # ADC Read Thread
+        threadADC = ADCThread()
+        threadADC.finished.connect(app.exit)
+        threadADC.start()
 
-    # Filter Thread
-    threadFilter = FilterThread()
-    threadFilter.finished.connect(app.exit)
-    threadFilter.start()
+        # Filter Thread
+        threadFilter = FilterThread()
+        threadFilter.finished.connect(app.exit)
+        threadFilter.start()
 
-    sys.exit(app.exec_())
+        sys.exit(app.exec_())
