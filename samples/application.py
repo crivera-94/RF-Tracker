@@ -137,9 +137,6 @@ class RFTracker(QMainWindow):
         # Begin QTimer Poll and Read ADS
         timer = QTimer(self)
 
-        x = 0
-        y = 0
-
         timer.timeout.connect(plot.nextAnimationFrame)
         timer.start(10)
         
