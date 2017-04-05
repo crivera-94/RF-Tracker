@@ -124,7 +124,7 @@ class FilterThread(QThread):
         }
 
     @staticmethod
-    def get_sector(self):
+    def get_sector():
         if globals.amplitudeA > amplitudeB:
             if globals.amplitudeA > amplitudeC:
                 return Sector.A
