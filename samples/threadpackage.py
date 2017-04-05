@@ -13,16 +13,16 @@ class Sector(Enum):
     C = 2
 
 # sector A - top left
-amplitudeA = 10
+# mplitudeA = 10
 
 # sector B - top right
-amplitudeB = 0
+# amplitudeB = 0
 
 # sector C - bottom
-amplitudeC = 0
+# amplitudeC = 0
 
 # distance
-distance = 0
+# distance = 0
 
 # create mutual exclusion
 # mutex = QMutex()
@@ -48,19 +48,23 @@ class ADCThread(QThread):
     def run(self):
         while True:
             globals.mutex.lock()
+
             amplitude = 0
             distance = 0
+
             for i in range(0, self.sample_size):
                 # set amplitude_temp equal to self.phase_detector0.read_amplitude()
                 amplitude = amplitude + self.phase_detector0.read_channel_zero()
                 distance = distance + self.phase_detector0.read_channel_two()
+
             globals.amplitudeA = amplitude / self.sample_size
             globals.distance = distance / self.sample_size
+
             globals.mutex.unlock()
 
             print("ADCThread -> Global: {}".format(globals.amplitudeA))
             print('Channel 0: {}'.format(self.phase_detector0.read_channel_zero()))
-            print('Channel 1: {}'.format(self.phase_detector0.read_channel_two()))
+            print('Channel 2: {}'.format(self.phase_detector0.read_channel_two()))
             time.sleep(0.00001)
 
 
