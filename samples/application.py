@@ -71,6 +71,16 @@ class Login(QDialog):
         layout.addWidget(self.buttonLogin, 2, 1)
         self.setWindowTitle('RF Tracker')
 
+        exitAction = QAction(QtGui.QIcon('exit24.png'), 'Exit', self)
+        exitAction.setShortcut('Ctrl+Q')
+        exitAction.setStatusTip('Exit application')
+        exitAction.triggered.connect(self.close)
+
+        # File Menu and actions
+        menubar = self.menuBar()
+        fileMenu = menubar.addMenu('&File')
+        fileMenu.addAction(exitAction)
+
     def handle_login(self):
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
             self.accept()
