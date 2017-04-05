@@ -59,18 +59,19 @@ class Login(QDialog):
         self.textPass = QLineEdit(self)
         self.textPass.setEchoMode(QLineEdit.Password)
         self.buttonLogin = QPushButton('Login', self)
-        self.buttonLogin.clicked.connect(self.handleLogin)
+        self.buttonLogin.clicked.connect(self.handle_login)
         # layout = QVBoxLayout(self)
         username_label = QLabel("Username:")
         password_label = QLabel("Password:")
         layout = QGridLayout(self)
+        layout.addWidget(username_label, 0, 0)
+        layout.addWidget(password_label, 1, 0)
         layout.addWidget(self.textName, 0, 1)
         layout.addWidget(self.textPass, 1, 1)
         layout.addWidget(self.buttonLogin, 2, 1)
         self.setWindowTitle('RF Tracker')
 
-
-    def handleLogin(self):
+    def handle_login(self):
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
             self.accept()
         else:
