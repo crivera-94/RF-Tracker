@@ -60,7 +60,6 @@ class Login(QDialog):
         self.textPass.setEchoMode(QLineEdit.Password)
         self.buttonLogin = QPushButton('Login', self)
         self.buttonLogin.clicked.connect(self.handle_login)
-        # layout = QVBoxLayout(self)
         username_label = QLabel("Username:")
         password_label = QLabel("Password:")
         layout = QGridLayout(self)

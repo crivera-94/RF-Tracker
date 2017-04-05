@@ -19,10 +19,6 @@ def init():
     distance = 0
     global mutex
     mutex = QMutex()
-    global resultant_angle
-    resultant_angle = 0
-    global resultant_sector
-    resultant_sector = Sector.A
     global global_x
     global_x = 0
     global global_y
