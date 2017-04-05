@@ -60,10 +60,13 @@ class Login(QDialog):
         self.textPass.setEchoMode(QLineEdit.Password)
         self.buttonLogin = QPushButton('Login', self)
         self.buttonLogin.clicked.connect(self.handleLogin)
-        layout = QVBoxLayout(self)
-        layout.addWidget(self.textName)
-        layout.addWidget(self.textPass)
-        layout.addWidget(self.buttonLogin)
+        # layout = QVBoxLayout(self)
+        username_label = QLabel("Username:")
+        password_label = QLabel("Password:")
+        layout = QGridLayout(self)
+        layout.addWidget(self.textName, 0, 1)
+        layout.addWidget(self.textPass, 1, 1)
+        layout.addWidget(self.buttonLogin, 2, 1)
         self.setWindowTitle('RF Tracker')
 
 
