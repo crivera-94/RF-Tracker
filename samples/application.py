@@ -63,7 +63,7 @@ class Login(QDialog):
         layout.addWidget(self.textName)
         layout.addWidget(self.textPass)
         layout.addWidget(self.buttonLogin)
-        self.showFullScreen()
+        self.setWindowTitle('RF Tracker')
 
     def handleLogin(self):
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
