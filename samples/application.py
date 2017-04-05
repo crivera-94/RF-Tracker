@@ -69,7 +69,7 @@ class Login(QDialog):
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
             self.accept()
         else:
-            QMessageBox.warning(self, 'Error', 'Bad user or password')a
+            QMessageBox.warning(self, 'Error', 'Bad user or password')
 
 
 class RFTracker(QMainWindow):
