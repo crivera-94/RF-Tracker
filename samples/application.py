@@ -23,7 +23,7 @@ from PyQt5.QtCore import Qt, QTimer, QThread
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
                              QLabel, QFrame, QSlider,
-                             QDialog, QLineEdit, QPushButton)
+                             QDialog, QLineEdit, QPushButton, QVBoxLayout)
 from PyQt5 import QtGui
 from plot import Plot
 from phasedetector import PhaseDetector
@@ -59,7 +59,7 @@ class Login(QDialog):
         self.textPass = QLineEdit(self)
         self.buttonLogin = QPushButton('Login', self)
         self.buttonLogin.clicked.connect(self.handleLogin)
-        layout = QtGui.QVBoxLayout(self)
+        layout = QVBoxLayout(self)
         layout.addWidget(self.textName)
         layout.addWidget(self.textPass)
         layout.addWidget(self.buttonLogin)
