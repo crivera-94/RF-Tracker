@@ -23,7 +23,7 @@ from PyQt5.QtCore import Qt, QTimer, QThread
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
                              QLabel, QFrame, QSlider,
-                             QDialog, QLineEdit, QPushButton, QVBoxLayout)
+                             QDialog, QLineEdit, QPushButton, QVBoxLayout, QMessageBox)
 from PyQt5 import QtGui
 from plot import Plot
 from phasedetector import PhaseDetector
@@ -68,7 +68,7 @@ class Login(QDialog):
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
             self.accept()
         else:
-            QtGui.QMessageBox.warning(self, 'Error', 'Bad user or password')
+            QMessageBox.warning(self, 'Error', 'Bad user or password')
 
 
 class RFTracker(QMainWindow):
