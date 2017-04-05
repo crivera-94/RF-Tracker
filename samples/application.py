@@ -57,6 +57,7 @@ class Login(QDialog):
         super(Login, self).__init__(parent)
         self.textName = QLineEdit(self)
         self.textPass = QLineEdit(self)
+        self.textPass.setEchoMode(QLineEdit.Password)
         self.buttonLogin = QPushButton('Login', self)
         self.buttonLogin.clicked.connect(self.handleLogin)
         layout = QVBoxLayout(self)
@@ -64,6 +65,7 @@ class Login(QDialog):
         layout.addWidget(self.textPass)
         layout.addWidget(self.buttonLogin)
         self.setWindowTitle('RF Tracker')
+
 
     def handleLogin(self):
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
