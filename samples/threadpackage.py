@@ -38,16 +38,16 @@ class ADCThread(QThread):
         # addr = scl -> 0x4b
 
         # phase_detector0 setup
-        # A0 = phase
-        # A1 = amplitude
-        # A2 = phase (outer)
+        # A0 = amplitude
+        # A2 = distance
         self.phase_detector0 = PhaseDetector(0x48)
 
         # phase_detector1 setup
-        # A0 = phase
-        # A1 = amplitude
-        # A2 = amplitude (outer)
+        # A0 = amplitude
         self.phase_detector1 = PhaseDetector(0x4a)
+
+        # additional phase detector
+        self.phase_detector2 = PhaseDetector(0x4b)
 
     def run(self):
         while True:
@@ -98,15 +98,14 @@ class FilterThread(QThread):
 
     def sectorA(self):
         # distance can be a max of 180, defined by plot size
-        distance = 90
-        # print("Global: {}".format(globals.amplitudeA))
+        globals.distance = 90
         self.update_globals(globals.amplitudeA, globals.distance, 210)
 
     def sectorB(self):
-        self.update_globals(globals.amplitudeB, distance, 90)
+        self.update_globals(globals.amplitudeB, globals.distance, 90)
 
     def sectorC(self):
-        self.update_globals(globals.amplitudeC, distance, -30)
+        self.update_globals(globals.amplitudeC, globals.distance, -30)
 
     def __init__(self):
         QThread.__init__(self)
@@ -125,8 +124,8 @@ class FilterThread(QThread):
         }
 
     def get_sector(self):
-        if amplitudeA > amplitudeB:
-            if amplitudeA > amplitudeC:
+        if globals.amplitudeA > amplitudeB:
+            if globals.amplitudeA > amplitudeC:
                 return Sector.A
             else:
                 return Sector.C
