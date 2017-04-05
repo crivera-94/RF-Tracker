@@ -33,6 +33,10 @@ class ADCThread(QThread):
     def __init__(self):
         QThread.__init__(self)
         self.sample_size = 10
+        # addr = empty -> 0x48
+        # addr = sda -> 0x4a
+        # addr = scl -> 0x4b
+
         # phase_detector0 setup
         # A0 = phase
         # A1 = amplitude
@@ -43,7 +47,7 @@ class ADCThread(QThread):
         # A0 = phase
         # A1 = amplitude
         # A2 = amplitude (outer)
-        self.phase_detector1 = PhaseDetector(0x52)
+        self.phase_detector1 = PhaseDetector(0x4a)
 
     def run(self):
         while True:
