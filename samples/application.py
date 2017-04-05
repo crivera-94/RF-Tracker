@@ -51,7 +51,24 @@ def print_time(thread_name, delay):
         #self.data_downloaded.emit('%s\n%s' % (self.url, info))
 
 # http://stackoverflow.com/questions/11812000/login-dialog-pyqt
+class Login(QtGui.QDialog):
+    def __init__(self, parent=None):
+        super(Login, self).__init__(parent)
+        self.textName = QtGui.QLineEdit(self)
+        self.textPass = QtGui.QLineEdit(self)
+        self.buttonLogin = QtGui.QPushButton('Login', self)
+        self.buttonLogin.clicked.connect(self.handleLogin)
+        layout = QtGui.QVBoxLayout(self)
+        layout.addWidget(self.textName)
+        layout.addWidget(self.textPass)
+        layout.addWidget(self.buttonLogin)
 
+    def handleLogin(self):
+        if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
+            self.accept()
+        else:
+            QtGui.QMessageBox.warning(
+                self, 'Error', 'Bad user or password')
 
 
 class RFTracker(QMainWindow):
@@ -62,7 +79,6 @@ class RFTracker(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        
         textEdit = QTextEdit()
         
         # Create main widget to house all other widgets
