@@ -48,25 +48,48 @@ class ADCThread(QThread):
 
         # additional phase detector
         self.phase_detector2 = PhaseDetector(0x4b)
+        self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
 
     def run(self):
         while True:
             globals.mutex.lock()
 
-            amplitude = 0
+            # update previous globals
+            globals.pAmplitudeA = globals.amplitudeA
+            globals.pAmplitudeB = globals.amplitudeB
+            globals.pAmplitudeC = globals.amplitudeC
+            globals.prev_state_means = globals.curr_state_means
+            globals.prev_covariances = globals.curr_covariances
+
+            amplitude_a = 0
+            amplitude_b = 0
+            amplitude_c = 0
             distance = 0
 
             for i in range(0, self.sample_size):
-                # set amplitude_temp equal to self.phase_detector0.read_amplitude()
-                amplitude = amplitude + self.phase_detector0.read_channel_zero()
+                # set amplitude buffers using readings from phase detectors
+                amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
+                amplitude_b = amplitude_b + self.phase_detector0.read_channel_zero()
+                amplitude_c = amplitude_c + self.phase_detector0.read_channel_zero()
                 distance = distance + self.phase_detector0.read_channel_two()
 
-            globals.amplitudeA = amplitude / self.sample_size
+            # from plot_online.py
+            globals.curr_state_means, globals.curr_covariances = (
+                self.kf.filter_update(
+                    globals.prev_state_means,
+                    globals.prev_covariances,
+                    globals.observation
+                )
+            )
+
+            # TODO: Remove -1, only used for testing in sector A
+            globals.amplitudeA = amplitude_a / self.sample_size
+            globals.amplitudeB = amplitude_b / self.sample_size - 1
+            globals.amplitudeC = amplitude_c / self.sample_size - 1
             globals.distance = distance / self.sample_size
 
             globals.mutex.unlock()
 
-            print("ADCThread -> Global: {}".format(globals.amplitudeA))
             print('Channel 0: {}'.format(self.phase_detector0.read_channel_zero()))
             print('Channel 2: {}'.format(self.phase_detector0.read_channel_two()))
             time.sleep(0.00001)
@@ -109,7 +132,6 @@ class FilterThread(QThread):
 
     def __init__(self):
         QThread.__init__(self)
-        self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
         self.x = 0
         self.y = 0
         self.a = -0.00001729241
