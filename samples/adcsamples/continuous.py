@@ -60,7 +60,7 @@ for i in range(60):
     value = adc.get_last_result()
     average += value
     print('Channel 0: {0}'.format(value))
-    time.sleep(0.001)
+    time.sleep(0.01)
 
 print('Average: {0}'.format(average/60))
 
