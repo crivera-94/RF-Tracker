@@ -74,13 +74,13 @@ class ADCThread(QThread):
                 distance = distance + self.phase_detector0.read_channel_two()
 
             # from plot_online.py
-            globals.curr_state_means, globals.curr_covariances = (
-                self.kf.filter_update(
-                    globals.prev_state_means,
-                    globals.prev_covariances#,
+            #globals.curr_state_means, globals.curr_covariances = (
+            #    self.kf.filter_update(
+            #        globals.prev_state_means,
+            #        globals.prev_covariances#,
             #        globals.observation
-                )
-            )
+            #    )
+            #)
 
             # TODO: Remove -1, only used for testing in sector A
             globals.amplitudeA = amplitude_a / self.sample_size
