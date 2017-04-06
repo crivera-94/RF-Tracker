@@ -53,7 +53,7 @@ while (time.time() - start) <= 3.0:
     # continuous conversion!
     print('Channel 0: {0}'.format(value))
     # Sleep for half a second.
-    time.sleep(0.05)
+    time.sleep(0.01)
 
 print('Average: {0}'.format(average/60))
 
