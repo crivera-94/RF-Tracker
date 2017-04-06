@@ -43,7 +43,7 @@ adc.start_adc(0, gain=GAIN)
 average = 0
 print('Reading ADS1x15 channel 0 for 5 seconds...')
 start = time.time()
-while (time.time() - start) <= 3.0:
+while (time.time() - start) <= 0.6:
     # Read the last ADC conversion value and print it out.
     # value = adc.get_last_result()*(2.048/2048)
     value = adc.get_last_result()
