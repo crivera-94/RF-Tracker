@@ -32,11 +32,11 @@ def init():
     global prev_state_means
     prev_state_means = np.zeros(4)
     global prev_covariances
-    prev_covariances = np.zeros((4, 4))
+    prev_covariances = np.zeros(4)
     global curr_state_means
     curr_state_means = np.zeros(4)
     global curr_covariances
-    curr_covariances = np.zeros((4, 4))
+    curr_covariances = np.zeros(4)
 
     # 0 -> amplitude A
     # 1 -> amplitude B
