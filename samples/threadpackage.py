@@ -76,8 +76,8 @@ class ADCThread(QThread):
             # from plot_online.py
             globals.curr_state_means, globals.curr_covariances = (
                 self.kf.filter_update(
-                    globals.prev_state_means#,
-            #        globals.prev_covariances,
+                    globals.prev_state_means,
+                    globals.prev_covariances#,
             #        globals.observation
                 )
             )
