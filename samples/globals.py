@@ -30,13 +30,13 @@ def init():
     # 2 -> amplitude C
     # 3 -> distance
     global prev_state_means
-    prev_state_means = np.zeros(4)
+    prev_state_means = np.zeros((4, 1))
     global prev_covariances
-    prev_covariances = np.zeros(4)
+    prev_covariances = np.zeros((4, 1, 1))
     global curr_state_means
-    curr_state_means = np.zeros(4)
+    curr_state_means = np.zeros((4, 1))
     global curr_covariances
-    curr_covariances = np.zeros(4)
+    curr_covariances = np.zeros((4, 1, 1))
 
     # 0 -> amplitude A
     # 1 -> amplitude B
