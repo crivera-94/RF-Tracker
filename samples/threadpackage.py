@@ -74,13 +74,13 @@ class ADCThread(QThread):
                 distance = distance + self.phase_detector0.read_channel_two()
 
             # from plot_online.py
-            #globals.curr_state_means, globals.curr_covariances = (
-            #    self.kf.filter_update(
+            globals.curr_state_means, globals.curr_covariances = (
+                self.kf.filter_update(
             #        globals.prev_state_means,
             #        globals.prev_covariances,
             #        globals.observation
-            #    )
-            #)
+                )
+            )
 
             # TODO: Remove -1, only used for testing in sector A
             globals.amplitudeA = amplitude_a / self.sample_size
@@ -138,14 +138,15 @@ class FilterThread(QThread):
         self.c = 1.21484747253
         self.max_voltage = 2.048
         self.resolution = 2048
+        self.max_valid_voltage = 1.92
+        self.min_valid_voltage = 0.90
         self.options = {
             Sector.A: self.sectorA,
             Sector.B: self.sectorB,
             Sector.C: self.sectorC
         }
 
-    @staticmethod
-    def get_sector():
+    def get_sector(self):
         if globals.amplitudeA > globals.amplitudeB:
             if globals.amplitudeA > globals.amplitudeC:
                 return Sector.A
