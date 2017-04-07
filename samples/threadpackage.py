@@ -109,10 +109,8 @@ class FilterThread(QThread):
 
         if num > 0:
             num = -self.b - root
-            print("Angle: {}".format(num/den))
             return num/den
         else:
-            print("Angle: {}".format(num/den))
             return num/den
         #root = ((y-self.c)/self.a) + (pow(self.b, 2)/(4*pow(self.a, 2)))
         #result = -(self.b/(2 * self.a)) + sqrt(root)
@@ -121,6 +119,7 @@ class FilterThread(QThread):
     def update_globals(self, amplitude_reading, rho, reference_angle):
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
         phi = reference_angle - self.quadratic(voltage)
+        print("Phi: {}".format(phi))
         coordinates = self.polar_to_cartesian(rho, phi)
 
         globals.global_x = coordinates[0]
