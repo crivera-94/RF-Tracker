@@ -120,7 +120,7 @@ class FilterThread(QThread):
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
         phi = reference_angle - self.quadratic(voltage)
 
-        print("Angle: {}".format(reference_angle - phi))
+        print("Phi: {}".format(phi))
 
         coordinates = self.polar_to_cartesian(rho, phi)
 
