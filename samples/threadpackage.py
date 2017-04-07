@@ -117,7 +117,8 @@ class FilterThread(QThread):
         #return result
 
     def update_globals(self, amplitude_reading, rho, reference_angle):
-        voltage = (amplitude_reading * self.max_voltage) / self.resolution
+        # voltage = (amplitude_reading * self.max_voltage) / self.resolution
+        voltage = amplitude_reading
         phi = reference_angle - self.quadratic(voltage)
         coordinates = self.polar_to_cartesian(rho, phi)
 
@@ -139,9 +140,14 @@ class FilterThread(QThread):
         QThread.__init__(self)
         self.x = 0
         self.y = 0
-        self.a = -0.00001729241
-        self.b = -0.00437652647
-        self.c = 1.21484747253
+
+        # self.a = -0.00001729241
+        # self.b = -0.00437652647
+        # self.c = 1.21484747253
+        self.a = 0.01843573586
+        self.b = 2.68514659663
+        self.c = 620.51438665349
+
         self.max_voltage = 2.048
         self.resolution = 2048
         self.max_valid_voltage = 1.92
