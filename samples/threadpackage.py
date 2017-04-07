@@ -106,7 +106,12 @@ class FilterThread(QThread):
         root = pow(self.b, 2) + (4 * self.a * (y - self.c))
         num = -self.b + root
         den = 2 * self.a
-        return num/den
+
+        if num > 0:
+            num = -self.b - root
+            return num/den
+        else:
+            return num/den
         #root = ((y-self.c)/self.a) + (pow(self.b, 2)/(4*pow(self.a, 2)))
         #result = -(self.b/(2 * self.a)) + sqrt(root)
         #return result
