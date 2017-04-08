@@ -118,17 +118,11 @@ class FilterThread(QThread):
 
     def update_globals(self, amplitude_reading, rho, reference_angle):
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
-        # voltage = amplitude_reading
-        # print("Raw value: {}".format(voltage))
         phi = reference_angle - self.quadratic(voltage)
-        print("update_globals -> Globals x: {}".format(globals.global_x))
-        print("update_globals -> Globals y: {}".format(globals.global_y))
         coordinates = self.polar_to_cartesian(rho, phi)
 
         globals.global_x = coordinates[0]
         globals.global_y = coordinates[1]
-        # print("update_globals -> Globals x: {}".format(globals.global_x))
-        # print("update_globals -> Globals y: {}".format(globals.global_y))
 
     def sectorA(self):
         # distance can be a max of 180, defined by plot size
@@ -151,12 +145,7 @@ class FilterThread(QThread):
         # self.a = -0.00001729241
         # self.b = -0.00437652647
         # self.c = 1.21484747253
-
-        # second
-        # self.a = 0.01843573586
-        # self.b = 2.68514659663
-        # self.c = 620.51438665349
-
+        
         # fake
         self.a = 0.00000004311
         self.b = -0.00560240357
