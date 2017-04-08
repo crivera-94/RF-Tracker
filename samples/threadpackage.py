@@ -112,28 +112,27 @@ class FilterThread(QThread):
             return num/den
         else:
             return num/den
-        #root = ((y-self.c)/self.a) + (pow(self.b, 2)/(4*pow(self.a, 2)))
-        #result = -(self.b/(2 * self.a)) + sqrt(root)
-        #return result
+        # root = ((y-self.c)/self.a) + (pow(self.b, 2)/(4*pow(self.a, 2)))
+        # result = -(self.b/(2 * self.a)) + sqrt(root)
+        # return result
 
     def update_globals(self, amplitude_reading, rho, reference_angle):
         # voltage = (amplitude_reading * self.max_voltage) / self.resolution
         voltage = amplitude_reading
+        print("Raw value: {}".format(voltage))
         phi = reference_angle - self.quadratic(voltage)
         coordinates = self.polar_to_cartesian(rho, phi)
 
         globals.global_x = coordinates[0]
         globals.global_y = coordinates[1]
-        print("update_globals -> Globals x: {}".format(globals.global_x))
-        print("update_globals -> Globals y: {}".format(globals.global_y))
+        # print("update_globals -> Globals x: {}".format(globals.global_x))
+        # print("update_globals -> Globals y: {}".format(globals.global_y))
 
     def sectorA(self):
         # distance can be a max of 180, defined by plot size
         globals.distance = 90
         # self.update_globals(globals.amplitudeA, globals.distance, 210)
         self.update_globals(globals.amplitudeA, globals.distance, 182)
-        print("sectorA -> Globals x: {}".format(globals.global_x))
-        print("sectorA -> Globals y: {}".format(globals.global_y))
 
     def sectorB(self):
         self.update_globals(globals.amplitudeB, globals.distance, 90)
@@ -180,6 +179,5 @@ class FilterThread(QThread):
             sector = self.get_sector()
             self.options[sector]()
             # mutex.lock()
-            time.sleep(0.1)
-            #time.sleep(0.00001)
+            time.sleep(0.00001)
             # mutex.unlock()
