@@ -117,8 +117,8 @@ class FilterThread(QThread):
         # return result
 
     def update_globals(self, amplitude_reading, rho, reference_angle):
-        # voltage = (amplitude_reading * self.max_voltage) / self.resolution
-        voltage = amplitude_reading
+        voltage = (amplitude_reading * self.max_voltage) / self.resolution
+        # voltage = amplitude_reading
         # print("Raw value: {}".format(voltage))
         phi = reference_angle - self.quadratic(voltage)
         print("update_globals -> Globals x: {}".format(globals.global_x))
@@ -158,9 +158,9 @@ class FilterThread(QThread):
         # self.c = 620.51438665349
 
         # fake
-        self.a = 0.00004310665
-        self.b = -5.60240356745
-        self.c = 1222.01299145299
+        self.a = 0.00000004311
+        self.b = -0.00560240357
+        self.c = 1.22201299145
 
         self.max_voltage = 2.048
         self.resolution = 2048
