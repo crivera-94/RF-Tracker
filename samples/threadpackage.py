@@ -119,8 +119,10 @@ class FilterThread(QThread):
     def update_globals(self, amplitude_reading, rho, reference_angle):
         # voltage = (amplitude_reading * self.max_voltage) / self.resolution
         voltage = amplitude_reading
-        print("Raw value: {}".format(voltage))
+        # print("Raw value: {}".format(voltage))
         phi = reference_angle - self.quadratic(voltage)
+        print("update_globals -> Globals x: {}".format(globals.global_x))
+        print("update_globals -> Globals y: {}".format(globals.global_y))
         coordinates = self.polar_to_cartesian(rho, phi)
 
         globals.global_x = coordinates[0]
