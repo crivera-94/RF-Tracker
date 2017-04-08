@@ -124,14 +124,16 @@ class FilterThread(QThread):
 
         globals.global_x = coordinates[0]
         globals.global_y = coordinates[1]
+        print("update_globals -> Globals x: {}".format(globals.global_x))
+        print("update_globals -> Globals y: {}".format(globals.global_y))
 
     def sectorA(self):
         # distance can be a max of 180, defined by plot size
         globals.distance = 90
         # self.update_globals(globals.amplitudeA, globals.distance, 210)
         self.update_globals(globals.amplitudeA, globals.distance, 182)
-        print("Globals x: {}".format(globals.global_x))
-        print("Globals y: {}".format(globals.global_y))
+        print("sectorA -> Globals x: {}".format(globals.global_x))
+        print("sectorA -> Globals y: {}".format(globals.global_y))
 
     def sectorB(self):
         self.update_globals(globals.amplitudeB, globals.distance, 90)
