@@ -107,7 +107,7 @@ class FilterThread(QThread):
         num = -self.b + root
         den = 2 * self.a
 
-        if num > 0:
+        if num < 0:
             num = -self.b - root
             return num/den
         else:
