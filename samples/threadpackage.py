@@ -225,7 +225,8 @@ class FilterThread(QThread):
             # not at edge
             return self.sector
         else:
-            return self.get_neighbor(status[1])
+            self.sector = self.get_neighbor(status[1])
+            return self.sector
 
         #if globals.amplitudeA > globals.amplitudeB:
         #    if globals.amplitudeA > globals.amplitudeC:
