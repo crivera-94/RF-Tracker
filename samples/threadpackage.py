@@ -69,7 +69,7 @@ class ADCThread(QThread):
             for i in range(0, self.sample_size):
                 # set amplitude buffers using readings from phase detectors
                 amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
-                # amplitude_b = amplitude_b + self.phase_detector0.read_channel_three()
+                amplitude_b = amplitude_b + self.phase_detector0.read_channel_three()
                 # amplitude_c = amplitude_c + self.phase_detector0.read_channel_zero()
                 distance = distance + self.phase_detector0.read_channel_two()
 
@@ -85,7 +85,7 @@ class ADCThread(QThread):
             # TODO: Remove -1, only used for testing in sector A
             globals.amplitudeA = amplitude_a / self.sample_size
             globals.amplitudeB = amplitude_b / self.sample_size
-            globals.amplitudeC = amplitude_c / self.sample_size - 1
+            globals.amplitudeC = amplitude_c / self.sample_size
             globals.distance = distance / self.sample_size
 
             globals.mutex.unlock()
@@ -133,13 +133,13 @@ class FilterThread(QThread):
         # globals.distance = 90
         # self.update_globals(globals.amplitudeA, globals.distance, 210)
         # self.update_globals(globals.amplitudeA, globals.distance, -150)
-        self.update_globals(globals.amplitudeA, globals.distance, 100)
+        self.update_globals(globals.amplitudeA, globals.distance, self.reference_angle_a)
 
     def sectorB(self):
-        self.update_globals(globals.amplitudeB, globals.distance, 90)
+        self.update_globals(globals.amplitudeB, globals.distance, self.reference_angle_b)
 
     def sectorC(self):
-        self.update_globals(globals.amplitudeC, globals.distance, -30)
+        self.update_globals(globals.amplitudeC, globals.distance, self.reference_angle_c)
 
     def __init__(self):
         QThread.__init__(self)
@@ -156,27 +156,87 @@ class FilterThread(QThread):
         # self.b = -0.00560240357
         # self.c = 1.22201299145
 
+        self.reference_angle_a = 100
+        self.reference_angle_b = 90
+        self.reference_angle_c = -30
+
         self.max_voltage = 2.048
         self.resolution = 2048
         self.max_valid_voltage = 1.38
-        self.min_valid_voltage = 0.36
+        self.min_valid_voltage = 0.38
+
+        self.sector = Sector.A
+
         self.options = {
             Sector.A: self.sectorA,
             Sector.B: self.sectorB,
             Sector.C: self.sectorC
         }
 
-    def get_sector(self):
-        if globals.amplitudeA > globals.amplitudeB:
-            if globals.amplitudeA > globals.amplitudeC:
+    def at_edge(self):
+        # Tuple returned
+        # return[0] = edge status
+        # return[1] =   True -> high edge
+        #               False -> low edge
+        if self.sector == Sector.A:
+            if globals.amplitudeA < self.min_valid_voltage:
+                return True, False
+            elif globals.amplitudeA > self.max_valid_voltage:
+                return True, True
+            else:
+                return False
+        elif self.sector == Sector.B:
+            if globals.amplitudeB < self.min_valid_voltage:
+                return True, False
+            elif globals.amplitudeB > self.max_valid_voltage:
+                return True, True
+            else:
+                return False
+        elif self.sector == Sector.C:
+            if globals.amplitudeC < self.min_valid_voltage:
+                return True, False
+            elif globals.amplitudeC > self.max_valid_voltage:
+                return True, True
+            else:
+                return False
+
+    def get_neighbor(self, edge):
+        # edge =    True -> high
+        #           False -> low
+        if self.sector == Sector.A:
+            if edge:
+                return Sector.C
+            else:
+                return Sector.B
+        elif self.sector == Sector.B:
+            if edge:
                 return Sector.A
             else:
                 return Sector.C
-        else:
-            if globals.amplitudeB > globals.amplitudeC:
+        elif self.sector == Sector.C:
+            if edge:
                 return Sector.B
             else:
-                return Sector.C
+                return Sector.A
+
+    def get_sector(self):
+        status = self.at_edge()
+        if status[0]:
+            # not at edge
+            return self.sector
+        else:
+            return self.get_neighbor(status[1])
+
+        #if globals.amplitudeA > globals.amplitudeB:
+        #    if globals.amplitudeA > globals.amplitudeC:
+        #        return Sector.A
+        #    else:
+        #        return Sector.C
+        #else:
+        #    if globals.amplitudeB > globals.amplitudeC:
+        #        return Sector.B
+        #    else:
+        #        return Sector.C
 
     def run(self):
         while True:
