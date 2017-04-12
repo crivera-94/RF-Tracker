@@ -85,7 +85,7 @@ class ADCThread(QThread):
             # TODO: Remove -1, only used for testing in sector A
             globals.amplitudeA = amplitude_a / self.sample_size
             globals.amplitudeB = amplitude_b / self.sample_size
-            globals.amplitudeC = amplitude_c / self.sample_size - 1
+            globals.amplitudeC = amplitude_c / self.sample_size
             globals.distance = distance / self.sample_size
 
             globals.mutex.unlock()
@@ -127,7 +127,7 @@ class FilterThread(QThread):
 
     def sectorA(self):
         # distance can be a max of 180, defined by plot size
-        globals.distance = 90
+        # globals.distance = 90
         # self.update_globals(globals.amplitudeA, globals.distance, 210)
         self.update_globals(globals.amplitudeA, globals.distance, 182)
 
