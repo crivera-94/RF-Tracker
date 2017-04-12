@@ -92,12 +92,11 @@ class RFTracker(QMainWindow):
         layout = QGridLayout()
         main_widget.setLayout(layout)
 
-        label = self.createLabel(text="SAMPLE")
-        label2 = self.createLabel(text="TEST TABLE")
+        label = self.createLabel(text="Distance")
+        label2 = self.createLabel(text="Sector A")
         layout.addWidget(label2, 0, 0)
         layout.addWidget(label, 0, 1)
-        # layout.addWidget(label, 1, 1)
-        
+
         # Make Plot
         plot = Plot()
         layout.addWidget(plot, 0, 2)
@@ -158,6 +157,7 @@ if __name__ == '__main__':
     # start application
     app = QApplication(sys.argv)
     login = Login()
+
     if login.exec_() == QDialog.Accepted:
         ex = RFTracker()
 

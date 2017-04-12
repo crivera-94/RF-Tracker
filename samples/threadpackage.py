@@ -112,9 +112,9 @@ class FilterThread(QThread):
             return num/den
         else:
             return num/den
-        #root = ((y-self.c)/self.a) + (pow(self.b, 2)/(4*pow(self.a, 2)))
-        #result = -(self.b/(2 * self.a)) + sqrt(root)
-        #return result
+        # root = ((y-self.c)/self.a) + (pow(self.b, 2)/(4*pow(self.a, 2)))
+        # result = -(self.b/(2 * self.a)) + sqrt(root)
+        # return result
 
     def update_globals(self, amplitude_reading, rho, reference_angle):
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
