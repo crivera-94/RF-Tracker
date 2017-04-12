@@ -142,14 +142,14 @@ class FilterThread(QThread):
         self.y = 0
 
         # original
-        # self.a = -0.00001729241
-        # self.b = -0.00437652647
-        # self.c = 1.21484747253
+        self.a = -0.00001729241
+        self.b = -0.00437652647
+        self.c = 1.21484747253
 
         # fake
-        self.a = 0.00000004311
-        self.b = -0.00560240357
-        self.c = 1.22201299145
+        # self.a = 0.00000004311
+        # self.b = -0.00560240357
+        # self.c = 1.22201299145
 
         self.max_voltage = 2.048
         self.resolution = 2048
