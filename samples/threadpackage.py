@@ -121,8 +121,12 @@ class FilterThread(QThread):
         phi = reference_angle - self.quadratic(voltage)
         coordinates = self.polar_to_cartesian(rho, phi)
 
-        globals.global_x = coordinates[0]
-        globals.global_y = coordinates[1]
+        if self.min_valid_voltage < voltage < self.max_valid_voltage:
+            globals.global_x = coordinates[0]
+            globals.global_y = coordinates[1]
+        else:
+            globals.global_x = 0
+            globals.global_y = 220
 
     def sectorA(self):
         # distance can be a max of 180, defined by plot size
@@ -130,7 +134,6 @@ class FilterThread(QThread):
         # self.update_globals(globals.amplitudeA, globals.distance, 210)
         # self.update_globals(globals.amplitudeA, globals.distance, -150)
         self.update_globals(globals.amplitudeA, globals.distance, 100)
-
 
     def sectorB(self):
         self.update_globals(globals.amplitudeB, globals.distance, 90)
@@ -155,8 +158,8 @@ class FilterThread(QThread):
 
         self.max_voltage = 2.048
         self.resolution = 2048
-        self.max_valid_voltage = 1.92
-        self.min_valid_voltage = 0.90
+        self.max_valid_voltage = 1.38
+        self.min_valid_voltage = 0.36
         self.options = {
             Sector.A: self.sectorA,
             Sector.B: self.sectorB,
