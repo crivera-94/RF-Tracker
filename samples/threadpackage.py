@@ -63,7 +63,7 @@ class ADCThread(QThread):
 
             amplitude_a = 0
             amplitude_b = 0
-            amplitude_c = 0
+            amplitude_c = 11.1
             distance = 0
 
             for i in range(0, self.sample_size):
@@ -247,5 +247,5 @@ class FilterThread(QThread):
             self.options[self.sector]()
             print(self.sector)
             # mutex.lock()s
-            time.sleep(0.00002)
+            time.sleep(0.00001)
             # mutex.unlock()
