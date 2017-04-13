@@ -135,10 +135,10 @@ class FilterThread(QThread):
         phi = reference_angle - self.quadratic(voltage)
         # max rho = 180
         # max distance = 120 cm
-        #distance_voltage = (rho * self.max_voltage) / self.resolution
-        #rho_modified = self.distance_quadratic(distance_voltage)
-        #coordinates = self.polar_to_cartesian(rho_modified, phi)
-        coordinates = self.polar_to_cartesian(rho, phi)
+        distance_voltage = (rho * self.max_voltage) / self.resolution
+        rho_modified = self.distance_quadratic(distance_voltage)
+        coordinates = self.polar_to_cartesian(rho_modified, phi)
+        #coordinates = self.polar_to_cartesian(rho, phi)
 
         globals.global_x = coordinates[0]
         globals.global_y = coordinates[1]
