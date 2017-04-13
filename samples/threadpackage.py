@@ -241,9 +241,11 @@ class FilterThread(QThread):
 
     def run(self):
         while True:
-            sector = self.get_sector()
-            print(sector)
+            # sector = self.get_sector()
+            # print(sector)
             self.options[sector]()
+            self.options[self.sector]()
+            print(self.sector)
             # mutex.lock()s
             time.sleep(0.00001)
             # mutex.unlock()
