@@ -31,7 +31,7 @@ GAIN = 2
 # Start continuous ADC conversions on channel 0 using the previously set gain
 # value.  Note you can also pass an optional data_rate parameter, see the simpletest.py
 # example and read_adc function for more infromation.
-adc.start_adc(0, gain=GAIN)
+adc.start_adc(2, gain=GAIN)
 # Once continuous ADC conversions are started you can call get_last_result() to
 # retrieve the latest result, or stop_adc() to stop conversions.
 
