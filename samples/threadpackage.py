@@ -165,8 +165,6 @@ class FilterThread(QThread):
         self.max_valid_voltage = 1.38
         self.min_valid_voltage = 0.38
 
-        self.sector = Sector.A
-
         self.options = {
             Sector.A: self.sectorA,
             Sector.B: self.sectorB,
@@ -251,8 +249,8 @@ class FilterThread(QThread):
             sector = self.get_sector()
             # print(sector)
             # self.options[sector]()
-            self.options[sector]()
             print(sector)
-            # mutex.lock()s
+            self.options[sector]()
+            # mutex.lock()
             time.sleep(0.00001)
             # mutex.unlock()
