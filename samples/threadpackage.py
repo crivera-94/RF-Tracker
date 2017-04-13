@@ -121,7 +121,7 @@ class FilterThread(QThread):
         num = -self.b_distance + root
         den = 2 * self.a_distance
 
-        if num > 0:
+        if num < 0:
             num = -self.b_distance - root
             return num/den
         else:
