@@ -221,7 +221,7 @@ class FilterThread(QThread):
 
     def get_sector(self):
         status = self.at_edge()
-        if status[0]:
+        if not status[0]:
             # not at edge
             return self.sector
         else:
@@ -244,6 +244,6 @@ class FilterThread(QThread):
             sector = self.get_sector()
             print(sector)
             self.options[sector]()
-            # mutex.lock()
+            # mutex.lock()s
             time.sleep(0.00001)
             # mutex.unlock()
