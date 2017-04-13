@@ -116,11 +116,28 @@ class FilterThread(QThread):
         # result = -(self.b/(2 * self.a)) + sqrt(root)
         # return result
 
+    def distance_quadratic(self, y):
+        root = pow(self.b_distance, 2) + (4 * self.a_distance * (y - self.c_distance))
+        num = -self.b_distance + root
+        den = 2 * self.a_distance
+
+        if num > 0:
+            num = -self.b_distance - root
+            return num/den
+        else:
+            return num/den
+        # root = ((y-self.c)/self.a) + (pow(self.b, 2)/(4*pow(self.a, 2)))
+        # result = -(self.b/(2 * self.a)) + sqrt(root)
+        # return result
+
     def update_globals(self, amplitude_reading, rho, reference_angle):
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
-        # voltage = amplitude_reading
         phi = reference_angle - self.quadratic(voltage)
-        coordinates = self.polar_to_cartesian(rho, phi)
+        # max rho = 180
+        # max distance = 120 cm
+        distance_voltage = (rho * self.max_voltage) / self.resolution
+        rho_modified = self.distance_quadratic(distance_voltage)
+        coordinates = self.polar_to_cartesian(rho_modified, phi)
 
         globals.global_x = coordinates[0]
         globals.global_y = coordinates[1]
@@ -142,13 +159,15 @@ class FilterThread(QThread):
         self.x = 0
         self.y = 0
 
+        # angle coefficients
         self.a = -0.00001729241
         self.b = -0.00437652647
         self.c = 1.21484747253
 
-        self.a_distance = 0
-        self.b_distance = 0
-        self.c_distance = 0
+        # distance coefficients
+        self.a_distance = -0.00002794598
+        self.b_distance = 0.00922729969
+        self.c_distance = 0.46038791573
 
         self.max_voltage = 2.048
         self.resolution = 2048
