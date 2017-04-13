@@ -138,6 +138,7 @@ class FilterThread(QThread):
         distance_voltage = (rho * self.max_voltage) / self.resolution
         rho_modified = self.distance_quadratic(distance_voltage)
         coordinates = self.polar_to_cartesian(rho_modified, phi)
+        print(rho_modified)
         #coordinates = self.polar_to_cartesian(rho, phi)
 
         globals.global_x = coordinates[0]
@@ -196,7 +197,6 @@ class FilterThread(QThread):
         while True:
             sector = self.get_sector()
             self.options[sector]()
-            print(sector)
             # mutex.lock()
             time.sleep(0.00001)
             # mutex.unlock()
