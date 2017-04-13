@@ -198,7 +198,7 @@ class FilterThread(QThread):
             elif globals.amplitudeC > self.max_valid_voltage:
                 return True, True
             else:
-                return False
+                return False, False
 
     def get_neighbor(self, edge):
         # edge =    True -> high
