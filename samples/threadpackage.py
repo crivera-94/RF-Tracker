@@ -220,13 +220,20 @@ class FilterThread(QThread):
                 return Sector.A
 
     def get_sector(self):
-        status = self.at_edge()
-        if not status[0]:
+        #status = self.at_edge()
+        #if not status[0]:
             # not at edge
-            return self.sector
+        #    return self.sector
+        #else:
+        #    self.sector = self.get_neighbor(status[1])
+        #    return self.sector
+
+        if self.min_valid_voltage <= globals.amplitudeA <= self.max_valid_voltage:
+            return Sector.A
+        elif self.min_valid_voltage <= globals.amplitudeB <= self.max_valid_voltage:
+            return Sector.B
         else:
-            self.sector = self.get_neighbor(status[1])
-            return self.sector
+            return Sector.C
 
         #if globals.amplitudeA > globals.amplitudeB:
         #    if globals.amplitudeA > globals.amplitudeC:
@@ -241,11 +248,11 @@ class FilterThread(QThread):
 
     def run(self):
         while True:
-            self.get_sector()
+            sector = self.get_sector()
             # print(sector)
             # self.options[sector]()
-            self.options[self.sector]()
-            print(self.sector)
+            self.options[sector]()
+            print(sector)
             # mutex.lock()s
             time.sleep(0.00001)
             # mutex.unlock()
