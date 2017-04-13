@@ -161,23 +161,16 @@ class FilterThread(QThread):
         }
 
     def get_sector(self):
-        #if globals.amplitudeA > globals.amplitudeB:
-        #    if globals.amplitudeA > globals.amplitudeC:
-        #        return Sector.A
-        #    else:
-        #        return Sector.C
-        #else:
-        #    if globals.amplitudeB > globals.amplitudeC:
-        #        return Sector.B
-        #    else:
-        #        return Sector.C
-
-        if self.min_valid_voltage <= globals.amplitudeA <= self.max_valid_voltage:
-            return Sector.A
-        elif self.min_valid_voltage <= globals.amplitudeB <= self.max_valid_voltage:
-            return Sector.B
+        if globals.amplitudeA > globals.amplitudeB:
+            if globals.amplitudeA > globals.amplitudeC:
+                return Sector.A
+            else:
+                return Sector.C
         else:
-            return Sector.C
+            if globals.amplitudeB > globals.amplitudeC:
+                return Sector.B
+            else:
+                return Sector.C
 
     def run(self):
         while True:
