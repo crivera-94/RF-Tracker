@@ -247,5 +247,5 @@ class FilterThread(QThread):
             self.options[self.sector]()
             print(self.sector)
             # mutex.lock()s
-            time.sleep(0.00001)
+            time.sleep(0.00002)
             # mutex.unlock()
