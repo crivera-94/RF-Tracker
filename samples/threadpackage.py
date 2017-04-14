@@ -138,8 +138,8 @@ class FilterThread(QThread):
 
     def update_globals(self, amplitude_reading, rho, reference_angle):
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
-        # phi = reference_angle - self.quadratic(voltage)
-        phi = reference_angle - self.get_angle(voltage)
+        phi = reference_angle - self.quadratic(voltage)
+        # phi = reference_angle - self.get_angle(voltage)
         # max rho = 180
         # max distance = 120 cm
         distance_voltage = (rho * self.max_voltage) / self.resolution
