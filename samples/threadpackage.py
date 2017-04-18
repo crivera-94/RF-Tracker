@@ -214,8 +214,10 @@ class FilterThread(QThread):
 
         self.max_voltage = 2.048
         self.resolution = 2048
-        self.max_valid_voltage = 1.92
-        self.min_valid_voltage = 0.5
+        # self.max_valid_voltage = 1.92
+        # self.min_valid_voltage = 0.5
+        self.max_valid_voltage = 1.38
+        self.min_valid_voltage = 0.38
         self.options = {
             Sector.A: self.sectorA,
             Sector.B: self.sectorB,
