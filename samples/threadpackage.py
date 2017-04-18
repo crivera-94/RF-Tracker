@@ -194,9 +194,13 @@ class FilterThread(QThread):
         # self.c_distance = 0.46038791573
 
         # new distance coefficients
-        self.a_distance = 110.61729632149
-        self.b_distance = -23.79392489033
-        self.c_distance = -9.91831557457
+        #self.a_distance = 110.61729632149
+        #self.b_distance = -23.79392489033
+        #self.c_distance = -9.91831557457
+
+        self.a_distance = 503.50981468720
+        self.b_distance = -513.30730438075
+        self.c_distance = 132.01951515620
 
         self.max_voltage = 2.048
         self.resolution = 2048
