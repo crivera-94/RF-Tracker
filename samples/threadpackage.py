@@ -174,14 +174,14 @@ class FilterThread(QThread):
         self.y = 0
 
         # angle coefficients
-        # self.a = -0.00001729241
-        # self.b = -0.00437652647
-        # self.c = 1.21484747253
+        self.a = -0.00001729241
+        self.b = -0.00437652647
+        self.c = 1.21484747253
 
         # test angle coefficients
-        self.a = 0.23615998620
-        self.b = -179.07769102897
-        self.c = 218.48212405825
+        #self.a = 0.23615998620
+        #self.b = -179.07769102897
+        #self.c = 218.48212405825
 
         # new angle coefficients
         self.a_angle = -162.73642899330
