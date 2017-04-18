@@ -89,7 +89,7 @@ class ADCThread(QThread):
             globals.distance = distance / self.sample_size
 
             # PID Correction
-            globals.error_a =
+            globals.error_a = 0
 
             globals.mutex.unlock()
 
