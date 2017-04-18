@@ -153,10 +153,18 @@ class FilterThread(QThread):
         rho_modified = self.get_distance(distance_voltage)
 
         coordinates = self.polar_to_cartesian(rho_modified, phi)
+
+        if self.min_valid_voltage < voltage < self.max_valid_voltage and rho_modified <= 180:
+            globals.global_x = coordinates[0]
+            globals.global_y = coordinates[1]
+        else:
+            globals.global_x = 0
+            globals.global_y = 220
+
         # coordinates = self.polar_to_cartesian(rho, phi)
 
-        globals.global_x = coordinates[0]
-        globals.global_y = coordinates[1]
+        # globals.global_x = coordinates[0]
+        # globals.global_y = coordinates[1]
 
     def sectorA(self):
         # distance can be a max of 180, defined by plot size
@@ -207,7 +215,7 @@ class FilterThread(QThread):
         self.max_voltage = 2.048
         self.resolution = 2048
         self.max_valid_voltage = 1.92
-        self.min_valid_voltage = 0.90
+        self.min_valid_voltage = 0.5
         self.options = {
             Sector.A: self.sectorA,
             Sector.B: self.sectorB,
