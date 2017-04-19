@@ -175,8 +175,8 @@ class FilterThread(QThread):
         # globals.distance = 90
         # self.update_globals(globals.amplitudeA, globals.distance, 210)
 
-        # self.update_globals(globals.amplitudeA, globals.distance, 182)
-        self.update_globals(globals.amplitudeA, globals.distance, 90)
+        self.update_globals(globals.amplitudeA, globals.distance, 182)
+        # self.update_globals(globals.amplitudeA, globals.distance, 90)
 
     def sectorB(self):
         self.update_globals(globals.amplitudeB, globals.distance, 90)
