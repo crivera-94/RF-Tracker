@@ -93,9 +93,9 @@ class ADCThread(QThread):
 
             globals.mutex.unlock()
 
-            print('Channel 0: {}'.format(self.phase_detector0.read_channel_zero()))
-            print('Channel 2: {}'.format(self.phase_detector0.read_channel_two()))
-            time.sleep(0.00001)
+            # print('Channel 0: {}'.format(self.phase_detector0.read_channel_zero()))
+            # print('Channel 2: {}'.format(self.phase_detector0.read_channel_two()))
+            time.sleep(0.001)
 
 
 class FilterThread(QThread):
@@ -241,5 +241,5 @@ class FilterThread(QThread):
             sector = self.get_sector()
             self.options[sector]()
             # mutex.lock()
-            time.sleep(0.00001)
+            time.sleep(0.001)
             # mutex.unlock()
