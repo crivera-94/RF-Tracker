@@ -136,6 +136,7 @@ class RFTracker(QMainWindow):
         # Tool Bar
         toolbar = self.addToolBar('Exit')
         toolbar.addAction(exitAction)
+        toolbar.addAction(refreshAction)
 
         # Begin QTimer Poll and Read ADS
         timer = QTimer(self)
