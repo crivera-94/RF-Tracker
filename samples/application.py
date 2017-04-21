@@ -109,7 +109,7 @@ class RFTracker(QMainWindow):
         self.setCentralWidget(main_widget)
 
         # Actions
-        exitAction = QAction(QtGui.QIcon('exit24.png'), 'Exit', self)
+        exitAction = QAction(QtGui.QIcon('icons/exit.png'), 'Exit', self)
         exitAction.setShortcut('Ctrl+Q')
         exitAction.setStatusTip('Exit application')
         exitAction.triggered.connect(self.close)
