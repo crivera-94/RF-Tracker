@@ -111,8 +111,13 @@ class RFTracker(QMainWindow):
         # Actions
         exitAction = QAction(QtGui.QIcon('icons/exit.png'), 'Exit', self)
         exitAction.setShortcut('Ctrl+Q')
-        exitAction.setStatusTip('Exit application')
+        exitAction.setStatusTip('Exit Application')
         exitAction.triggered.connect(self.close)
+
+        refreshAction = QAction(QtGui.QIcon('icons/refresh.png'), 'Exit', self)
+        refreshAction.setShortcut('Ctrl+R')
+        refreshAction.setStatusTip('Refresh Grid')
+        refreshAction.triggered.connect(self.close)
         
         # Status Bar
         self.statusBar().showMessage('Ready')
