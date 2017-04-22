@@ -68,9 +68,11 @@ class ADCThread(QThread):
 
             for i in range(0, self.sample_size):
                 # set amplitude buffers using readings from phase detectors
+                print("Amplitude: {}".format(self.phase_detector0.read_channel_zero()))
                 amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
                 # amplitude_b = amplitude_b + self.phase_detector0.read_channel_three()
                 # amplitude_c = amplitude_c + self.phase_detector0.read_channel_zero()
+                print("Distance: {}".format(self.phase_detector0.read_channel_two()))
                 distance = distance + self.phase_detector0.read_channel_two()
 
             # from plot_online.py
@@ -166,7 +168,6 @@ class FilterThread(QThread):
             globals.global_y = 220
 
         # coordinates = self.polar_to_cartesian(rho, phi)
-
         # globals.global_x = coordinates[0]
         # globals.global_y = coordinates[1]
 
@@ -194,11 +195,6 @@ class FilterThread(QThread):
         self.b = -0.00437652647
         self.c = 1.21484747253
 
-        # test angle coefficients
-        #self.a = 0.23615998620
-        #self.b = -179.07769102897
-        #self.c = 218.48212405825
-
         # new angle coefficients
         self.a_angle = -162.73642899330
         self.b_angle = 124.85705157978
@@ -210,9 +206,9 @@ class FilterThread(QThread):
         # self.c_distance = 0.46038791573
 
         # new distance coefficients
-        #self.a_distance = 110.61729632149
-        #self.b_distance = -23.79392489033
-        #self.c_distance = -9.91831557457
+        # self.a_distance = 110.61729632149
+        # self.b_distance = -23.79392489033
+        # self.c_distance = -9.91831557457
 
         self.a_distance = 503.50981468720
         self.b_distance = -513.30730438075

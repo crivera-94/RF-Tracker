@@ -72,14 +72,16 @@ class Settings(QDialog):
         self.point_color_text_field = QLineEdit(self)
         self.buttonLogin = QPushButton('Accept', self)
         self.buttonLogin.clicked.connect(self.update_values)
-        username_label = QLabel("Plot Color")
-        password_label = QLabel("Point Color")
+        line_label = QLabel("Plot Color")
+        point_label = QLabel("Point Color")
         layout = QGridLayout(self)
-        layout.addWidget(username_label, 0, 0)
-        layout.addWidget(password_label, 1, 0)
+
+        layout.addWidget(line_label, 0, 0)
+        layout.addWidget(point_label, 1, 0)
         layout.addWidget(self.line_color_text_field, 0, 1)
         layout.addWidget(self.point_color_text_field, 1, 1)
         layout.addWidget(self.buttonLogin, 2, 1)
+
         self.setWindowTitle('Settings')
         self.pattern = re.compile("#[0-9|A-F|a-f]"
                                   "[0-9|A-F|a-f]"
@@ -139,11 +141,9 @@ class RFTracker(QMainWindow):
 
     def resume_tracking(self):
         self.plot.continue_tracking()
-        print("df")
 
     def pause_tracking(self):
         self.plot.pause_tracking()
-        print("df")
 
     def refresh_grid(self):
         self.plot.refresh()
