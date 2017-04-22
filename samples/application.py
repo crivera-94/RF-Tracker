@@ -95,7 +95,7 @@ class RFTracker(QMainWindow):
         self.setWindowTitle('RF Tracker')
         self.show()
 
-    def say_hi(self):
+    def refresh_grid(self):
         print("Hello World!")
 
     def create_menubars(self):
@@ -108,7 +108,12 @@ class RFTracker(QMainWindow):
         refresh_action = QAction(QtGui.QIcon('icons/refresh.png'), 'Exit', self)
         refresh_action.setShortcut('Ctrl+R')
         refresh_action.setStatusTip('Refresh Grid')
-        refresh_action.triggered.connect(self.say_hi)
+        refresh_action.triggered.connect(self.refresh_grid)
+
+        settings_action = QAction(QtGui.QIcon('icons/adjustSettings.png'), 'Exit', self)
+        settings_action.setShortcut('Ctrl+S')
+        settings_action.setStatusTip('Adjust Settings')
+        settings_action.triggered.connect(self.refresh_grid)
 
         # Status Bar
         self.statusBar().showMessage('Ready')
@@ -123,11 +128,14 @@ class RFTracker(QMainWindow):
         # Edit Menu and actions
         edit_menu = menubar.addMenu('&Edit')
         edit_menu.addAction(refresh_action)
+        edit_menu.addAction(settings_action)
 
         # Tool Bar
         toolbar = self.addToolBar('Exit')
         toolbar.addAction(exit_action)
         toolbar.addAction(refresh_action)
+        toolbar.addAction(settings_action)
+
 
     def create_home_widget(self):
         self.home_widget = QWidget()
