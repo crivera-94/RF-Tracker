@@ -109,7 +109,7 @@ class RFTracker(QMainWindow):
         main_widget.setLayout(layout)
         # self.setCentralWidget(main_widget)
 
-        self.create_bars()
+        self.create_menubars()
 
         # Begin QTimer Poll and Read ADS
         timer = QTimer(self)
@@ -130,17 +130,17 @@ class RFTracker(QMainWindow):
         self.setWindowTitle('RF Tracker')
         self.show()
 
-    def create_bars(self):
+    def create_menubars(self):
         # Actions
-        exitAction = QAction(QtGui.QIcon('icons/exit.png'), 'Exit', self)
-        exitAction.setShortcut('Ctrl+Q')
-        exitAction.setStatusTip('Exit Application')
-        exitAction.triggered.connect(self.close)
+        exit_action = QAction(QtGui.QIcon('icons/exit.png'), 'Exit', self)
+        exit_action.setShortcut('Ctrl+Q')
+        exit_action.setStatusTip('Exit Application')
+        exit_action.triggered.connect(self.close)
 
-        refreshAction = QAction(QtGui.QIcon('icons/refresh.png'), 'Exit', self)
-        refreshAction.setShortcut('Ctrl+R')
-        refreshAction.setStatusTip('Refresh Grid')
-        refreshAction.triggered.connect(self.close)
+        refresh_action = QAction(QtGui.QIcon('icons/refresh.png'), 'Exit', self)
+        refresh_action.setShortcut('Ctrl+R')
+        refresh_action.setStatusTip('Refresh Grid')
+        refresh_action.triggered.connect(self.close)
 
         # Status Bar
         self.statusBar().showMessage('Ready')
@@ -149,17 +149,17 @@ class RFTracker(QMainWindow):
         menubar = self.menuBar()
 
         # File Menu and actions
-        fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(exitAction)
+        file_menu = menubar.addMenu('&File')
+        file_menu.addAction(exit_action)
 
         # Edit Menu and actions
-        editMenu = menubar.addMenu('&Edit')
-        editMenu.addAction(refreshAction)
+        edit_menu = menubar.addMenu('&Edit')
+        edit_menu.addAction(refresh_action)
 
         # Tool Bar
         toolbar = self.addToolBar('Exit')
-        toolbar.addAction(exitAction)
-        toolbar.addAction(refreshAction)
+        toolbar.addAction(exit_action)
+        toolbar.addAction(refresh_action)
 
     def create_home_widget(self):
         self.home_widget = QWidget()
