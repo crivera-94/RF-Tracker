@@ -23,6 +23,7 @@ class Plot(QWidget):
         self.y = 0
     
         self.paintEvent = self.draw_rings
+        self.tracking = True
 
     def setFloatBased(self, floatBased):
         self.floatBased = floatBased
@@ -44,8 +45,9 @@ class Plot(QWidget):
     
     def nextAnimationFrame(self):
         if self.setup_finished:
-            self.x = globals.global_x
-            self.y = globals.global_y
+            if self.tracking:
+                self.x = globals.global_x
+                self.y = globals.global_y
             self.update()
         else:
             if self.rings_plotted:
@@ -69,6 +71,12 @@ class Plot(QWidget):
                     if self.alpha == 0:
                         self.radius += 30
                     self.update()
+
+    def continue_tracking(self):
+        self.tracking = True
+
+    def pause_tracking(self):
+        self.tracking = False
 
     def refresh(self):
         self.floatBased = False

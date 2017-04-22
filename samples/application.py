@@ -95,9 +95,16 @@ class RFTracker(QMainWindow):
         self.setWindowTitle('RF Tracker')
         self.show()
 
+    def resume_tracking(self):
+        self.plot.continue_tracking()
+        print("df")
+
+    def pause_tracking(self):
+        self.plot.pause_tracking()
+        print("df")
+
     def refresh_grid(self):
         self.plot.refresh()
-        print("Hello World!")
 
     def create_menubars(self):
         # Actions
@@ -119,12 +126,12 @@ class RFTracker(QMainWindow):
         play_action = QAction(QtGui.QIcon('icons/play.png'), 'Start Tracking', self)
         play_action.setShortcut('Ctrl+P')
         play_action.setStatusTip('Continue Tracking')
-        play_action.triggered.connect(self.refresh_grid)
+        play_action.triggered.connect(self.resume_tracking)
 
         pause_action = QAction(QtGui.QIcon('icons/pause.png'), 'Pause Tracking', self)
         pause_action.setShortcut('Ctrl+O')
         pause_action.setStatusTip('Pause Tracking')
-        pause_action.triggered.connect(self.refresh_grid)
+        pause_action.triggered.connect(self.pause_tracking)
 
         # Status Bar
         self.statusBar().showMessage('Ready')
