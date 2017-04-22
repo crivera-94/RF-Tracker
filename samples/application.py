@@ -86,15 +86,12 @@ class RFTracker(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        textEdit = QTextEdit()
-        
-        self.create_home_widget()
 
+        self.create_home_widget()
         self.create_menubars()
 
         # Begin QTimer Poll and Read ADS
         timer = QTimer(self)
-
         timer.timeout.connect(self.plot.nextAnimationFrame)
         timer.start(10)
 
@@ -147,8 +144,8 @@ class RFTracker(QMainWindow):
         layout = QGridLayout()
         self.home_widget.setLayout(layout)
 
-        label = self.createLabel(text="Distance")
-        label2 = self.createLabel(text="Sector A")
+        label = self.create_label(text="Distance")
+        label2 = self.create_label(text="Sector A")
         layout.addWidget(label2, 0, 0)
         layout.addWidget(label, 0, 1)
 
@@ -159,7 +156,7 @@ class RFTracker(QMainWindow):
         slider.setStatusTip('Zoom')
         layout.addWidget(slider, 0, 3)
 
-    def createLabel(self, text):
+    def create_label(self, text):
         label = QLabel(text)
         label.setAlignment(Qt.AlignCenter)
         label.setMargin(2)
