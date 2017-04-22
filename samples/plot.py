@@ -3,6 +3,7 @@ from PyQt5.QtGui import QColor, QPainter, QPalette, QPen
 from PyQt5.QtWidgets import QSizePolicy, QWidget
 import globals
 
+
 class Plot(QWidget):
     def __init__(self, parent=None):
         super(Plot, self).__init__(parent)
@@ -68,6 +69,20 @@ class Plot(QWidget):
                     if self.alpha == 0:
                         self.radius += 30
                     self.update()
+
+    def refresh(self):
+        self.floatBased = False
+        self.antialiased = False
+        self.frameNo = 0
+
+        self.alpha = 0
+        self.radius = 30
+        self.rings_plotted = False
+        self.setup_finished = False
+        self.x = 0
+        self.y = 0
+
+        self.paintEvent = self.draw_rings
 
     def setup_plot(self, event):
         color = QColor(0, 0, 0)

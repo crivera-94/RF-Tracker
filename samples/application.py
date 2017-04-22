@@ -96,6 +96,7 @@ class RFTracker(QMainWindow):
         self.show()
 
     def refresh_grid(self):
+        self.plot.refresh()
         print("Hello World!")
 
     def create_menubars(self):
