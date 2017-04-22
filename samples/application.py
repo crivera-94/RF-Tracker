@@ -5,6 +5,7 @@ import sys
 import time
 import phasedetector
 import globals
+import re
 
 from PyQt5.QtCore import Qt, QTimer, QThread
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
@@ -57,6 +58,7 @@ class Login(QDialog):
         self.setWindowTitle('RF Tracker')
 
     def handle_login(self):
+        
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
             self.accept()
         else:
@@ -69,8 +71,8 @@ class Settings(QDialog):
         self.textName = QLineEdit(self)
         self.textPass = QLineEdit(self)
         self.textPass.setEchoMode(QLineEdit.Password)
-        self.buttonLogin = QPushButton('Okay', self)
-        self.buttonLogin.clicked.connect(self.handle_login)
+        self.buttonLogin = QPushButton('Accept', self)
+        self.buttonLogin.clicked.connect(self.update_values)
         username_label = QLabel("Plot Color")
         password_label = QLabel("Point Color")
         layout = QGridLayout(self)
@@ -81,7 +83,8 @@ class Settings(QDialog):
         layout.addWidget(self.buttonLogin, 2, 1)
         self.setWindowTitle('Settings')
 
-    def handle_login(self):
+    def update_values(self):
+
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
             self.accept()
         else:
