@@ -107,7 +107,7 @@ class RFTracker(QMainWindow):
         
         # SET LAYOUT AND SET AS CENTER
         main_widget.setLayout(layout)
-        self.setCentralWidget(main_widget)
+        # self.setCentralWidget(main_widget)
 
         # Actions
         exitAction = QAction(QtGui.QIcon('icons/exit.png'), 'Exit', self)
