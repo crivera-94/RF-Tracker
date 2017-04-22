@@ -109,35 +109,7 @@ class RFTracker(QMainWindow):
         main_widget.setLayout(layout)
         # self.setCentralWidget(main_widget)
 
-        # Actions
-        exitAction = QAction(QtGui.QIcon('icons/exit.png'), 'Exit', self)
-        exitAction.setShortcut('Ctrl+Q')
-        exitAction.setStatusTip('Exit Application')
-        exitAction.triggered.connect(self.close)
-
-        refreshAction = QAction(QtGui.QIcon('icons/refresh.png'), 'Exit', self)
-        refreshAction.setShortcut('Ctrl+R')
-        refreshAction.setStatusTip('Refresh Grid')
-        refreshAction.triggered.connect(self.close)
-        
-        # Status Bar
-        self.statusBar().showMessage('Ready')
-        
-        # Menu Bar
-        menubar = self.menuBar()
-        
-        # File Menu and actions
-        fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(exitAction)
-        
-        # Edit Menu and actions
-        editMenu = menubar.addMenu('&Edit')
-        editMenu.addAction(refreshAction)
-
-        # Tool Bar
-        toolbar = self.addToolBar('Exit')
-        toolbar.addAction(exitAction)
-        toolbar.addAction(refreshAction)
+        self.create_bars()
 
         # Begin QTimer Poll and Read ADS
         timer = QTimer(self)
@@ -157,6 +129,54 @@ class RFTracker(QMainWindow):
         self.showFullScreen()
         self.setWindowTitle('RF Tracker')
         self.show()
+
+    def create_bars(self):
+        # Actions
+        exitAction = QAction(QtGui.QIcon('icons/exit.png'), 'Exit', self)
+        exitAction.setShortcut('Ctrl+Q')
+        exitAction.setStatusTip('Exit Application')
+        exitAction.triggered.connect(self.close)
+
+        refreshAction = QAction(QtGui.QIcon('icons/refresh.png'), 'Exit', self)
+        refreshAction.setShortcut('Ctrl+R')
+        refreshAction.setStatusTip('Refresh Grid')
+        refreshAction.triggered.connect(self.close)
+
+        # Status Bar
+        self.statusBar().showMessage('Ready')
+
+        # Menu Bar
+        menubar = self.menuBar()
+
+        # File Menu and actions
+        fileMenu = menubar.addMenu('&File')
+        fileMenu.addAction(exitAction)
+
+        # Edit Menu and actions
+        editMenu = menubar.addMenu('&Edit')
+        editMenu.addAction(refreshAction)
+
+        # Tool Bar
+        toolbar = self.addToolBar('Exit')
+        toolbar.addAction(exitAction)
+        toolbar.addAction(refreshAction)
+
+    def create_home_widget(self):
+        self.home_widget = QWidget()
+        layout = QGridLayout()
+        self.home_widget.setLayout(layout)
+
+        label = self.createLabel(text="Distance")
+        label2 = self.createLabel(text="Sector A")
+        layout.addWidget(label2, 0, 0)
+        layout.addWidget(label, 0, 1)
+
+        # Make Plot
+        plot = Plot()
+        layout.addWidget(plot, 0, 2)
+        slider = QSlider(Qt.Vertical, self)
+        slider.setStatusTip('Zoom')
+        layout.addWidget(slider, 0, 3)
 
     def createLabel(self, text):
         label = QLabel(text)
