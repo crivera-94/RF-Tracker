@@ -58,7 +58,7 @@ class Login(QDialog):
         self.setWindowTitle('RF Tracker')
 
     def handle_login(self):
-        
+
         if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
             self.accept()
         else:
@@ -82,13 +82,18 @@ class Settings(QDialog):
         layout.addWidget(self.textPass, 1, 1)
         layout.addWidget(self.buttonLogin, 2, 1)
         self.setWindowTitle('Settings')
+        self.pattern = re.compile("#[0-9|A-F|a-f]"
+                                  "[0-9|A-F|a-f]"
+                                  "[0-9|A-F|a-f]"
+                                  "[0-9|A-F|a-f]"
+                                  "[0-9|A-F|a-f]"
+                                  "[0-9|A-F|a-f]")
 
     def update_values(self):
-
-        if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
+        if self.pattern.match(self.textName.text()) and self.pattern.match(self.textPass.text()):
             self.accept()
         else:
-            QMessageBox.warning(self, 'Error', 'Bad user or password')
+            QMessageBox.warning(self, 'Error', 'Invalid Values')
 
 
 class RFTracker(QMainWindow):
