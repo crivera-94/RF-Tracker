@@ -88,26 +88,7 @@ class RFTracker(QMainWindow):
     def initUI(self):
         textEdit = QTextEdit()
         
-        # Create main widget to house all other widgets
-        main_widget = QWidget()
-        layout = QGridLayout()
-        main_widget.setLayout(layout)
-
-        label = self.createLabel(text="Distance")
-        label2 = self.createLabel(text="Sector A")
-        layout.addWidget(label2, 0, 0)
-        layout.addWidget(label, 0, 1)
-
-        # Make Plot
-        plot = Plot()
-        layout.addWidget(plot, 0, 2)
-        slider = QSlider(Qt.Vertical, self)
-        slider.setStatusTip('Zoom')
-        layout.addWidget(slider, 0, 3)
-        
-        # SET LAYOUT AND SET AS CENTER
-        main_widget.setLayout(layout)
-        # self.setCentralWidget(main_widget)
+        self.create_home_widget()
 
         self.create_menubars()
 
