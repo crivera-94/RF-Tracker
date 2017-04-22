@@ -85,8 +85,6 @@ class RFTracker(QMainWindow):
         super().__init__()
         self.initUI()
 
-        test_layout = QStackedLayout()
-
     def initUI(self):
         textEdit = QTextEdit()
         
@@ -146,6 +144,11 @@ class RFTracker(QMainWindow):
 
         timer.timeout.connect(plot.nextAnimationFrame)
         timer.start(10)
+
+        # TODO: test lines
+        test_layout = QStackedLayout()
+        test_layout.addWidget(main_widget)
+        test_layout.setCurrentIndex(0)
         
         self.showFullScreen()
         self.setWindowTitle('RF Tracker')
