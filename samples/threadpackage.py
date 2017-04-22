@@ -53,8 +53,16 @@ class ADCThread(QThread):
         # additional phase detector
         self.phase_detector2 = PhaseDetector(0x4b)
         self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
+
+        n_timesteps = 501
+        n_dim_state = 5
+        filtered_state_means = np.zeros((n_timesteps, n_dim_state))
+        print(filtered_state_means)
+        
         measurements = [[1, 0], [0, 0], [0, 1]]
-        print (self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
+        print(self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
+
+
 
     def run(self):
         while True:
