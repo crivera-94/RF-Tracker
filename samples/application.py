@@ -90,6 +90,8 @@ class Settings(QDialog):
 
     def update_values(self):
         if self.pattern.match(self.line_color.text()) and self.pattern.match(self.point_color.text()):
+            self.line = self.line_color.text()
+            self.point = self.point_color.text()
             self.accept()
         else:
             QMessageBox.warning(self, 'Error', 'Invalid Values')
@@ -128,6 +130,7 @@ class RFTracker(QMainWindow):
     def settings(self):
         settings = Settings()
         settings.exec_()
+        self.plot.change_colors(settings.line, settings.point)
 
     def resume_tracking(self):
         self.plot.continue_tracking()

@@ -75,6 +75,10 @@ class Plot(QWidget):
                         self.radius += 30
                     self.update()
 
+    def change_colors(self, line, point):
+        self.line_color = line
+        self.point_color = point
+
     def continue_tracking(self):
         self.tracking = True
 
