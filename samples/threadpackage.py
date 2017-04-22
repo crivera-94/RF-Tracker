@@ -70,11 +70,9 @@ class ADCThread(QThread):
 
             for i in range(0, self.sample_size):
                 # set amplitude buffers using readings from phase detectors
-                print("Amplitude: {}".format(self.phase_detector0.read_channel_zero()))
                 amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
                 # amplitude_b = amplitude_b + self.phase_detector0.read_channel_three()
                 # amplitude_c = amplitude_c + self.phase_detector0.read_channel_zero()
-                print("Distance: {}".format(self.phase_detector0.read_channel_two()))
                 distance = distance + self.phase_detector0.read_channel_two()
 
             # from plot_online.py
