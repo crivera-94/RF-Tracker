@@ -4,6 +4,7 @@ from phasedetector import PhaseDetector
 from pykalman import KalmanFilter
 from math import sqrt, pow, sin, cos, pi, radians
 from enum import Enum
+import numpy as np
 import globals
 
 
