@@ -65,7 +65,7 @@ class Login(QDialog):
 
 class Settings(QDialog):
     def __init__(self, parent=None):
-        super(Login, self).__init__(parent)
+        super(Settings, self).__init__(parent)
         self.textName = QLineEdit(self)
         self.textPass = QLineEdit(self)
         self.textPass.setEchoMode(QLineEdit.Password)
