@@ -30,11 +30,9 @@ def print_time(thread_name, delay):
 
 #class UpdateGUI(QThread):
     #data_downloaded = QtCore.pyqtSignal(object)
-
     #def __init__(self, url):
         #QtCore.QThread.__init__(self)
         #self.url = url
-
     #def run(self):
         #info = urllib2.urlopen(self.url).info()
         #self.data_downloaded.emit('%s\n%s' % (self.url, info))

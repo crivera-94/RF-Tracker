@@ -25,6 +25,9 @@ class Plot(QWidget):
         self.paintEvent = self.draw_rings
         self.tracking = True
 
+        self.line_color = '#4080fe'
+        self.point_color = '#db2c38'
+
     def setFloatBased(self, floatBased):
         self.floatBased = floatBased
         self.update()
@@ -95,7 +98,8 @@ class Plot(QWidget):
 
     def setup_plot(self, event):
         color = QColor(0, 0, 0)
-        color.setNamedColor('#4080fe')
+        # color.setNamedColor('#4080fe')
+        color.setNamedColor(self.line_color)
         color.setAlpha(self.alpha)
         
         painter = QPainter(self)
@@ -123,10 +127,12 @@ class Plot(QWidget):
     # draw rings new
     def draw_rings(self, event):
         color_solid = QColor(0, 0, 0)
-        color_solid.setNamedColor('#4080fe')
+        # color_solid.setNamedColor('#4080fe')
+        color_solid.setNamedColor(self.line_color)
 
         color_light = QColor(0, 0, 0)
-        color_light.setNamedColor('#4080fe')
+        color_light.setNamedColor(self.line_color)
+        # color_light.setNamedColor('#4080fe')
         color_light.setAlpha(self.alpha)
 
         painter = QPainter(self)
@@ -135,7 +141,7 @@ class Plot(QWidget):
         painter.translate(self.width() / 2, self.height() / 2)
         
         # max should be relative, fixed at 390 right now
-        #for diameter in range(0, self.radius, 30):
+        # for diameter in range(0, self.radius, 30):
         for diameter in range(0, 390, 30):
             
             if diameter <= self.radius:
@@ -156,8 +162,9 @@ class Plot(QWidget):
     def draw_lines(self, event):
         
         color = QColor(0, 0, 0)
-        color.setNamedColor('#4080fe')
-        
+        # color.setNamedColor('#4080fe')
+        color.setNamedColor(self.line_color)
+
         painter = QPainter(self)
         painter.setPen(color)
         painter.setRenderHint(QPainter.Antialiasing, self.antialiased)
@@ -188,7 +195,8 @@ class Plot(QWidget):
 
     def draw_point(self, event):
         color = QColor(0, 0, 0)
-        color.setNamedColor('#4080fe')
+        # color.setNamedColor('#4080fe')
+        color.setNamedColor(self.line_color)
         
         painter = QPainter(self)
         painter.setPen(color)
