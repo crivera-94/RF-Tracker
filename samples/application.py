@@ -1,19 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-"""
-    ZetCode PyQt5 tutorial
-    
-    This program creates a skeleton of
-    a classic GUI application with a menubar,
-    toolbar, statusbar, and a central widget.
-    
-    author: Jan Bodnar
-    website: zetcode.com
-    last edited: January 2015
-    
-    """
-
 import sys
 import time
 import phasedetector
@@ -80,13 +67,13 @@ class Login(QDialog):
 
 class RFTracker(QMainWindow):
     def __init__(self):
+        self.current_page = 0
         self.MAX_ACCURATE_RANGE = 2047
         self.MIN_ACCURATE_RANGE = 50
         super().__init__()
-        self.initUI()
+        self.initialize_ui()
 
-    def initUI(self):
-
+    def initialize_ui(self):
         self.create_home_widget()
         self.create_menubars()
 
@@ -100,13 +87,16 @@ class RFTracker(QMainWindow):
         test_layout.addWidget(self.home_widget)
         # test_layout.setCurrentIndex(0)
 
-        central_widget = QWidget()
-        central_widget.setLayout(test_layout)
-        self.setCentralWidget(central_widget)
+        self.central_widget = QWidget()
+        self.central_widget.setLayout(test_layout)
+        self.setCentralWidget(self.central_widget)
         
         self.showFullScreen()
         self.setWindowTitle('RF Tracker')
         self.show()
+
+    def say_hi(self):
+        print("Hello World!")
 
     def create_menubars(self):
         # Actions
@@ -118,7 +108,7 @@ class RFTracker(QMainWindow):
         refresh_action = QAction(QtGui.QIcon('icons/refresh.png'), 'Exit', self)
         refresh_action.setShortcut('Ctrl+R')
         refresh_action.setStatusTip('Refresh Grid')
-        refresh_action.triggered.connect(self.close)
+        refresh_action.triggered.connect(self.say_hi)
 
         # Status Bar
         self.statusBar().showMessage('Ready')
