@@ -68,8 +68,8 @@ class Login(QDialog):
 class Settings(QDialog):
     def __init__(self, parent=None):
         super(Settings, self).__init__(parent)
-        self.line_color = QLineEdit(self)
-        self.point_color = QLineEdit(self)
+        self.line_color_text_field = QLineEdit(self)
+        self.point_color_text_field = QLineEdit(self)
         self.buttonLogin = QPushButton('Accept', self)
         self.buttonLogin.clicked.connect(self.update_values)
         username_label = QLabel("Plot Color")
@@ -77,8 +77,8 @@ class Settings(QDialog):
         layout = QGridLayout(self)
         layout.addWidget(username_label, 0, 0)
         layout.addWidget(password_label, 1, 0)
-        layout.addWidget(self.line_color, 0, 1)
-        layout.addWidget(self.point_color, 1, 1)
+        layout.addWidget(self.line_color_text_field, 0, 1)
+        layout.addWidget(self.point_color_text_field, 1, 1)
         layout.addWidget(self.buttonLogin, 2, 1)
         self.setWindowTitle('Settings')
         self.pattern = re.compile("#[0-9|A-F|a-f]"
@@ -88,10 +88,14 @@ class Settings(QDialog):
                                   "[0-9|A-F|a-f]"
                                   "[0-9|A-F|a-f]")
 
+    def populate_text_fields(self, plot_line_color, plot_point_color):
+        self.line_color_text_field.setText(plot_line_color)
+        self.point_color_text_field.setText(plot_point_color)
+
     def update_values(self):
-        if self.pattern.match(self.line_color.text()) and self.pattern.match(self.point_color.text()):
-            self.line = self.line_color.text()
-            self.point = self.point_color.text()
+        if self.pattern.match(self.line_color_text_field.text()) and self.pattern.match(self.point_color_text_field.text()):
+            self.line = self.line_color_text_field.text()
+            self.point = self.point_color_text_field.text()
             self.accept()
         else:
             QMessageBox.warning(self, 'Error', 'Invalid Values')
@@ -129,6 +133,7 @@ class RFTracker(QMainWindow):
 
     def settings(self):
         settings = Settings()
+        settings.populate_text_fields(self.plot.line_color, self.plot.point_color)
         settings.exec_()
         self.plot.change_colors(settings.line, settings.point)
 
