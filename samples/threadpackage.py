@@ -66,6 +66,8 @@ class ADCThread(QThread):
             amplitude_c = 0
             distance = 0
 
+            # tolerable range: +/- 5 value
+
             for i in range(0, self.sample_size):
                 # set amplitude buffers using readings from phase detectors
                 print("Amplitude: {}".format(self.phase_detector0.read_channel_zero()))
@@ -92,9 +94,7 @@ class ADCThread(QThread):
 
             # PID Correction
             globals.error_a = 0
-
             globals.mutex.unlock()
-
             # print('Channel 0: {}'.format(self.phase_detector0.read_channel_zero()))
             # print('Channel 2: {}'.format(self.phase_detector0.read_channel_two()))
             time.sleep(0.001)
