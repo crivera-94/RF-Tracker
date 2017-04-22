@@ -131,11 +131,16 @@ class RFTracker(QMainWindow):
         # Menu Bar
         menubar = self.menuBar()
 
-        # File Menu and actions
+        # File Menu
         file_menu = menubar.addMenu('&File')
         file_menu.addAction(exit_action)
 
-        # Edit Menu and actions
+        # Grid Menu and actions
+        grid_menu = menubar.addMenu('&Grid')
+        grid_menu.addAction(play_action)
+        grid_menu.addAction(pause_action)
+
+        # Edit Menu
         edit_menu = menubar.addMenu('&Edit')
         edit_menu.addAction(refresh_action)
         edit_menu.addAction(settings_action)
