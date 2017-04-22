@@ -23,7 +23,8 @@ from PyQt5.QtCore import Qt, QTimer, QThread
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
                              QApplication, QGridLayout, QWidget,
                              QLabel, QFrame, QSlider,
-                             QDialog, QLineEdit, QPushButton, QVBoxLayout, QMessageBox)
+                             QDialog, QLineEdit, QPushButton, QVBoxLayout, QMessageBox,
+                             QStackedLayout)
 from PyQt5 import QtGui
 from plot import Plot
 from phasedetector import PhaseDetector
