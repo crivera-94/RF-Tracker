@@ -115,6 +115,16 @@ class RFTracker(QMainWindow):
         settings_action.setStatusTip('Adjust Settings')
         settings_action.triggered.connect(self.refresh_grid)
 
+        play_action = QAction(QtGui.QIcon('icons/play.png'), 'Start Tracking', self)
+        play_action.setShortcut('Ctrl+S')
+        play_action.setStatusTip('Continue Tracking')
+        play_action.triggered.connect(self.refresh_grid)
+
+        pause_action = QAction(QtGui.QIcon('icons/pause.png'), 'Pause Tracking', self)
+        pause_action.setShortcut('Ctrl+S')
+        pause_action.setStatusTip('Pause Tracking')
+        pause_action.triggered.connect(self.refresh_grid)
+
         # Status Bar
         self.statusBar().showMessage('Ready')
 
@@ -135,7 +145,8 @@ class RFTracker(QMainWindow):
         toolbar.addAction(exit_action)
         toolbar.addAction(refresh_action)
         toolbar.addAction(settings_action)
-
+        toolbar.addAction(pause_action)
+        toolbar.addAction(play_action)
 
     def create_home_widget(self):
         self.home_widget = QWidget()
