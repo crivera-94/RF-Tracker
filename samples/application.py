@@ -95,7 +95,7 @@ class RFTracker(QMainWindow):
         # Begin QTimer Poll and Read ADS
         timer = QTimer(self)
 
-        timer.timeout.connect(plot.nextAnimationFrame)
+        timer.timeout.connect(self.plot.nextAnimationFrame)
         timer.start(10)
 
         # TODO: test lines
@@ -153,8 +153,8 @@ class RFTracker(QMainWindow):
         layout.addWidget(label, 0, 1)
 
         # Make Plot
-        plot = Plot()
-        layout.addWidget(plot, 0, 2)
+        self.plot = Plot()
+        layout.addWidget(self.plot, 0, 2)
         slider = QSlider(Qt.Vertical, self)
         slider.setStatusTip('Zoom')
         layout.addWidget(slider, 0, 3)
