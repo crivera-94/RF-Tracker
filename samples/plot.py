@@ -91,6 +91,7 @@ class Plot(QWidget):
         self.y = 0
 
         self.paintEvent = self.draw_rings
+        self.tracking = True
 
     def setup_plot(self, event):
         color = QColor(0, 0, 0)
