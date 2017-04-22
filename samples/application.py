@@ -105,12 +105,12 @@ class RFTracker(QMainWindow):
         exit_action.setStatusTip('Exit Application')
         exit_action.triggered.connect(self.close)
 
-        refresh_action = QAction(QtGui.QIcon('icons/refresh.png'), 'Exit', self)
+        refresh_action = QAction(QtGui.QIcon('icons/refresh.png'), 'Refresh Grid', self)
         refresh_action.setShortcut('Ctrl+R')
         refresh_action.setStatusTip('Refresh Grid')
         refresh_action.triggered.connect(self.refresh_grid)
 
-        settings_action = QAction(QtGui.QIcon('icons/adjustSettings.png'), 'Exit', self)
+        settings_action = QAction(QtGui.QIcon('icons/adjustSettings.png'), 'Settings', self)
         settings_action.setShortcut('Ctrl+S')
         settings_action.setStatusTip('Adjust Settings')
         settings_action.triggered.connect(self.refresh_grid)
