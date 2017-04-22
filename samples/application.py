@@ -84,6 +84,8 @@ class RFTracker(QMainWindow):
         super().__init__()
         self.initUI()
 
+        test_layout = QStackedLayout()
+
     def initUI(self):
         textEdit = QTextEdit()
         
@@ -131,7 +133,7 @@ class RFTracker(QMainWindow):
         
         # Edit Menu and actions
         editMenu = menubar.addMenu('&Edit')
-        editMenu.addAction(exitAction)
+        editMenu.addAction(refreshAction)
 
         # Tool Bar
         toolbar = self.addToolBar('Exit')
