@@ -63,6 +63,31 @@ class Login(QDialog):
             QMessageBox.warning(self, 'Error', 'Bad user or password')
 
 
+class Settings(QDialog):
+    def __init__(self, parent=None):
+        super(Login, self).__init__(parent)
+        self.textName = QLineEdit(self)
+        self.textPass = QLineEdit(self)
+        self.textPass.setEchoMode(QLineEdit.Password)
+        self.buttonLogin = QPushButton('Login', self)
+        self.buttonLogin.clicked.connect(self.handle_login)
+        username_label = QLabel("Username:")
+        password_label = QLabel("Password:")
+        layout = QGridLayout(self)
+        layout.addWidget(username_label, 0, 0)
+        layout.addWidget(password_label, 1, 0)
+        layout.addWidget(self.textName, 0, 1)
+        layout.addWidget(self.textPass, 1, 1)
+        layout.addWidget(self.buttonLogin, 2, 1)
+        self.setWindowTitle('Settings')
+
+    def handle_login(self):
+        if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
+            self.accept()
+        else:
+            QMessageBox.warning(self, 'Error', 'Bad user or password')
+
+
 class RFTracker(QMainWindow):
     def __init__(self):
         self.current_page = 0
@@ -93,6 +118,9 @@ class RFTracker(QMainWindow):
         self.setWindowTitle('RF Tracker')
         self.show()
 
+    def settings(self):
+        settings = Settings()
+
     def resume_tracking(self):
         self.plot.continue_tracking()
         print("df")
@@ -119,7 +147,7 @@ class RFTracker(QMainWindow):
         settings_action = QAction(QtGui.QIcon('icons/adjustSettings.png'), 'Settings', self)
         settings_action.setShortcut('Ctrl+S')
         settings_action.setStatusTip('Adjust Settings')
-        settings_action.triggered.connect(self.refresh_grid)
+        settings_action.triggered.connect(self.settings)
 
         play_action = QAction(QtGui.QIcon('icons/play.png'), 'Start Tracking', self)
         play_action.setShortcut('Ctrl+P')
