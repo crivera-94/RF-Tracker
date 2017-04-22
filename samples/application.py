@@ -148,7 +148,11 @@ class RFTracker(QMainWindow):
         # TODO: test lines
         test_layout = QStackedLayout()
         test_layout.addWidget(main_widget)
-        test_layout.setCurrentIndex(0)
+        # test_layout.setCurrentIndex(0)
+
+        central_widget = QWidget()
+        central_widget.setLayout(test_layout)
+        self.setCentralWidget(central_widget)
         
         self.showFullScreen()
         self.setWindowTitle('RF Tracker')
