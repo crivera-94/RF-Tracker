@@ -120,6 +120,7 @@ class RFTracker(QMainWindow):
 
     def settings(self):
         settings = Settings()
+        settings.exec_()
 
     def resume_tracking(self):
         self.plot.continue_tracking()
