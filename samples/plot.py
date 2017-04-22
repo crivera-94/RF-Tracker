@@ -220,7 +220,8 @@ class Plot(QWidget):
             painter.drawPoint(i * step_x, i * step_y)
             painter.drawPoint(-i * step_x, i * step_y)
 
-        color.setNamedColor('#db2c38')
+        # color.setNamedColor('#db2c38')
+        color.setNamedColor(self.point_color)
         painter_red = QPainter(self)
         painter_red.setPen(color)
         painter_red.setRenderHint(QPainter.Antialiasing, self.antialiased)
