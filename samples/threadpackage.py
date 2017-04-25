@@ -103,11 +103,12 @@ class ADCThread(QThread):
             #        [amplitude_a, distance]
             #    )
             #)
+            matrix = np.matrix([amplitude_a],[distance])
             globals.filtered_state_means[(counter + 1) % 2], globals.filtered_state_covariances[(counter + 1) % 2] = (
                 self.kf.filter_update(
                     globals.filtered_state_means[counter],
                     globals.filtered_state_covariances[counter],
-                    [amplitude_a, distance]
+
                 )
             )
 
