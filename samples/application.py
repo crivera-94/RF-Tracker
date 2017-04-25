@@ -6,6 +6,7 @@ import time
 import phasedetector
 import globals
 import re
+import socket
 
 from PyQt5.QtCore import Qt, QTimer, QThread
 from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction,
