@@ -20,6 +20,7 @@ from phasedetector import PhaseDetector
 from threadpackage import ADCThread
 from threadpackage import FilterThread
 
+REMOTE_SERVER = "www.google.com"
 
 # Define a function for the thread
 def print_time(thread_name, delay):
@@ -228,6 +229,20 @@ class RFTracker(QMainWindow):
         label.setFrameStyle(QFrame.Box | QFrame.Sunken)
         label.setMinimumSize(self.sizeHint())
         return label
+
+
+def is_connected():
+    try:
+        # see if we can resolve the host name -- tells us if there is
+        # a DNS listening
+        host = socket.gethostbyname(REMOTE_SERVER)
+        # connect to the host -- tells us if the host is actually
+        # reachable
+        s = socket.create_connection((host, 80), 2)
+        return True
+    except:
+        pass
+    return False
 
 if __name__ == '__main__':
     # initialize global variables
