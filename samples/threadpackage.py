@@ -57,12 +57,11 @@ class ADCThread(QThread):
         n_timesteps = 501
         n_dim_state = 5
         filtered_state_means = np.zeros((n_timesteps, n_dim_state))
+        filtered_state_covariances = np.zeros((n_timesteps, n_dim_state, n_dim_state))
         print(filtered_state_means)
-        
-        measurements = [[1, 0], [0, 0], [0, 1]]
-        print(self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
 
-
+        # measurements = [[1, 0], [0, 0], [0, 1]]
+        # print(self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
 
     def run(self):
         while True:
@@ -82,15 +81,29 @@ class ADCThread(QThread):
 
             # tolerable range: +/- 5 value
 
-            for i in range(0, self.sample_size):
-                # set amplitude buffers using readings from phase detectors
-                amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
-                # amplitude_b = amplitude_b + self.phase_detector0.read_channel_three()
-                # amplitude_c = amplitude_c + self.phase_detector0.read_channel_zero()
-                distance = distance + self.phase_detector0.read_channel_two()
+            #for i in range(0, self.sample_size):
+            #    # set amplitude buffers using readings from phase detectors
+            #    amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
+            #    # amplitude_b = amplitude_b + self.phase_detector0.read_channel_three()
+            #    # amplitude_c = amplitude_c + self.phase_detector0.read_channel_zero()
+            #    distance = distance + self.phase_detector0.read_channel_two()
+
+            globals.prev_state_means = globals.curr_state_means
+            globals.prev_covariances = globals.curr_covariances
+
+            amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
+            distance = distance + self.phase_detector0.read_channel_two()
+
+            globals.curr_state_means, globals.curr_covariances = (
+                self.kf.filter_update(
+                    globals.prev_state_means,
+                    globals.prev_covariances,
+                    [amplitude_a, distance]
+                )
+            )
 
             # from plot_online.py
-            #globals.curr_state_means, globals.curr_covariances = (
+            # globals.curr_state_means, globals.curr_covariances = (
             #    self.kf.filter_update(
             #        globals.prev_state_means,
             #        globals.prev_covariances#,

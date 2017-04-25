@@ -33,8 +33,8 @@ def init():
     # 1 -> amplitude B
     # 2 -> amplitude C
     # 3 -> distance
-    n_timesteps = 4
-    n_dim_state = 1
+    n_timesteps = 1
+    n_dim_state = 5
     global prev_state_means
     prev_state_means = np.zeros((n_timesteps, n_dim_state))
     global prev_covariances
@@ -43,6 +43,12 @@ def init():
     curr_state_means = np.zeros((n_timesteps, n_dim_state))
     global curr_covariances
     curr_covariances = np.zeros((n_timesteps, n_dim_state, n_dim_state))
+
+    n_dim_state = 5
+    global filtered_state_means
+    filtered_state_means = np.zeros((n_timesteps, n_dim_state))
+    global filtered_state_covariances
+    filtered_state_covariances = np.zeros((n_timesteps, n_dim_state, n_dim_state))
 
     # 0 -> amplitude A
     # 1 -> amplitude B
