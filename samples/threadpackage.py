@@ -82,35 +82,19 @@ class ADCThread(QThread):
 
             # tolerable range: +/- 5 value
 
-            #for i in range(0, self.sample_size):
-            #    # set amplitude buffers using readings from phase detectors
-            #    amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
-            #    # amplitude_b = amplitude_b + self.phase_detector0.read_channel_three()
-            #    # amplitude_c = amplitude_c + self.phase_detector0.read_channel_zero()
-            #    distance = distance + self.phase_detector0.read_channel_two()
+            for i in range(0, self.sample_size):
+                # set amplitude buffers using readings from phase detectors
+                amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
+                # amplitude_b = amplitude_b + self.phase_detector0.read_channel_three()
+                # amplitude_c = amplitude_c + self.phase_detector0.read_channel_zero()
+                distance = distance + self.phase_detector0.read_channel_two()
 
 
             #globals.prev_state_means = globals.curr_state_means
             #globals.prev_covariances = globals.curr_covariances
             #
-            amplitude_a = self.phase_detector0.read_channel_zero()
-            distance = self.phase_detector0.read_channel_two()
-            #
-            #globals.curr_state_means, globals.curr_covariances = (
-            #    self.kf.filter_update(
-            #        globals.prev_state_means,
-            #        globals.prev_covariances,
-            #        [amplitude_a, distance]
-            #    )
-            #)
-            matrix = np.matrix([[amplitude_a],[distance]])
-            globals.filtered_state_means[(counter + 1) % 2], globals.filtered_state_covariances[(counter + 1) % 2] = (
-                self.kf.filter_update(
-                    globals.filtered_state_means[counter],
-                    globals.filtered_state_covariances[counter],
-
-                )
-            )
+            # amplitude_a = self.phase_detector0.read_channel_zero()
+            # distance = self.phase_detector0.read_channel_two()
 
             # from plot_online.py
             # globals.curr_state_means, globals.curr_covariances = (
