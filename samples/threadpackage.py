@@ -64,6 +64,7 @@ class ADCThread(QThread):
         # print(self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
 
     def run(self):
+        counter = 0
         while True:
             globals.mutex.lock()
 
@@ -71,8 +72,8 @@ class ADCThread(QThread):
             globals.pAmplitudeA = globals.amplitudeA
             globals.pAmplitudeB = globals.amplitudeB
             globals.pAmplitudeC = globals.amplitudeC
-            globals.prev_state_means = globals.curr_state_means
-            globals.prev_covariances = globals.curr_covariances
+            #globals.prev_state_means = globals.curr_state_means
+            #globals.prev_covariances = globals.curr_covariances
 
             amplitude_a = 0
             amplitude_b = 0
@@ -88,16 +89,24 @@ class ADCThread(QThread):
             #    # amplitude_c = amplitude_c + self.phase_detector0.read_channel_zero()
             #    distance = distance + self.phase_detector0.read_channel_two()
 
-            globals.prev_state_means = globals.curr_state_means
-            globals.prev_covariances = globals.curr_covariances
 
-            amplitude_a = amplitude_a + self.phase_detector0.read_channel_zero()
-            distance = distance + self.phase_detector0.read_channel_two()
-
-            globals.curr_state_means, globals.curr_covariances = (
+            #globals.prev_state_means = globals.curr_state_means
+            #globals.prev_covariances = globals.curr_covariances
+            #
+            amplitude_a = self.phase_detector0.read_channel_zero()
+            distance = self.phase_detector0.read_channel_two()
+            #
+            #globals.curr_state_means, globals.curr_covariances = (
+            #    self.kf.filter_update(
+            #        globals.prev_state_means,
+            #        globals.prev_covariances,
+            #        [amplitude_a, distance]
+            #    )
+            #)
+            globals.filtered_state_means[(counter + 1) % 2], globals.filtered_state_covariances[(counter + 1) % 2] = (
                 self.kf.filter_update(
-                    globals.prev_state_means,
-                    globals.prev_covariances,
+                    globals.filtered_state_means[counter],
+                    globals.filtered_state_covariances[counter],
                     [amplitude_a, distance]
                 )
             )
