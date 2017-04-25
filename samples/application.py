@@ -248,11 +248,27 @@ if __name__ == '__main__':
     # initialize global variables
     globals.init()
 
-    # start application
-    app = QApplication(sys.argv)
-    login = Login()
+    if is_connected():
+        # start application
+        app = QApplication(sys.argv)
+        login = Login()
 
-    if login.exec_() == QDialog.Accepted:
+        if login.exec_() == QDialog.Accepted:
+            ex = RFTracker()
+
+            # ADC Read Thread
+            threadADC = ADCThread()
+            threadADC.finished.connect(app.exit)
+            threadADC.start()
+
+            # Filter Thread
+            threadFilter = FilterThread()
+            threadFilter.finished.connect(app.exit)
+            threadFilter.start()
+
+            sys.exit(app.exec_())
+    else:
+        app = QApplication(sys.argv)
         ex = RFTracker()
 
         # ADC Read Thread
@@ -266,3 +282,22 @@ if __name__ == '__main__':
         threadFilter.start()
 
         sys.exit(app.exec_())
+
+    # start application
+    #app = QApplication(sys.argv)
+    #login = Login()
+    #
+    #if login.exec_() == QDialog.Accepted:
+    #    ex = RFTracker()
+    #
+    #    # ADC Read Thread
+    #    threadADC = ADCThread()
+    #    threadADC.finished.connect(app.exit)
+    #    threadADC.start()
+    #
+    #    # Filter Thread
+    #    threadFilter = FilterThread()
+    #    threadFilter.finished.connect(app.exit)
+    #    threadFilter.start()
+    #
+    #    sys.exit(app.exec_())
