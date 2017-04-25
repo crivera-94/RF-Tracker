@@ -9,6 +9,7 @@ from scipy.stats import norm
 import numpy as np
 
 import globals
+import socket
 
 
 class Sector(Enum):
