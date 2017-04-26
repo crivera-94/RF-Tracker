@@ -214,20 +214,15 @@ class FilterThread(QThread):
         self.c = 1.21484747253
 
         # new angle coefficients
-        self.a_angle = -162.73642899330
-        self.b_angle = 124.85705157978
-        self.c_angle = 84.50020263516
+        #self.a_angle = -162.73642899330
+        #self.b_angle = 124.85705157978
+        #self.c_angle = 84.50020263516
+
+        self.a_angle = 0
+        self.b_angle = -198
+        self.c_angle = 120
 
         # distance coefficients
-        # self.a_distance = -0.00002794598
-        # self.b_distance = 0.00922729969
-        # self.c_distance = 0.46038791573
-
-        # new distance coefficients
-        # self.a_distance = 110.61729632149
-        # self.b_distance = -23.79392489033
-        # self.c_distance = -9.91831557457
-
         self.a_distance = 503.50981468720
         self.b_distance = -513.30730438075
         self.c_distance = 132.01951515620
