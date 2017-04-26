@@ -165,29 +165,26 @@ class FilterThread(QThread):
     def update_globals(self, amplitude_reading, rho, reference_angle):
         # Phi Calculation
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
-        phi = reference_angle - self.quadratic(voltage)
-        # phi = reference_angle - self.get_angle(voltage)
+        # phi = reference_angle - self.quadratic(voltage)
+        phi = reference_angle - self.get_angle(voltage)
 
         # Rho Calculation
         # phi = reference_angle - self.get_angle(voltage)
         # max rho = 180
         # max distance = 120 cm
         distance_voltage = (rho * self.max_voltage) / self.resolution
-        # rho_modified = self.distance_quadratic(distance_voltage)
         rho_modified = self.get_distance(distance_voltage)
 
         coordinates = self.polar_to_cartesian(rho_modified, phi)
 
         if self.min_valid_voltage < voltage < self.max_valid_voltage and .45 < distance_voltage < 1.48:
+            # valid point
             globals.global_x = coordinates[0]
             globals.global_y = coordinates[1]
         else:
+            # invalid point
             globals.global_x = 0
             globals.global_y = 220
-
-            # coordinates = self.polar_to_cartesian(rho, phi)
-            # globals.global_x = coordinates[0]
-            # globals.global_y = coordinates[1]
 
     def sectorA(self):
         # distance can be a max of 180, defined by plot size
