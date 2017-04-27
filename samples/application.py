@@ -43,20 +43,23 @@ class Login(QDialog):
         layout.addWidget(self.buttonLogin, 2, 1)
         self.setWindowTitle('RF Tracker')
         self.auth = globals.firebase.auth()
+        self.EMAIL_REGEX = re.compile(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
 
     def handle_login(self):
 
-        user = self.auth.sign_in_with_email_and_password(self.textName.text(), self.textPass.text())
-
-        try:
-            if user['idToken']:
-                self.accept()
-            else:
+        if self.EMAIL_REGEX.match(self.textName.text()):
+            user = self.auth.sign_in_with_email_and_password(self.textName.text(), self.textPass.text())
+            try:
+                if user['idToken']:
+                    self.accept()
+                else:
+                    QMessageBox.warning(self, 'Error', 'Bad user or password')
+            except KeyError:
                 QMessageBox.warning(self, 'Error', 'Bad user or password')
-        except KeyError:
-            QMessageBox.warning(self, 'Error', 'Bad user or password')
+        else:
+            QMessageBox.warning(self, 'Error', 'Not a valid email address!')
 
-        #if user['idToken']:
+            #if user['idToken']:
         #    self.accept()
         #else:
         #    QMessageBox.warning(self, 'Error', 'Bad user or password')
