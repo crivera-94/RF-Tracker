@@ -30,6 +30,9 @@ def initialize_app(config):
 
 class Firebase:
     """ Firebase Interface """
+    def __init__(self):
+        self.temp = True
+
     def __init__(self, config):
         self.api_key = config["apiKey"]
         self.auth_domain = config["authDomain"]

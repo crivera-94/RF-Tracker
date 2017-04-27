@@ -1,5 +1,6 @@
 from PyQt5.QtCore import QMutex
 from enum import Enum
+from pyrebase import Firebase
 import numpy as np
 
 
@@ -28,6 +29,9 @@ def init():
     error_a = 0
     global previous_error
     previous_error = 0
+
+    global firebase
+    firebase = Firebase()
 
     # 0 -> amplitude A
     # 1 -> amplitude B

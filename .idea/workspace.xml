@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd1ad4e1-4388-442f-a8b7-4cffafbfc93c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/samples/application.py" afterPath="$PROJECT_DIR$/samples/application.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/samples/globals.py" afterPath="$PROJECT_DIR$/samples/globals.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/samples/pyrebase.py" afterPath="$PROJECT_DIR$/samples/pyrebase.py" />
     </list>
     <ignored path="RF-Tracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +27,8 @@
       <file leaf-file-name="application.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/samples/application.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="251" column="23" selection-start-line="251" selection-start-column="23" selection-end-line="251" selection-end-column="23" />
+            <state relative-caret-position="300">
+              <caret line="247" column="35" selection-start-line="247" selection-start-column="35" selection-end-line="247" selection-end-column="35" />
               <folding>
                 <element signature="e#44#54#0" expanded="true" />
               </folding>
@@ -39,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/samples/pyrebase.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -50,8 +51,8 @@
       <file leaf-file-name="globals.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/samples/globals.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="14" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="14" />
+            <state relative-caret-position="495">
+              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -136,10 +137,10 @@
         <option value="$PROJECT_DIR$/samples/rx.cpp" />
         <option value="$PROJECT_DIR$/samples/adcsamples/continuous.py" />
         <option value="$PROJECT_DIR$/samples/plot.py" />
-        <option value="$PROJECT_DIR$/samples/globals.py" />
         <option value="$PROJECT_DIR$/samples/threadpackage.py" />
-        <option value="$PROJECT_DIR$/samples/pyrebase.py" />
         <option value="$PROJECT_DIR$/samples/application.py" />
+        <option value="$PROJECT_DIR$/samples/pyrebase.py" />
+        <option value="$PROJECT_DIR$/samples/globals.py" />
       </list>
     </option>
   </component>
@@ -870,16 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/samples/globals.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="14" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/samples/threadpackage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -891,17 +882,27 @@
     <entry file="file://$PROJECT_DIR$/samples/pyrebase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/samples/globals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/samples/application.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="251" column="23" selection-start-line="251" selection-start-column="23" selection-end-line="251" selection-end-column="23" />
+        <state relative-caret-position="300">
+          <caret line="247" column="35" selection-start-line="247" selection-start-column="35" selection-end-line="247" selection-end-column="35" />
           <folding>
             <element signature="e#44#54#0" expanded="true" />
           </folding>
