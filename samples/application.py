@@ -19,6 +19,7 @@ from plot import Plot
 from phasedetector import PhaseDetector
 from threadpackage import ADCThread
 from threadpackage import FilterThread
+import pyrebase
 
 REMOTE_SERVER = "www.google.com"
 
@@ -220,30 +221,37 @@ def is_connected():
         # see if we can resolve the host name -- tells us if there is
         # a DNS listening
         host = socket.gethostbyname(REMOTE_SERVER)
-        # connect to the host -- tells us if the host is actually
-        # reachable
-        s = socket.create_connection((host, 80), 2)
+        # connect to the host -- tells us if the host is reachable
+        temp = socket.create_connection((host, 80), 2)
         return True
     except:
         pass
     return False
 
 
-def auth_with_password(self, email, password):
-    request_ref = 'https://auth.firebase.com/auth/firebase?firebase={0}&email={1}&password={2}'. \
-        format(self.fire_base_name, email, password)
-    request_object = self.requests.get(request_ref)
-    return request_object.json()
-
+def setup_firebase():
+    config = {
+        "apiKey": "AIzaSyCobF9FiE7NMo6RUISeEcTWQb9qmL2MukU",
+        "authDomain": "rf-tracker.firebaseapp.com",
+        "databaseURL": "https://rf-tracker.firebaseio.com",
+        "storageBucket": "rf-tracker.appspot.com",
+    }
+    firebase = pyrebase.initialize_app(config)
+    return firebase
 
 if __name__ == '__main__':
     # initialize global variables
     globals.init()
 
     if is_connected():
+        # setup firebase
+        firebase = setup_firebase()
+
         # start application
         app = QApplication(sys.argv)
         login = Login()
+
+        # need to authorize
 
         if login.exec_() == QDialog.Accepted:
             ex = RFTracker()
