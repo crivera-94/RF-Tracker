@@ -9,7 +9,7 @@ from scipy.stats import norm
 import numpy as np
 
 # testing imports
-import pyrebase
+# import pyrebase
 from firebase import firebase
 
 import globals
