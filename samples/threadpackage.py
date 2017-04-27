@@ -154,19 +154,22 @@ class FilterThread(QThread):
         # return result
 
     def get_angle(self, x):
-        return (self.a_angle * pow(x, 2)) + (self.b_angle * x) + self.c_angle
+        # raw angle
+        return_value = (self.a_angle * pow(x, 2)) + (self.b_angle * x) + self.c_angle
+        # factor = (max_plot_angle/maximum_observable_reading)
+        return return_value * (120/)
 
     def get_distance(self, x):
         # raw distance
         return_value = (self.a_distance * pow(x, 2)) + (self.b_distance * x) + self.c_distance
+        # factor = (max_plot_distance/maximum_observable_reading)
         return return_value * (180/470)
-        # return (self.a_distance * pow(x, 2)) + (self.b_distance * x) + self.c_distance
 
     def update_globals(self, amplitude_reading, rho, reference_angle):
         # Phi Calculation
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
-        # phi = reference_angle - self.quadratic(voltage)
-        phi = reference_angle - self.get_angle(voltage)
+        phi = reference_angle - self.quadratic(voltage)
+        # phi = reference_angle - self.get_angle(voltage)
 
         # Rho Calculation
         # phi = reference_angle - self.get_angle(voltage)
@@ -227,8 +230,6 @@ class FilterThread(QThread):
 
         self.max_voltage = 2.048
         self.resolution = 2048
-        # self.max_valid_voltage = 1.92
-        # self.min_valid_voltage = 0.5
         self.max_valid_voltage = 1.38
         self.min_valid_voltage = 0.38
         self.options = {
