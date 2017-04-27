@@ -20,10 +20,6 @@ from phasedetector import PhaseDetector
 from threadpackage import ADCThread
 from threadpackage import FilterThread
 
-# testing imports
-import pyrebase
-from firebase import firebase
-
 REMOTE_SERVER = "www.google.com"
 
 # Define a function for the thread
