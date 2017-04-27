@@ -157,7 +157,7 @@ class FilterThread(QThread):
         # raw angle
         return_value = (self.a_angle * pow(x, 2)) + (self.b_angle * x) + self.c_angle
         # factor = (max_plot_angle/maximum_observable_reading)
-        return return_value * (120/)
+        return return_value * (120/1400)
 
     def get_distance(self, x):
         # raw distance
