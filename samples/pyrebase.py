@@ -16,8 +16,8 @@ import threading
 import socket
 from oauth2client.service_account import ServiceAccountCredentials
 from gcloud import storage
-from requests.packages.urllib3.contrib.appengine import is_appengine_sandbox
-from requests_toolbelt.adapters import appengine
+# from requests.packages.urllib3.contrib.appengine import is_appengine_sandbox
+# from requests_toolbelt.adapters import appengine
 
 import python_jwt as jwt
 from Crypto.PublicKey import RSA
@@ -55,6 +55,7 @@ class Firebase:
         #    adapter = appengine.AppEngineAdapter(max_retries=3)
         #else:
         #    adapter = requests.adapters.HTTPAdapter(max_retries=3)
+        adapter = requests.adapters.HTTPAdapter(max_retries=3)
 
         for scheme in ('http://', 'https://'):
             self.requests.mount(scheme, adapter)
