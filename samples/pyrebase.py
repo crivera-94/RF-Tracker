@@ -87,7 +87,6 @@ class Auth:
             raise_detailed_error(request_object)
         except HTTPError:
             pass
-        #raise_detailed_error(request_object)
         self.current_user = request_object.json()
         return request_object.json()
 

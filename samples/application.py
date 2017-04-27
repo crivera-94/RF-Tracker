@@ -46,28 +46,17 @@ class Login(QDialog):
         self.EMAIL_REGEX = re.compile(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
 
     def handle_login(self):
-
         if self.EMAIL_REGEX.match(self.textName.text()):
             user = self.auth.sign_in_with_email_and_password(self.textName.text(), self.textPass.text())
             try:
                 if user['idToken']:
                     self.accept()
                 else:
-                    QMessageBox.warning(self, 'Error', 'Bad user or password')
+                    QMessageBox.warning(self, 'Error', 'Bad user or password!')
             except KeyError:
-                QMessageBox.warning(self, 'Error', 'Bad user or password')
+                QMessageBox.warning(self, 'Error', 'Bad user or password!')
         else:
             QMessageBox.warning(self, 'Error', 'Not a valid email address!')
-
-            #if user['idToken']:
-        #    self.accept()
-        #else:
-        #    QMessageBox.warning(self, 'Error', 'Bad user or password')
-
-        #if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
-        #    self.accept()
-        #else:
-        #    QMessageBox.warning(self, 'Error', 'Bad user or password')
 
 
 class Settings(QDialog):
@@ -299,22 +288,3 @@ if __name__ == '__main__':
         threadFilter.start()
 
         sys.exit(app.exec_())
-
-    # start application
-    #app = QApplication(sys.argv)
-    #login = Login()
-    #
-    #if login.exec_() == QDialog.Accepted:
-    #    ex = RFTracker()
-    #
-    #    # ADC Read Thread
-    #    threadADC = ADCThread()
-    #    threadADC.finished.connect(app.exit)
-    #    threadADC.start()
-    #
-    #    # Filter Thread
-    #    threadFilter = FilterThread()
-    #    threadFilter.finished.connect(app.exit)
-    #    threadFilter.start()
-    #
-    #    sys.exit(app.exec_())
