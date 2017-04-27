@@ -42,13 +42,21 @@ class Login(QDialog):
         layout.addWidget(self.textPass, 1, 1)
         layout.addWidget(self.buttonLogin, 2, 1)
         self.setWindowTitle('RF Tracker')
+        self.auth = globals.firebase.auth()
 
     def handle_login(self):
 
-        if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
+        user = self.auth.sign_in_with_email_and_password(self.textName.text(), self.textPass.text())
+
+        if user['idToken']:
             self.accept()
         else:
             QMessageBox.warning(self, 'Error', 'Bad user or password')
+
+        #if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
+        #    self.accept()
+        #else:
+        #    QMessageBox.warning(self, 'Error', 'Bad user or password')
 
 
 class Settings(QDialog):
@@ -250,8 +258,6 @@ if __name__ == '__main__':
         # start application
         app = QApplication(sys.argv)
         login = Login()
-
-        # need to authorize
 
         if login.exec_() == QDialog.Accepted:
             ex = RFTracker()

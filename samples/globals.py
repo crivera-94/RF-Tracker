@@ -31,7 +31,7 @@ def init():
     previous_error = 0
 
     global firebase
-    firebase = "firebase"
+    firebase = False
 
     # 0 -> amplitude A
     # 1 -> amplitude B
