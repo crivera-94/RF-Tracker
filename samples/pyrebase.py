@@ -83,8 +83,7 @@ class Auth:
         headers = {"content-type": "application/json; charset=UTF-8"}
         data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
         request_object = requests.post(request_ref, headers=headers, data=data)
-        #raise_detailed_error(request_object)
-        print(request_object)
+        raise_detailed_error(request_object)
         self.current_user = request_object.json()
         return request_object.json()
 

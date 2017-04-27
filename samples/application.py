@@ -48,10 +48,18 @@ class Login(QDialog):
 
         user = self.auth.sign_in_with_email_and_password(self.textName.text(), self.textPass.text())
 
-        if user['idToken']:
-            self.accept()
-        else:
+        try:
+            if user['idToken']:
+                self.accept()
+            else:
+                QMessageBox.warning(self, 'Error', 'Bad user or password')
+        except KeyError:
             QMessageBox.warning(self, 'Error', 'Bad user or password')
+
+        #if user['idToken']:
+        #    self.accept()
+        #else:
+        #    QMessageBox.warning(self, 'Error', 'Bad user or password')
 
         #if self.textName.text() == 'foo' and self.textPass.text() == 'bar':
         #    self.accept()
