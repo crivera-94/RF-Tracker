@@ -22,23 +22,6 @@ from threadpackage import FilterThread
 
 REMOTE_SERVER = "www.google.com"
 
-# Define a function for the thread
-def print_time(thread_name, delay):
-    count = 0
-    while count < 5:
-        time.sleep(delay)
-        count += 1
-        print("%s: %s" % (thread_name, time.ctime(time.time())))
-
-
-#class UpdateGUI(QThread):
-    #data_downloaded = QtCore.pyqtSignal(object)
-    #def __init__(self, url):
-        #QtCore.QThread.__init__(self)
-        #self.url = url
-    #def run(self):
-        #info = urllib2.urlopen(self.url).info()
-        #self.data_downloaded.emit('%s\n%s' % (self.url, info))
 
 # http://stackoverflow.com/questions/11812000/login-dialog-pyqt
 class Login(QDialog):
@@ -49,7 +32,7 @@ class Login(QDialog):
         self.textPass.setEchoMode(QLineEdit.Password)
         self.buttonLogin = QPushButton('Login', self)
         self.buttonLogin.clicked.connect(self.handle_login)
-        username_label = QLabel("Username:")
+        username_label = QLabel("Email:")
         password_label = QLabel("Password:")
         layout = QGridLayout(self)
         layout.addWidget(username_label, 0, 0)
@@ -97,7 +80,8 @@ class Settings(QDialog):
         self.point_color_text_field.setText(plot_point_color)
 
     def update_values(self):
-        if self.pattern.match(self.line_color_text_field.text()) and self.pattern.match(self.point_color_text_field.text()):
+        if self.pattern.match(self.line_color_text_field.text()) and \
+                self.pattern.match(self.point_color_text_field.text()):
             self.line = self.line_color_text_field.text()
             self.point = self.point_color_text_field.text()
             self.accept()
@@ -243,6 +227,14 @@ def is_connected():
     except:
         pass
     return False
+
+
+def auth_with_password(self, email, password):
+    request_ref = 'https://auth.firebase.com/auth/firebase?firebase={0}&email={1}&password={2}'. \
+        format(self.fire_base_name, email, password)
+    request_object = self.requests.get(request_ref)
+    return request_object.json()
+
 
 if __name__ == '__main__':
     # initialize global variables
