@@ -42,13 +42,13 @@ class DatabaseThread(QThread):
 
     def run(self):
         while True:
-            if self.setup:
+            #if self.setup:
 
-            else:
-                self.data['amplitude'] = globals.global_amplitude
-                self.data['distance'] = globals.global_distance
-                db.child("agents").push(self.data, globals.user_token)
-                self.setup = True
+            #else:
+            #    self.data['amplitude'] = globals.global_amplitude
+            #    self.data['distance'] = globals.global_distance
+            #    db.child("agents").push(self.data, globals.user_token)
+            #    self.setup = True
 
 
 class ADCThread(QThread):
