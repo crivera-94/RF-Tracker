@@ -70,6 +70,12 @@ def init():
     global global_y
     global_y = 0
 
+    # experimental values
+    global global_amplitude
+    global_amplitude = 0
+    global global_distance
+    global_distance = 0
+
 
 def set_amplitude_a(num):
     observation[0] = num

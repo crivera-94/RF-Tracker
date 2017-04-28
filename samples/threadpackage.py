@@ -9,7 +9,6 @@ from scipy.stats import norm
 import numpy as np
 
 # testing imports
-# import pyrebase
 from firebase import firebase
 
 import globals
@@ -28,11 +27,28 @@ amplitudeB = 0
 # sector C - bottom
 amplitudeC = 0
 
-# distance
-# distance = 0
 
-# create mutual exclusion
-# mutex = QMutex()
+class DatabaseThread(QThread):
+
+    def __init__(self):
+        # only instantiated when an internet connection is detected
+        QThread.__init__(self)
+        # create JSON object to push to database
+        self.data = {
+            'amplitude': 0,
+            'distance': 0
+        }
+        self.setup = False
+
+    def run(self):
+        while True:
+            if self.setup:
+
+            else:
+                self.data['amplitude'] = globals.global_amplitude
+                self.data['distance'] = globals.global_distance
+                db.child("agents").push(self.data, globals.user_token)
+                self.setup = True
 
 
 class ADCThread(QThread):
@@ -65,12 +81,6 @@ class ADCThread(QThread):
 
         # measurements = [[1, 0], [0, 0], [0, 1]]
         # print(self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
-
-        # create JSON object to push to database
-        self.data = {
-            "angle": 0,
-            "distance": 0
-        }
 
     def run(self):
         counter = 0
@@ -174,8 +184,8 @@ class FilterThread(QThread):
     def update_globals(self, amplitude_reading, rho, reference_angle):
         # Phi Calculation
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
-        phi = reference_angle - self.quadratic(voltage)
-        # phi = reference_angle - self.get_angle(voltage)
+        # phi = reference_angle - self.quadratic(voltage)
+        phi = reference_angle - self.get_angle(voltage)
 
         # Rho Calculation
         # phi = reference_angle - self.get_angle(voltage)
