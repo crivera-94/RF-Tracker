@@ -40,8 +40,8 @@ class DatabaseThread(QThread):
         }
         self.setup = False
 
-    def run(self):
-        while True:
+    #def run(self):
+    #    while True:
             #if self.setup:
 
             #else:
