@@ -25,8 +25,6 @@ def init():
     amplitudeC = 0
     global distance
     distance = 0
-    global error_a
-    error_a = 0
     global previous_error
     previous_error = 0
 

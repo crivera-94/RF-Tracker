@@ -66,6 +66,12 @@ class ADCThread(QThread):
         # measurements = [[1, 0], [0, 0], [0, 1]]
         # print(self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
 
+        # create JSON object to push to database
+        self.data = {
+            "angle": 0,
+            "distance": 0
+        }
+
     def run(self):
         counter = 0
         while True:
@@ -114,11 +120,7 @@ class ADCThread(QThread):
             globals.amplitudeC = amplitude_c / self.sample_size
             globals.distance = distance / self.sample_size
 
-            # PID Correction
-            globals.error_a = 0
             globals.mutex.unlock()
-            # print('Channel 0: {}'.format(self.phase_detector0.read_channel_zero()))
-            # print('Channel 2: {}'.format(self.phase_detector0.read_channel_two()))
             time.sleep(0.001)
 
 
