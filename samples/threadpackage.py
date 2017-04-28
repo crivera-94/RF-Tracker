@@ -184,8 +184,8 @@ class FilterThread(QThread):
     def update_globals(self, amplitude_reading, rho, reference_angle):
         # Phi Calculation
         voltage = (amplitude_reading * self.max_voltage) / self.resolution
-        # phi = reference_angle - self.quadratic(voltage)
-        phi = reference_angle - self.get_angle(voltage)
+        phi = reference_angle - self.quadratic(voltage)
+        # phi = reference_angle - self.get_angle(voltage)
 
         # Rho Calculation
         # phi = reference_angle - self.get_angle(voltage)
@@ -229,9 +229,9 @@ class FilterThread(QThread):
         self.c = 1.21484747253
 
         # new angle coefficients
-        #self.a_angle = -162.73642899330
-        #self.b_angle = 124.85705157978
-        #self.c_angle = 84.50020263516
+        self.a_angle = -162.73642899330
+        self.b_angle = 124.85705157978
+        self.c_angle = 84.50020263516
 
         # TODO: Save values
         #self.a_angle = .23616
