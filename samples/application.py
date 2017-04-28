@@ -50,6 +50,7 @@ class Login(QDialog):
             user = self.auth.sign_in_with_email_and_password(self.textName.text(), self.textPass.text())
             try:
                 if user['idToken']:
+                    globals.user_token = user['idToken']
                     self.accept()
                 else:
                     QMessageBox.warning(self, 'Error', 'Bad user or password!')

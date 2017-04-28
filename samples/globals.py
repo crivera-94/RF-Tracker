@@ -33,6 +33,9 @@ def init():
     global firebase
     firebase = False
 
+    global user_token
+    user_token = ""
+
     # 0 -> amplitude A
     # 1 -> amplitude B
     # 2 -> amplitude C
