@@ -221,18 +221,17 @@ class FilterThread(QThread):
 
     def __init__(self):
         QThread.__init__(self)
-        self.x = 0
-        self.y = 0
 
+        # uses quadratic function
         # angle coefficients
         self.a = -0.00001729241
         self.b = -0.00437652647
         self.c = 1.21484747253
 
         # new angle coefficients
-        self.a_angle = -162.73642899330
-        self.b_angle = 124.85705157978
-        self.c_angle = 84.50020263516
+        #self.a_angle = -162.73642899330
+        #self.b_angle = 124.85705157978
+        #self.c_angle = 84.50020263516
 
         # TODO: Save values
         #self.a_angle = .23616
