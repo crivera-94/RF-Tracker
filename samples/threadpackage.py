@@ -65,7 +65,7 @@ class DatabaseThread(QThread):
                 # globals.database.child("users").push(self.data, globals.user_token)
                 # globals.database.child("coordinates").child("Lana").set(self.data, globals.user_token)
                 self.setup = True
-            time.sleep(0.1)
+            time.sleep(0.01)
 
 
 class ADCThread(QThread):
