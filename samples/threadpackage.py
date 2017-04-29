@@ -47,14 +47,12 @@ class DatabaseThread(QThread):
             if self.setup:
                 self.data['amplitude'] = globals.global_amplitude
                 self.data['distance'] = globals.global_distance
-                print(globals.global_amplitude)
-                print(globals.global_distance)
                 globals.database.child("users")\
                     .child("coordinates")\
-                    .update({"amplitude": globals.global_amplitude}, globals.user_token)
+                    .update({"amplitude": globals.amplitudeA}, globals.user_token)
                 globals.database.child("users")\
                     .child("coordinates")\
-                    .update({"distance": globals.global_distance}, globals.user_token)
+                    .update({"distance": globals.distance}, globals.user_token)
                 #print("Posting...")
                 #self.data['amplitude'] = globals.global_amplitude
                 #self.data['distance'] = globals.global_distance
