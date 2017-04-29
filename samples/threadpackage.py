@@ -38,6 +38,7 @@ class DatabaseThread(QThread):
             'distance': 0
         }
         self.setup = False
+        print("Database instantiated...")
 
     def run(self):
         while True:
