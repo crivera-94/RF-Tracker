@@ -44,6 +44,7 @@ class DatabaseThread(QThread):
     def run(self):
         while True:
             if self.setup:
+                self.setup = True
                 #print("Posting...")
                 #self.data['amplitude'] = globals.global_amplitude
                 #self.data['distance'] = globals.global_distance
