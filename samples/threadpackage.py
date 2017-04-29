@@ -40,16 +40,16 @@ class DatabaseThread(QThread):
         }
         self.setup = False
 
-    #def run(self):
-    #    while True:
-            #if self.setup:
-
-            #else:
-            #    self.data['amplitude'] = globals.global_amplitude
-            #    self.data['distance'] = globals.global_distance
-            #    db.child("agents").push(self.data, globals.user_token)
-            #    self.setup = True
-
+    def run(self):
+        while True:
+            if self.setup:
+                print("Posting...")
+            else:
+                self.data['amplitude'] = globals.global_amplitude
+                self.data['distance'] = globals.global_distance
+                db.child("agents").push(self.data, globals.user_token)
+                self.setup = True
+            time.sleep(0.1)
 
 class ADCThread(QThread):
 
