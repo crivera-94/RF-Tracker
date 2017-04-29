@@ -29,7 +29,7 @@ REMOTE_SERVER = "www.google.com"
 class Login(QDialog):
     def __init__(self, parent=None):
         super(Login, self).__init__(parent)
-        self.textName = QLineEdit(self)
+        self.textEmail = QLineEdit(self)
         self.textPass = QLineEdit(self)
         self.textPass.setEchoMode(QLineEdit.Password)
         self.buttonLogin = QPushButton('Login', self)
@@ -39,7 +39,7 @@ class Login(QDialog):
         layout = QGridLayout(self)
         layout.addWidget(username_label, 0, 0)
         layout.addWidget(password_label, 1, 0)
-        layout.addWidget(self.textName, 0, 1)
+        layout.addWidget(self.textEmail, 0, 1)
         layout.addWidget(self.textPass, 1, 1)
         layout.addWidget(self.buttonLogin, 2, 1)
         self.setWindowTitle('RF Tracker')
@@ -47,8 +47,8 @@ class Login(QDialog):
         self.EMAIL_REGEX = re.compile(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
 
     def handle_login(self):
-        if self.EMAIL_REGEX.match(self.textName.text()):
-            user = self.auth.sign_in_with_email_and_password(self.textName.text(), self.textPass.text())
+        if self.EMAIL_REGEX.match(self.textEmail.text()):
+            user = self.auth.sign_in_with_email_and_password(self.textEmail.text(), self.textPass.text())
             try:
                 if user['idToken']:
                     globals.user_token = user['idToken']
@@ -276,7 +276,7 @@ if __name__ == '__main__':
             threadFilter.start()
 
             # Database Thread
-            databaseThread = DatabaseThread()
+            databaseThread = DatabaseThread(login.textEmail.text())
             databaseThread.finished.connect(app.exit)
             databaseThread.start()
 

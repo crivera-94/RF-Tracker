@@ -30,9 +30,10 @@ amplitudeC = 0
 
 
 class DatabaseThread(QThread):
-    def __init__(self):
+    def __init__(self, email):
         # only instantiated when an internet connection is detected
         QThread.__init__(self)
+        self.email = email
         # create JSON object to push to database
         self.data = {
             'amplitude': 0,
@@ -52,7 +53,7 @@ class DatabaseThread(QThread):
             else:
                 self.data['amplitude'] = globals.global_amplitude
                 self.data['distance'] = globals.global_distance
-                globals.database.child("users").child("coordinates").set(self.data, globals.user_token)
+                globals.database.child("users").child(self.email).set(self.data, globals.user_token)
                 # globals.database.push(self.data, globals.user_token)
                 # globals.database.child("users").push(self.data, globals.user_token)
                 # globals.database.child("coordinates").child("Lana").set(self.data, globals.user_token)
