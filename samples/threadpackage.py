@@ -42,6 +42,7 @@ class DatabaseThread(QThread):
         print("Database instantiated...")
 
     def run(self):
+        print("Run function running...")
         while True:
             if self.setup:
                 print("Posting...")
