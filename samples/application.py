@@ -19,6 +19,7 @@ from plot import Plot
 from phasedetector import PhaseDetector
 from threadpackage import ADCThread
 from threadpackage import FilterThread
+from threadpackage import DatabaseThread
 import pyrebase
 
 REMOTE_SERVER = "www.google.com"
@@ -271,6 +272,11 @@ if __name__ == '__main__':
             # Filter Thread
             threadFilter = FilterThread()
             threadFilter.finished.connect(app.exit)
+            threadFilter.start()
+
+            # Database Thread
+            databaseThread = DatabaseThread()
+            databaseThread.finished.connect(app.exit)
             threadFilter.start()
 
             sys.exit(app.exec_())

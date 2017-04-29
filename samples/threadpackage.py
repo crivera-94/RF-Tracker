@@ -29,7 +29,6 @@ amplitudeC = 0
 
 
 class DatabaseThread(QThread):
-
     def __init__(self):
         # only instantiated when an internet connection is detected
         QThread.__init__(self)
@@ -50,6 +49,7 @@ class DatabaseThread(QThread):
                 db.child("agents").push(self.data, globals.user_token)
                 self.setup = True
             time.sleep(0.1)
+
 
 class ADCThread(QThread):
 
