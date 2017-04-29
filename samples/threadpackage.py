@@ -13,6 +13,7 @@ from firebase import firebase
 
 import globals
 
+
 class Sector(Enum):
     A = 0
     B = 1
@@ -47,7 +48,7 @@ class DatabaseThread(QThread):
             else:
                 self.data['amplitude'] = globals.global_amplitude
                 self.data['distance'] = globals.global_distance
-                db.child("agents").push(self.data, globals.user_token)
+                globals.database.child("agents").push(self.data, globals.user_token)
                 self.setup = True
             time.sleep(0.1)
 

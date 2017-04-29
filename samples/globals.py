@@ -30,6 +30,8 @@ def init():
 
     global firebase
     firebase = False
+    global database
+    database = False
 
     global user_token
     user_token = ""

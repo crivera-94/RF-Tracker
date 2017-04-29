@@ -256,6 +256,7 @@ if __name__ == '__main__':
     if is_connected():
         # setup firebase
         globals.firebase = setup_firebase()
+        globals.database = globals.firebase.database()
 
         # start application
         app = QApplication(sys.argv)
