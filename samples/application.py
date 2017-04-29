@@ -278,7 +278,7 @@ if __name__ == '__main__':
             # Database Thread
             databaseThread = DatabaseThread()
             databaseThread.finished.connect(app.exit)
-            threadFilter.start()
+            databaseThread.start()
 
             sys.exit(app.exec_())
     else:
