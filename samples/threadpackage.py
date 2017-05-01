@@ -40,23 +40,21 @@ class DatabaseThread(QThread):
             'distance': 0
         }
         self.setup = False
-        print("Database instantiated...")
+        self.isOnline = True
 
     def run(self):
         while True:
             if self.setup:
-                self.data['amplitude'] = globals.global_amplitude
-                self.data['distance'] = globals.global_distance
                 globals.database.child("users")\
                     .child("coordinates")\
                     .update({"amplitude": globals.amplitudeA}, globals.user_token)
                 globals.database.child("users")\
                     .child("coordinates")\
                     .update({"distance": globals.distance}, globals.user_token)
-                #print("Posting...")
-                #self.data['amplitude'] = globals.global_amplitude
-                #self.data['distance'] = globals.global_distance
-                #globals.database.update(self.data, globals.user_token)
+                # print("Posting...")
+                # self.data['amplitude'] = globals.global_amplitude
+                # self.data['distance'] = globals.global_distance
+                # globals.database.update(self.data, globals.user_token)
             else:
                 self.data['amplitude'] = globals.global_amplitude
                 self.data['distance'] = globals.global_distance
@@ -90,7 +88,7 @@ class ADCThread(QThread):
         self.phase_detector2 = PhaseDetector(0x4b)
         self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
 
-        n_timesteps = 501
+        n_timesteps = 2
         n_dim_state = 5
         filtered_state_means = np.zeros((n_timesteps, n_dim_state))
         filtered_state_covariances = np.zeros((n_timesteps, n_dim_state, n_dim_state))
