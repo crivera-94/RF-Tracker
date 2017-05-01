@@ -108,7 +108,7 @@ class ADCThread(QThread):
                     filtered_state_means[t],
                     filtered_state_covariances[t],
                     observations[t + 1],
-                    transition_offset
+                    transition_offset,
                 )
             )
 
