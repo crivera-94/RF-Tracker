@@ -96,7 +96,7 @@ class ADCThread(QThread):
         print(filtered_state_covariances)
 
         observations = np.zeros((3, 2))
-        transition_offset = np.zeros((5, 5))
+        transition_offset = np.zeros((2, 5))
 
         for t in range(n_timesteps - 1):
             if t == 0:
