@@ -95,6 +95,21 @@ class ADCThread(QThread):
         print(filtered_state_means)
         print(filtered_state_covariances)
 
+        observations = np.zeros((3, 2))
+
+        for t in range(n_timesteps - 1):
+            if t == 0:
+                # filtered_state_means[t] = data.initial_state_mean
+                # filtered_state_covariances[t] = data.initial_state_covariance
+                print("initialize means and covariances...")
+            filtered_state_means[t + 1], filtered_state_covariances[t + 1] = (
+                self.kf.filter_update(
+                    filtered_state_means[t],
+                    filtered_state_covariances[t],
+                    observations[t + 1]
+                )
+            )
+
         # measurements = [[1, 0], [0, 0], [0, 1]]
         # print(self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
 
