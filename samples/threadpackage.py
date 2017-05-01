@@ -96,6 +96,7 @@ class ADCThread(QThread):
         print(filtered_state_covariances)
 
         observations = np.zeros((3, 2))
+        transition_offset = np.zeros((5, 5))
 
         for t in range(n_timesteps - 1):
             if t == 0:
@@ -106,7 +107,8 @@ class ADCThread(QThread):
                 self.kf.filter_update(
                     filtered_state_means[t],
                     filtered_state_covariances[t],
-                    observations[t + 1]
+                    observations[t + 1],
+                    transition_offset
                 )
             )
 
