@@ -93,6 +93,7 @@ class ADCThread(QThread):
         filtered_state_means = np.zeros((n_timesteps, n_dim_state))
         filtered_state_covariances = np.zeros((n_timesteps, n_dim_state, n_dim_state))
         print(filtered_state_means)
+        print(filtered_state_covariances)
 
         # measurements = [[1, 0], [0, 0], [0, 1]]
         # print(self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
