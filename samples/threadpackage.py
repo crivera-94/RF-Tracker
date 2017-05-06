@@ -88,33 +88,6 @@ class ADCThread(QThread):
         self.phase_detector2 = PhaseDetector(0x4b)
         self.kf = KalmanFilter(initial_state_mean=0, n_dim_obs=2)
 
-        n_timesteps = 2
-        n_dim_state = 5
-        filtered_state_means = np.zeros((n_timesteps, n_dim_state))
-        filtered_state_covariances = np.zeros((n_timesteps, n_dim_state, n_dim_state))
-        print(filtered_state_means)
-        print(filtered_state_covariances)
-
-        observations = np.zeros((3, 2))
-        transition_offset = np.zeros((2, 5))
-
-        for t in range(n_timesteps - 1):
-            if t == 0:
-                # filtered_state_means[t] = data.initial_state_mean
-                # filtered_state_covariances[t] = data.initial_state_covariance
-                print("initialize means and covariances...")
-            filtered_state_means[t + 1], filtered_state_covariances[t + 1] = (
-                self.kf.filter_update(
-                    filtered_state_means[t],
-                    filtered_state_covariances[t],
-                    observations[t + 1],
-                    transition_offset,
-                )
-            )
-
-        # measurements = [[1, 0], [0, 0], [0, 1]]
-        # print(self.kf.em(measurements).smooth([[2, 0], [2, 1], [2, 2]])[0])
-
     def run(self):
         counter = 0
         while True:
