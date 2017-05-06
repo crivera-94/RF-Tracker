@@ -213,9 +213,9 @@ class RFTracker(QMainWindow):
         # Make Plot
         self.plot = Plot()
         layout.addWidget(self.plot, 0, 2)
-        slider = QSlider(Qt.Vertical, self)
-        slider.setStatusTip('Zoom')
-        layout.addWidget(slider, 0, 3)
+        # slider = QSlider(Qt.Vertical, self)
+        # slider.setStatusTip('Zoom')
+        # layout.addWidget(slider, 0, 3)
 
     def create_label(self, text):
         label = QLabel(text)
