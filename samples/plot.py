@@ -223,12 +223,25 @@ class Plot(QWidget):
         font = painter.font()
         font.setPointSize(10)
         painter.setFont(font)
+
+        # degree labels
         painter.drawText(QPoint(5, -167), "120\xb0")
         painter.drawText(QPoint(-15, -167), "0\xb0")
         painter.drawText(QPoint(-175, 85), "120\xb0")
         painter.drawText(QPoint(-157, 105), "0\xb0")
         painter.drawText(QPoint(150, 85), "0\xb0")
         painter.drawText(QPoint(138, 105), "120\xb0")
+
+        font.setPointSize(8)
+        painter.setFont(font)
+
+        # distance labels
+        painter.drawText(QPoint(5, 5), "0.5 m")
+        painter.drawText(QPoint(10, 10), "1.0 m")
+        painter.drawText(QPoint(15, 15), "1.5 m")
+        painter.drawText(QPoint(20, 20), "2.0 m")
+        painter.drawText(QPoint(25, 25), "2.5 m")
+        painter.drawText(QPoint(30, 30), "3.0 m")
 
         # 180 is a fixed bound
         for i in range(0, 180, 1):

@@ -77,8 +77,8 @@
       <file leaf-file-name="plot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/samples/plot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="229" column="35" selection-start-line="229" selection-start-column="35" selection-end-line="229" selection-end-column="35" />
+            <state relative-caret-position="540">
+              <caret line="243" column="38" selection-start-line="243" selection-start-column="38" selection-end-line="243" selection-end-column="38" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -919,8 +919,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/samples/plot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="229" column="35" selection-start-line="229" selection-start-column="35" selection-end-line="229" selection-end-column="35" />
+        <state relative-caret-position="540">
+          <caret line="243" column="38" selection-start-line="243" selection-start-column="38" selection-end-line="243" selection-end-column="38" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
