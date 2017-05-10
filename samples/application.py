@@ -206,7 +206,7 @@ class RFTracker(QMainWindow):
         self.home_widget.setLayout(layout)
 
         label = self.create_label(text="Distance")
-        label2 = self.create_label(text="Sector A")
+        label2 = self.create_label(text="Angle")
         layout.addWidget(label2, 0, 0)
         layout.addWidget(label, 0, 1)
 
