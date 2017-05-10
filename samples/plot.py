@@ -223,8 +223,8 @@ class Plot(QWidget):
         font = painter.font()
         font.setPointSize(12)
         painter.setFont(font)
-        painter.drawText(QPoint(5, -120), "120")
-        painter.drawText(QPoint(-5, -120), "0")
+        painter.drawText(QPoint(5, -180), "120")
+        painter.drawText(QPoint(-8, -180), "0")
 
 
         # 180 is a fixed bound
