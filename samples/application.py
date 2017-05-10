@@ -201,6 +201,7 @@ class RFTracker(QMainWindow):
         toolbar.addAction(play_action)
 
     def create_home_widget(self):
+        # fromRow, fromColumn, rowSpan, columnSpan
         self.home_widget = QWidget()
         layout = QGridLayout()
         self.home_widget.setLayout(layout)
@@ -209,10 +210,8 @@ class RFTracker(QMainWindow):
         label2 = self.create_label(text="Sector A")
         label3 = self.create_label(text="Angle")
         layout.addWidget(label3, 1, 1)
-        layout.addWidget(label2, 0, 0)
+        layout.addWidget(label2, 0, 0, 2, 1)
         layout.addWidget(label, 0, 1)
-
-        # void QGridLayout::addWidget ( QWidget * widget, int fromRow, int fromColumn, int rowSpan, int columnSpan, Qt::Alignment alignment = 0 )
 
         # Make Plot
         self.plot = Plot()
