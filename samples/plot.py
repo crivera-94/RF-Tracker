@@ -237,7 +237,7 @@ class Plot(QWidget):
 
         # distance labels
         painter.drawText(QPoint(0, 25), "0.5 m")
-        painter.drawText(QPoint(0, 50), "1.0 m")
+        painter.drawText(QPoint(0, 40), "1.0 m")
         painter.drawText(QPoint(0, 75), "1.5 m")
         painter.drawText(QPoint(0, 100), "2.0 m")
         painter.drawText(QPoint(0, 125), "2.5 m")
