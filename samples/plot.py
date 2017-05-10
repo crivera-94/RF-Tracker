@@ -223,7 +223,9 @@ class Plot(QWidget):
         font = painter.font()
         font.setPointSize(12)
         painter.setFont(font)
-        painter.drawText(QPoint(5, 5), "hh:mm:ss")
+        painter.drawText(QPoint(5, -120), "120")
+        painter.drawText(QPoint(-5, -120), "0")
+
 
         # 180 is a fixed bound
         for i in range(0, 180, 1):
