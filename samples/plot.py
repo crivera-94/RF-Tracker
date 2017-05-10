@@ -226,7 +226,7 @@ class Plot(QWidget):
         painter.drawText(QPoint(5, -167), "120\xb0")
         painter.drawText(QPoint(-15, -167), "0\xb0")
         painter.drawText(QPoint(-175, 85), "120\xb0")
-        painter.drawText(QPoint(-157, 100), "0\xb0")
+        painter.drawText(QPoint(-157, 110), "0\xb0")
 
         # 180 is a fixed bound
         for i in range(0, 180, 1):
