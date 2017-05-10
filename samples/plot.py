@@ -222,7 +222,9 @@ class Plot(QWidget):
         # add degree labels
         font = painter.font()
         font.setPointSize(12)
-
+        painter.setFont(font)
+        painter.drawText("hh:mm:ss")
+        
         # 180 is a fixed bound
         for i in range(0, 180, 1):
             painter.drawPoint(i * step_x, i * step_y)
