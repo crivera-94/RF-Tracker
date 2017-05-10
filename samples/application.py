@@ -205,10 +205,14 @@ class RFTracker(QMainWindow):
         layout = QGridLayout()
         self.home_widget.setLayout(layout)
 
-        label = self.create_label(text="Distance")
+        label = self.create_label(text="Sector A")
         label2 = self.create_label(text="Angle")
+        label3 = self.create_label(text="Distance")
+        layout.addWidget(label3, 1, 1)
         layout.addWidget(label2, 0, 0)
         layout.addWidget(label, 0, 1)
+
+        # void QGridLayout::addWidget ( QWidget * widget, int fromRow, int fromColumn, int rowSpan, int columnSpan, Qt::Alignment alignment = 0 )
 
         # Make Plot
         self.plot = Plot()
