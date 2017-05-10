@@ -236,12 +236,12 @@ class Plot(QWidget):
         painter.setFont(font)
 
         # distance labels
-        painter.drawText(QPoint(5, 5), "0.5 m")
-        painter.drawText(QPoint(10, 10), "1.0 m")
-        painter.drawText(QPoint(15, 15), "1.5 m")
-        painter.drawText(QPoint(20, 20), "2.0 m")
-        painter.drawText(QPoint(25, 25), "2.5 m")
-        painter.drawText(QPoint(30, 30), "3.0 m")
+        painter.drawText(QPoint(0, 10), "0.5 m")
+        painter.drawText(QPoint(0, 20), "1.0 m")
+        painter.drawText(QPoint(0, 30), "1.5 m")
+        painter.drawText(QPoint(0, 40), "2.0 m")
+        painter.drawText(QPoint(0, 50), "2.5 m")
+        painter.drawText(QPoint(0, 60), "3.0 m")
 
         # 180 is a fixed bound
         for i in range(0, 180, 1):
