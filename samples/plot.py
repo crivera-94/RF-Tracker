@@ -219,6 +219,10 @@ class Plot(QWidget):
         step_x = .8660254
         step_y = .5
 
+        # add degree labels
+        font = painter.font()
+        font.setPointSize(12)
+
         # 180 is a fixed bound
         for i in range(0, 180, 1):
             painter.drawPoint(i * step_x, i * step_y)
