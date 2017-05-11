@@ -242,6 +242,12 @@ class Plot(QWidget):
         painter.drawText(QPoint(-10, 70), "2.0 m")
         painter.drawText(QPoint(-10, 85), "2.5 m")
         painter.drawText(QPoint(-10, 100), "3.0 m")
+        painter.drawText(QPoint(-10, 115), "3.5 m")
+        painter.drawText(QPoint(-10, 130), "4.0 m")
+        painter.drawText(QPoint(-10, 145), "4.5 m")
+        painter.drawText(QPoint(-10, 160), "5.0 m")
+        painter.drawText(QPoint(-10, 175), "5.5 m")
+
 
         # 180 is a fixed bound
         for i in range(0, 180, 1):
