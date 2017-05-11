@@ -78,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/samples/plot.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="570">
-              <caret line="248" column="47" selection-start-line="248" selection-start-column="47" selection-end-line="248" selection-end-column="47" />
+              <caret line="248" column="34" selection-start-line="248" selection-start-column="34" selection-end-line="248" selection-end-column="34" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -920,7 +920,7 @@
     <entry file="file://$PROJECT_DIR$/samples/plot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
-          <caret line="248" column="47" selection-start-line="248" selection-start-column="47" selection-end-line="248" selection-end-column="47" />
+          <caret line="248" column="34" selection-start-line="248" selection-start-column="34" selection-end-line="248" selection-end-column="34" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
